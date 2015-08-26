@@ -2,5 +2,5 @@
 
 * [Introduction](README.md)
 * [First Chapter](chapter1.md)
-* [Data Access](data_access.tex)
+* [Data Access](data_access.md)
 
