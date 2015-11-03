@@ -1,6 +1,6 @@
 # Summary
 
 * [Introduction](README.md)
-   * Data Entry
+* Data Entry
 * [Data Access](dataaccess_md)
 
