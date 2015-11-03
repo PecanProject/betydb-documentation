@@ -6,6 +6,7 @@ The script `insert_managements.rb` is in the directory `RAILS_ROOT/script`.  The
 insert_managements.rb
 =====================
 
+```
 Usage:
        insert_managements [options] <CSV input file>
 where [options] are:
@@ -15,7 +16,7 @@ where [options] are:
   -e, --environment=<s>    Rails environment to run in (default: development)
   -m, --man                Show complete usage instructions
   -h, --help               Show this message
-
+```
 DESCRIPTION
 
 This script takes a CSV file describing managements to be added to the database
@@ -87,7 +88,7 @@ In detail:
 4. After examining the resulting output file, apply it to the database with the
    command
 
-       psql <production database name>  <  <output file name>
+        psql <production database name>  <  <output file name>
 
 (If your machine login doesn't match a PostgreSQL user name that has insert
 permissions on the production database, you will have to use the '-U' option to
@@ -123,6 +124,7 @@ connected to the production database.
 
 2. Edit the file config/database.yml, adding the following section:
 
+```yaml
 ebi:
   adapter: postgis
   encoding: utf8
@@ -133,13 +135,14 @@ ebi:
   password: <password for the user specified above>
   port: 8000
   host: localhost
+```
 
 Most of these values can be copied from the production copy config/database.yml
 if you have access to it.  The port and host entries are 'new'.
 
 3. Set up an ssh tunnel to the production server using the command
 
-ssh -L 8000:<production server address>:5432 <production server address>
+        ssh -L 8000:<production server address>:5432 <production server address>
 
 This will log you into the production server, but at the same time it will
 connect port 8000 on your local machine with port 5432 (the PostgreSQL server
