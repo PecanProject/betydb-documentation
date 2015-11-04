@@ -1,2 +1,2 @@
-# Adding Database Content
+# Adding Data to the BETY Database
 
