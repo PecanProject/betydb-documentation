@@ -1,8 +1,5 @@
-My Awesome Book
+The BETYdb Rails App and the BETY Database
 =======
+The Biofuel Ecophysiological Traits and Yields Database (BETYdb) was developed to support research, agriculture, and policy by synthesizing available information on potential biofuel crops.  The BETYdb Rails Application is a Web application for interacting with that database.
 
-This file file serves as your book's preface, a great place to describe your book's content and ideas.
-
-When $$a \ne 0$$, there are two solutions to $$(ax^2 + bx + c = 0)$$ and they are
-$$x = {-b \pm \sqrt{b^2-4ac} \over 2a}.$$
-
+This article documents both the BETY database and the BETYdb Rails application.
