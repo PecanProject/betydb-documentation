@@ -1,6 +1,6 @@
 # Installing a Production Copy of BETYdb on ebi-forecast or pecandev
 
-These instructions are specifically tailored to the task of adding a new instance of BETYdb to a CentOS 5 machine using the deployment scheme we already currently have in place.  Thus, they assume the following are installed:
+These instructions are specifically tailored to the task of adding new instances of BETYdb to a CentOS 5 machine using the deployment scheme we already currently have in place.  Thus, they assume the following are installed:
 
 1. Ruby version 2.1.5.
 2. Apache 2.2.
@@ -9,7 +9,7 @@ These instructions are specifically tailored to the task of adding a new instanc
 5. Git 1.8.2.1.
 
 
-**In what follows, we assume the new Rails root directory has the name `betyapp`, the new BETY database copy has the name `betydb` with owner `dbuser` having password `dbpw`, and the deployment URL will be to a directory called `bety_url`. Substitute whatever names you wish for these.**
+**In what follows, we assume the new Rails root directory is to have the name `betyapp`, the new BETY database copy will be called `betydb` (and owned by database-user `dbuser` who has the password `dbpw`), and the deployment URL will be to a directory called `bety_url`. Substitute whatever names you wish for these.**
 
 
 
