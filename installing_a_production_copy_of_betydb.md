@@ -113,7 +113,7 @@ sudo apachectl restart
 
 Go to the login page (https://ebi-forecast.igb.illinois.edu/bety_url or http://pecandev.igb.illinois.edu/bety_url) and click the "Register for BETYdb" button.  Fill out at least the required fields (Login, Email, and the two password fields), type the captcha text, and click "Sign Up".  You should see the "Thanks for signing up!" message.
 
-**Note: In order for the "Login as Guest" button to work, you should create a user with login "guestuser" and password "guestuser".**
+**Note: In order for the "Login as Guest" button to work, you should also create a user with login "guestuser" and password "guestuser".**
 
 Once you have created a user, you may wish to given that user full access privileges.  To do this, use psql:
 ```sh
