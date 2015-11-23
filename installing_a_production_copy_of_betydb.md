@@ -130,6 +130,20 @@ UPDATE users SET access_level = 4, page_access_level = 4 WHERE login = 'guestuse
 
 ## Step 10: Test the New Deployment!
 
+## Step 11 (optional): Change File Permissions
+
+If multiple users are going to administer the new BETYdb Rails instance, it is a good idea to change the group owner of all files under the Rails root directory.  Otherwise, once one person finds they have to run a command using sudo, then everyone will have to.  On pecandev, do
+
+```
+cd /usr/local/betyapp
+chgrp -R pecandev .
+```
+or perhaps
+```
+cd /usr/local/betyapp
+chgrp -R admin .
+```
+
 
 
 
