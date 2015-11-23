@@ -75,7 +75,7 @@ Without this, you won't be able to log in to the BETYdb Rails app.  For the site
 
 ## Step 7: Configure Apache HTTP Server to Serve Your New Rails App Instance[^5]
 
-First of all, create a symbolic link from the DocumentRoot directory `/var/www/html` to the public directory of you Rails instance:
+First of all, create a symbolic link from the DocumentRoot directory `/var/www/html` to the public directory of your Rails instance:
 ```sh
 cd /var/www/html
 sudo ln -s /usr/local/bety_url/public bety_url
