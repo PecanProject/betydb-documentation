@@ -115,7 +115,7 @@ Go to the login page (https://ebi-forecast.igb.illinois.edu/bety_url or http://p
 
 **Note: In order for the "Login as Guest" button to work, you should also create a user with login "guestuser" and password "guestuser".**
 
-Once you have created a user, you may wish to given that user full access privileges.  To do this, use psql:
+Once you have created a user, you may wish to give that user full access privileges.  To do this, use psql:
 ```sh
 psql -U dbuser betydb
 ```
