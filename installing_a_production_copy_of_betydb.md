@@ -23,7 +23,7 @@ git clone https://github.com/PecanProject/bety.git betyapp
 ## Step 2: Create a Database Configuration File
 
 To do this from the command line, just run[^2]
-```sh
+```
 cat > config/database.yml << EOF
 production:
   adapter: postgis
