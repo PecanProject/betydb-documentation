@@ -145,7 +145,7 @@ UPDATE users SET access_level = 4, page_access_level = 4 WHERE login = 'guestuse
 
 [^2] This sets up a bare-bones `database.yml` file for the production environment only.  You may wish to add sections for the development and test environments.  See the template file `config/database.yml.template` for a model.  It may be convenient in certain cases to use the same database for both development and production.  **_The test database, however, should always be different!_**
 
-[^3] If you wanted to also set up a development database, then, assuming you haver a block for the development environment section of `config/database.yml` that uses the database name `betydb_dev` with the same username and password, you would first run
+[^3] If you wanted to also set up a development database, then, assuming you have a block for the development environment section of `config/database.yml` that uses the database name `betydb_dev` with the same username and password, you would first run
 ```sh
 createdb -U dbuser betydb_dev
 ```
