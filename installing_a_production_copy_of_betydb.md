@@ -111,7 +111,7 @@ sudo apachectl restart
 
 ## Step 9: Create a  User
 
-Go to the login page (ebi-forecast.igb.illinois.edu/bety_url or pecandev.igb.illinois.edu/bety_url) and click the "Register for BETYdb" button.  Fill out at least the required fields (Login, Email, and the two password fields), type the captcha text, and click "Sign Up".  You should see the "Thanks for signing up!" message.
+Go to the login page (https://ebi-forecast.igb.illinois.edu/bety_url or http://pecandev.igb.illinois.edu/bety_url) and click the "Register for BETYdb" button.  Fill out at least the required fields (Login, Email, and the two password fields), type the captcha text, and click "Sign Up".  You should see the "Thanks for signing up!" message.
 
 **Note: In order for the "Login as Guest" button to work, you should create a user with login "guestuser" and password "guestuser".**
 
