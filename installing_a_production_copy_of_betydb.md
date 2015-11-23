@@ -1,4 +1,4 @@
-# Installing a production copy of BETYdb on ebi-forecast or pecandev
+# Installing a Production Copy of BETYdb on ebi-forecast or pecandev
 
 These instructions are specifically tailored to the task of adding a new instance of BETYdb to a CentOS 5 machine using the deployment scheme we already currently have in place.  Thus, they assume the following are installed:
 
