@@ -87,7 +87,7 @@ Now edit the VirtualHost configuration in file `/etc/httpd/conf.d/servers.conf` 
 
 </VirtualHost>
 ```
-block.
+block:
 
 First add a new RackBaseURI:
 ```
