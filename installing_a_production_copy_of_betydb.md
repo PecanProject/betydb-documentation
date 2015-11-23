@@ -81,13 +81,13 @@ cd /var/www/html
 sudo ln -s /usr/local/bety_url/public bety_url
 ```
 
-Now edit the VirtualHost configuration in file `/etc/httpd/conf.d/servers.conf` by adding the following inside 
+Now edit the VirtualHost configuration in file `/etc/httpd/conf.d/servers.conf` by adding the following inside of the
 ```
 <VirtualHost>
 
-
 </VirtualHost>
 ```
+block.
 
 First add a new RackBaseURI:
 ```
