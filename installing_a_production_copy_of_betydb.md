@@ -11,7 +11,7 @@ These instructions are specifically tailored to the task of adding new instances
 
 **In what follows, we assume the new Rails root directory is to have the name `betyapp`, the new BETY database copy will be called `betydb` (and owned by database-user `dbuser` who has the password `dbpw`), and the deployment URL will be to a directory called `bety_url`. Substitute whatever names you wish for these.**
 
-
+## Step 0: Log in to the Deployment Machine.
 
 ## Step 1: Clone a new BETYdb instance.[^1]
 
