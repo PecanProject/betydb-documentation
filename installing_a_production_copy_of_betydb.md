@@ -119,9 +119,9 @@ Once you have created a user, you may wish to give that user full access privile
 ```sh
 psql -U dbuser betydb
 ```
-Once psql has started, if the login of the user you wish to alter is "myself", run
+Once psql has started, if the login of the user you wish to alter is "betydb-admin", run
 ```sql
-UPDATE users SET access_level = 1, page_access_level = 1 WHERE login = 'myself';
+UPDATE users SET access_level = 1, page_access_level = 1 WHERE login = 'betydb-admin';
 ```
 While you are at it, the guestuser should have privileges 4,4, so run
 ```sql
