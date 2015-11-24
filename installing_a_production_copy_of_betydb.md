@@ -7,6 +7,7 @@ These instructions are specifically tailored to the task of adding new instances
 3. PostgreSQL 9.3.
 4. PostGIS 2.1.3.
 5. Git 1.8.2.1.
+6. R 3.1.0
 
 
 **In what follows, we assume the new Rails root directory is to have the name `betyapp`, the new BETY database copy will be called `betydb` (and owned by database-user `dbuser` who has the password `dbpw`), and the deployment URL will be to a directory called `bety_url`. Substitute whatever names you wish for these.**
