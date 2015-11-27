@@ -45,13 +45,20 @@ createdb -U dbuser betydb
 ```
 You will be prompted for dbuser's password.
 
-## Step 4: Load the Database Schema
+## Step 4: Load the Database Schema and Essential Data
 
-All table, views, constraints, indices, and functions for the BETY database are defined in the file db/production_structure.sql.  To load this file, run
+Use the script `script/update-betydb.sh` to load the database schema.  `update-betydb.sh` is just a wrapper around the script `load.bety.sh`, which doesn't exist until you download it.  To do so, run `update-betydb.sh` without options:
+```sh
+./script/update-betydb.sh
 ```
-bundle exec rake db:structure:load RAILS_ENV=production DB_STRUCTURE=db/production_structure.sql
+Then re-run it with the -c, -e, -m, -r, and -d options as follows:
+```sh
+./script/update-betydb.sh -c YES -e YES -m <localdb id number> -r 0 -d betydb
 ```
-The `RAILS_ENV` variable tells which block in `config/database.yml` to consult when looking up the database name, and the `DB_STRUCTURE` variable tells which file contains the database schema definition.[^3]
+(Here, "localdb id number" is some integer that is unique to each database.  See https://github.com/PecanProject/bety/wiki/Distributed-BETYdb for further information.) 
+
+This will create the tables, views, indices, constraints, and functions required for BETYdb.  The tables will all be empty except for the following: `formats`, `machines`, `mimetypes`, `schema_migrations`, `spacial_ref_sys`, and `users`.
+[^3]
 
 ## Step 5: Run the Bundler to Install Ruby Gems
 
@@ -154,7 +161,13 @@ chgrp -R admin .
 
 [^2] This sets up a bare-bones `database.yml` file for the production environment only.  You may wish to add sections for the development and test environments.  See the template file `config/database.yml.template` for a model.  It may be convenient in certain cases to use the same database for both development and production.  **_The test database, however, should always be different!_**
 
-[^3] If you wanted to also set up a development database, then, assuming you have a block for the development environment section of `config/database.yml` that uses the database name `betydb_dev` with the same username and password, you would first run
+[^3] All table, views, constraints, indices, and functions for the BETY database are defined in the file db/production_structure.sql.  We could have loaded the database schema by loading this file: 
+``` 
+bundle exec rake db:structure:load RAILS_ENV=production DB_STRUCTURE=db/production_structure.sql 
+``` 
+(The `RAILS_ENV` variable tells which block in `config/database.yml` to consult when looking up the database name, and the `DB_STRUCTURE` variable tells which file contains the database schema definition.)  This would have created an entirely empty database, however, and would not set the initial indices for newly-generated ids so as to be compatible with the database synchonization scripts.
+
+For the developement environment's database, this all probably does not matter; if you wanted to also set up a development database, then, assuming you have a block for the development environment section of `config/database.yml` that uses the database name `betydb_dev` with the same username and password, you would first run
 ```sh
 createdb -U dbuser betydb_dev
 ```
