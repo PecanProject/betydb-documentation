@@ -51,13 +51,13 @@ Use the script `script/update-betydb.sh` to load the database schema.  `update-b
 ```sh
 ./script/update-betydb.sh
 ```
-Then re-run it with the -c, -e, -m, -r, and -d options as follows:
+Then re-run it with the -c, -e, -m, -r, -g, and -d options as follows:
 ```sh
-./script/update-betydb.sh -c YES -e YES -m <localdb id number> -r 0 -d betydb
+./script/update-betydb.sh -c YES -e YES -m <localdb id number> -r 0 -g -d betydb
 ```
 (Here, "localdb id number" is some integer that is unique to each database.  See https://github.com/PecanProject/bety/wiki/Distributed-BETYdb for further information.) 
 
-This will create the tables, views, indices, constraints, and functions required for BETYdb.  The tables will all be empty except for the following: `formats`, `machines`, `mimetypes`, `schema_migrations`, `spacial_ref_sys`, and `users`.
+This will create the tables, views, indices, constraints, and functions required for BETYdb.  The tables will all be empty except for the following: `formats`, `machines`, `mimetypes`, `schema_migrations`, `spacial_ref_sys`, and `users`.  A guestuser account will be added to the users table.
 [^3]
 
 ## Step 5: Run the Bundler to Install Ruby Gems
@@ -117,11 +117,11 @@ On pecandev, this works:
 sudo apachectl restart
 ```
 
+At this point you should be able to view the site at https://ebi-forecast.igb.illinois.edu/bety_url or http://pecandev.igb.illinois.edu/bety_url, depending on which machine you deployed to, and you should be able to log in as a guest user by clicking the "Log in as Guest" button.
+
 ## Step 9: Create a  User
 
 Go to the login page (https://ebi-forecast.igb.illinois.edu/bety_url or http://pecandev.igb.illinois.edu/bety_url) and click the "Register for BETYdb" button.  Fill out at least the required fields (Login, Email, and the two password fields), type the captcha text, and click "Sign Up".  You should see the "Thanks for signing up!" message.
-
-**Note: In order for the "Login as Guest" button to work, you should also create a user with login "guestuser" and password "guestuser".**  Use "Guest" for the name, and "guest@example.com" for the e-mail address.
 
 Once you have created a user, you may wish to give that user full access privileges.  To do this, use psql:
 ```sh
@@ -131,10 +131,7 @@ Once psql has started, if the login of the user you wish to alter is "betydb-adm
 ```sql
 UPDATE users SET access_level = 1, page_access_level = 1 WHERE login = 'betydb-admin';
 ```
-While you are at it, the guestuser should have privileges 4,4, so run
-```sql
-UPDATE users SET access_level = 4, page_access_level = 4 WHERE login = 'guestuser';
-```
+
 
 ## Step 10: Test the New Deployment!
 
