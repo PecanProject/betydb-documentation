@@ -119,11 +119,11 @@ sudo apachectl restart
 
 At this point you should be able to view the site at https://ebi-forecast.igb.illinois.edu/bety_url or http://pecandev.igb.illinois.edu/bety_url, depending on which machine you deployed to, and you should be able to log in as a guest user by clicking the "Log in as Guest" button.
 
-## Step 9: Create a  User
+## Step 9: Create an Administrative Account
 
 Go to the login page (https://ebi-forecast.igb.illinois.edu/bety_url or http://pecandev.igb.illinois.edu/bety_url) and click the "Register for BETYdb" button.  Fill out at least the required fields (Login, Email, and the two password fields), type the captcha text, and click "Sign Up".  You should see the "Thanks for signing up!" message.
 
-Once you have created a user, you may wish to give that user full access privileges.  To do this, use psql:
+Once you have created a user, give that user full access privileges.  To do this, use psql:
 ```sh
 psql -U dbuser betydb
 ```
@@ -133,9 +133,17 @@ UPDATE users SET access_level = 1, page_access_level = 1 WHERE login = 'betydb-a
 ```
 
 
-## Step 10: Test the New Deployment!
+## Step 10: Check that the Guest User Account Works
 
-## Step 11 (optional): Change File Permissions
+Log out of the Web app if you are logged in.  On the login page, click the "Log in as Guest" button.
+
+If guest login fails, you need to reset the guestuser password.  Log in as the administrative user and go to the Users list.  Search for "guestuser" and click the edit button for that user.  Check the "change password" checkbox and then enter "guestuser" in both password fields; then click the "Update" button.
+
+Now log out and re-try the "Log in as Guest" button.
+
+## Step 11: Test the New Deployment!
+
+## Step 12 (optional): Change File Permissions
 
 If multiple users are going to administer the new BETYdb Rails instance, it is a good idea to change the group owner of all files under the Rails root directory.  Otherwise, once one person finds they have to run a command using sudo, then everyone will have to.  On pecandev, do
 
