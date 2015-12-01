@@ -53,7 +53,7 @@ Use the script `script/update-betydb.sh` to load the database schema.  `update-b
 ```
 Then re-run it with the -c, -e, -m, -r, -g, and -d options as follows:
 ```sh
-./script/update-betydb.sh -c YES -e YES -m <localdb id number> -r 0 -g -d betydb
+./script/update-betydb.sh -c -e -m <localdb id number> -r 0 -g -d betydb
 ```
 (Here, "localdb id number" is some integer that is unique to each database.  See https://github.com/PecanProject/bety/wiki/Distributed-BETYdb for further information.) 
 
