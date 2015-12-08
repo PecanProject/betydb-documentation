@@ -9,6 +9,8 @@ These instructions are specifically tailored to the task of adding new instances
 5. Git 1.8.2.1.
 6. R 3.1.0
 
+In most or all cases later versions of these will work, and in many cases earlier versions may work as well.
+
 
 **IMPORTANT! In what follows, we use the following placeholder strings to represent names that will vary with the installation:**
 * **`<betyapp>` — the name of the Rails root directory for the BETY app instance**
@@ -28,7 +30,7 @@ permissions.**
 
 ```sh
 cd /usr/local
-git clone https://github.com/PecanProject/bety.git betyapp
+git clone https://github.com/PecanProject/bety.git <betyapp>
 ```
 
 ## Step 2: Create a Database Configuration File
@@ -40,10 +42,10 @@ production:
   adapter: postgis
   encoding: utf-8
   reconnect: false
-  database: betydb
+  database: <betydb>
   pool: 5
-  username: dbuser
-  password: dbpw
+  username: <dbuser>
+  password: <dbpw>
 EOF
 ```
 
@@ -51,9 +53,9 @@ EOF
 
 Just run
 ```
-createdb -U dbuser betydb
+createdb -U <dbuser> <betydb>
 ```
-You will be prompted for dbuser's password.
+You will be prompted for <dbuser>'s password.
 
 ## Step 4: Load the Database Schema and Essential Data
 
@@ -63,7 +65,7 @@ Use the script `script/update-betydb.sh` to load the database schema.  `update-b
 ```
 Then re-run it with the -c, -e, -m, -r, -g, and -d options as follows:
 ```sh
-./script/update-betydb.sh -c -e -m <localdb id number> -r 0 -g -d betydb
+./script/update-betydb.sh -c -e -m <localdb id number> -r 0 -g -d <betydb>
 ```
 (Here, "localdb id number" is some integer that is unique to each database.  See https://github.com/PecanProject/bety/wiki/Distributed-BETYdb for further information.) 
 
@@ -96,18 +98,18 @@ Without this, you won't be able to log in to the BETYdb Rails app.  For the site
 First of all, create a symbolic link from the DocumentRoot directory `/var/www/html` to the public directory of your Rails instance:
 ```sh
 cd /var/www/html
-sudo ln -s /usr/local/bety_url/public bety_url
+sudo ln -s /usr/local/<bety_url>/public <bety_url>
 ```
 
 Now edit the VirtualHost configuration in file `/etc/httpd/conf.d/servers.conf` by adding the following inside of the VirtualHost block for which DocumentRoot is set to `/var/www/html`:
 
 First add a new RackBaseURI:
 ```
-RackBaseURI /bety_url
+RackBaseURI /<bety_url>
 ```
 Then add a new Directory block:
 ```
-<Directory /var/www/html/bety_url>
+<Directory /var/www/html/<bety_url>>
     PassengerRuby [[path to ruby executable]]
 </Directory>
 ```
@@ -127,15 +129,15 @@ On pecandev, this works:
 sudo apachectl restart
 ```
 
-At this point you should be able to view the site at https://ebi-forecast.igb.illinois.edu/bety_url or http://pecandev.igb.illinois.edu/bety_url, depending on which machine you deployed to.
+At this point you should be able to view the site at https://ebi-forecast.igb.illinois.edu/<bety_url> or http://pecandev.igb.illinois.edu/<bety_url>, depending on which machine you deployed to.
 
 ## Step 9: Create an Administrative Account
 
-Go to the login page (https://ebi-forecast.igb.illinois.edu/bety_url or http://pecandev.igb.illinois.edu/bety_url) and click the "Register for BETYdb" button.  Fill out at least the required fields (Login, Email, and the two password fields), type the captcha text, and click "Sign Up".  You should see the "Thanks for signing up!" message.
+Go to the login page (https://ebi-forecast.igb.illinois.edu/<bety_url> or http://pecandev.igb.illinois.edu/<bety_url>) and click the "Register for BETYdb" button.  Fill out at least the required fields (Login, Email, and the two password fields), type the captcha text, and click "Sign Up".  You should see the "Thanks for signing up!" message.
 
 Once you have created a user, give that user full access privileges.  To do this, use psql:
 ```sh
-psql -U dbuser betydb
+psql -U <dbuser> <betydb>
 ```
 Once psql has started, if the login of the user you wish to alter is "betydb-admin", run
 ```sql
@@ -162,12 +164,12 @@ Now log out and try the "Log in as Guest" button.
 If multiple users are going to administer the new BETYdb Rails instance, it is a good idea to change the group owner of all files under the Rails root directory.  Otherwise, once one person finds they have to run a command using sudo, then everyone will have to.  On pecandev, do
 
 ```
-cd /usr/local/betyapp
+cd /usr/local/<betyapp>
 chgrp -R pecandev .
 ```
 or perhaps
 ```
-cd /usr/local/betyapp
+cd /usr/local/<betyapp>
 chgrp -R admin .
 ```
 
@@ -183,7 +185,7 @@ bundle exec rake db:structure:load RAILS_ENV=production DB_STRUCTURE=db/producti
 
 For the developement environment's database, this all probably does not matter; if you wanted to also set up a development database, then, assuming you have a block for the development environment section of `config/database.yml` that uses the database name `betydb_dev` with the same username and password, you would first run
 ```sh
-createdb -U dbuser betydb_dev
+createdb -U <dbuser> betydb_dev
 ```
 and then run
 ```sh
