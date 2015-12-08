@@ -10,13 +10,15 @@ These instructions are specifically tailored to the task of adding new instances
 6. R 3.1.0
 
 
-**IMPORTANT! In what follows, we assume the new Rails root directory
-  is to have the name `betyapp`, the new BETY database copy will be
-  called `betydb` (and owned by database-user `dbuser` who has the
-  password `dbpw`), and the deployment URL will be to a directory
-  called `bety_url`. Substitute whatever names you wish for these.**
+**IMPORTANT! In what follows, we use the following placeholder strings to represent names that will vary with the installation:**
+* **`<betyapp>` — the name of the Rails root directory for the BETY app instance**
+* **`<betydb>` — the name of the database this instance of the BETY app will use**
+* **`<dbuser>` — the owner of database `<betydb>`**
+* **`<dbpw>` — the password for database user `<dbuser>`**
+* **`<bety_url>` — the path portion of the URL at which this BETY app instance will be deployed**
 
-**Except as noted, these instructions assume you are running commands as
+
+**IMPORTANT! Except as noted, these instructions assume you are running commands as
 "yourself", that is, not as root or any other user with special
 permissions.**
 
