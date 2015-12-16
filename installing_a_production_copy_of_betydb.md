@@ -192,11 +192,11 @@ On pecandev, this works:
 sudo apachectl restart
 ```
 
-At this point you should be able to view the site at https://ebi-forecast.igb.illinois.edu/`<bety_url>` or http://pecandev.igb.illinois.edu/`<bety_url>`, depending on which machine you deployed to.
+At this point you should be able to view the site at `https://ebi-forecast.igb.illinois.edu/<bety_url>` or `http://pecandev.igb.illinois.edu/<bety_url>`, depending on which machine you deployed to.
 
 ## Step 12: Create an Administrative Account
 
-Go to the login page (https://ebi-forecast.igb.illinois.edu/<bety_url> or http://pecandev.igb.illinois.edu/<bety_url>) and click the "Register for BETYdb" button.  Fill out at least the required fields (Login, Email, and the two password fields), type the captcha text, and click "Sign Up".  You should see the "Thanks for signing up!" message.
+Go to the login page (`https://ebi-forecast.igb.illinois.edu/<bety_url>` or `http://pecandev.igb.illinois.edu/<bety_url>`) and click the "Register for BETYdb" button.  Fill out at least the required fields (Login, Email, and the two password fields—do _not_ change the access level settings!), type the captcha text, and click "Sign Up".  You should see the "Thanks for signing up!" message.
 
 Once you have created a user, give that user full access privileges.  To do this, use psql:
 ```sh
@@ -215,7 +215,7 @@ used 'thisisnotasecret' as the site key in step 6, and you shouldn't
 use this as a site key on a production server.  So you need to reset
 the guestuser password.
 
-Log in as the administrative user and go to the Users list.  Search
+Log in as the administrative user you created in step 12 and go to the Users list (menu item `Data/Users`).  Search
 for "guestuser" and click the edit button for that user.  Check the
 "change password" checkbox and then enter "guestuser" in both password
 fields; then click the "Update" button.
