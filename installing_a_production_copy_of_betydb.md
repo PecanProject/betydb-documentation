@@ -14,7 +14,7 @@ In most or all cases later versions of these will work, and in many cases earlie
 
 **IMPORTANT! In what follows, we use the following placeholder strings to represent names that will vary with the installation:**
 * **`<betyapp>` — the name of the Rails root directory for the BETY app instance**
-* **`<betyappuser>` — the operating system account name for the user that will own this BETY app instance; generally, `<betyappuser>` should equal `<betyapp>`, but we distinguish them here for clarity. 
+* **`<betyappuser>` — the operating system account name for the user that will own this BETY app instance; generally, `<betyappuser>` should equal `<betyapp>`, but we distinguish them here for clarity.**
 * **`<betydb>` — the name of the database this instance of the BETY app will use**
 * **`<dbuser>` — the owner of database `<betydb>`**
 * **`<dbpw>` — the password for database user `<dbuser>`**
