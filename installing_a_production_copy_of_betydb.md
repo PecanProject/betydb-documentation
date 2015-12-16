@@ -21,9 +21,6 @@ In most or all cases later versions of these will work, and in many cases earlie
 * **`<bety_url>` — the path portion of the URL at which this BETY app instance will be deployed**
 
 
-**IMPORTANT! Except as noted, these instructions assume you are running commands as
-"yourself", that is, not as root or any other user with special
-permissions.**
 
 ## Step 1: Log in to the Deployment Machine.
 
@@ -218,7 +215,7 @@ fields; then click the "Update" button.
 
 Now log out and try the "Log in as Guest" button.
 
-
+___
 
 [^1] The relevant Phusion Passenger documentation is at
 https://www.phusionpassenger.com/library/walkthroughs/deploy/ruby/ownserver/nginx/oss/rubygems_norvm/deploy_app.html.
