@@ -219,8 +219,8 @@ ___
 
 [^1] The relevant Phusion Passenger documentation is at
 https://www.phusionpassenger.com/library/walkthroughs/deploy/ruby/ownserver/nginx/oss/rubygems_norvm/deploy_app.html.
-You may wish to give the <betyappuser> account a home directory--for example, to
-be able to log in as that user with a ssh key.  In this case, leave out the `-M`
+You may wish to give the <betyappuser> account a home directory—for example, to
+be able to log in as that user with an ssh key.  In this case, leave out the `-M`
 option.
 
 [^2] This sets up a bare-bones `database.yml` file for the production environment only.  You may wish to add sections for the development and test environments.  See the template file `config/database.yml.template` for a model.  It may be convenient in certain cases to use the same database for both development and production.  **_The test database, however, should always be different!_**
