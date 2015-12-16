@@ -14,6 +14,7 @@ In most or all cases later versions of these will work, and in many cases earlie
 
 **IMPORTANT! In what follows, we use the following placeholder strings to represent names that will vary with the installation:**
 * **`<betyapp>` — the name of the Rails root directory for the BETY app instance**
+* **`<betyappuser>` — the operating system account name for the user that will own this BETY app instance; generally, `<betyappuser>` should equal `<betyapp>`, but we distinguish them here for clarity. 
 * **`<betydb>` — the name of the database this instance of the BETY app will use**
 * **`<dbuser>` — the owner of database `<betydb>`**
 * **`<dbpw>` — the password for database user `<dbuser>`**
@@ -24,18 +25,43 @@ In most or all cases later versions of these will work, and in many cases earlie
 "yourself", that is, not as root or any other user with special
 permissions.**
 
-## Step 0: Log in to the Deployment Machine.
+## Step 1: Log in to the Deployment Machine.
 
-## Step 1: Clone a new BETYdb instance.
+You will need to have root access or sudo permission to add a new user and edit
+the HTTPD configuration files.
+
+## Step 2: Add a new user as the owner of the BETYdb instance
+
+It is recommended to run each Rails app under its own user account.  By
+convention, the user account will have the same name as the app.  Use the
+following command to create the user:[^1]
+```
+CREATE_MAIL_SPOOL=no sudo useradd -M <betyappuser>
+```
+
+## Step 3: Clone a new BETYdb instance.
 
 ```sh
 cd /usr/local
-git clone https://github.com/PecanProject/bety.git <betyapp>
+sudo -u <betyappuser> -H git clone https://github.com/PecanProject/bety.git <betyapp>
 ```
 
-## Step 2: Create a Database Configuration File
+(Note that -H should only be used if you created a home directory for <betyappuser>.)
 
-To do this from the command line, just run[^1]
+## Step 4: Log in as the app's user (<betyappuser>) and CD to the root directory of the new BETYdb instance.
+
+You can log in by running
+```
+sudo -u <betyappuser> -H bash -l
+```
+Then do
+```
+cd <betyapp>
+```
+
+## Step 5: Create a Database Configuration File
+
+To do this from the command line, just run[^2]
 ```
 cat > config/database.yml << EOF
 production:
@@ -49,7 +75,7 @@ production:
 EOF
 ```
 
-## Step 3: Create the New Database
+## Step 6: Create the New Database
 
 Just run
 ```
@@ -57,7 +83,7 @@ createdb -U <dbuser> <betydb>
 ```
 You will be prompted for <dbuser>'s password.
 
-## Step 4: Load the Database Schema and Essential Data
+## Step 7: Load the Database Schema and Essential Data
 
 Use the script `script/update-betydb.sh` to load the database schema.  `update-betydb.sh` is just a wrapper around the script `load.bety.sh`, which doesn't exist until you download it.  To do so, run `update-betydb.sh` without options:
 ```sh
@@ -70,18 +96,23 @@ Then re-run it with the -c, -e, -m, -r, -g, and -d options as follows:
 (Here, "localdb id number" is some integer that is unique to each database.  See https://github.com/PecanProject/bety/wiki/Distributed-BETYdb for further information.) 
 
 This will create the tables, views, indices, constraints, and functions required for BETYdb.  The tables will all be empty except for the following: `formats`, `machines`, `mimetypes`, `schema_migrations`, `spacial_ref_sys`, and `users`.  A guestuser account will be added to the users table.
-[^2]
+[^3]
 
-## Step 5: Run the Bundler to Install Ruby Gems
+## Step 8: Run the Bundler to Install Ruby Gems
 
 To install all Ruby Gems needed by the Rails application, run
 ```sh
-bundle install --deployment
+bundle install --deployment --without development test javascript_testing debug
 ```
 
-The deployment flag installs the Gems into the vendor subdirectory rather the to the global Ruby Gem location.  This makes your deployed instances more independent of one another.  Note that the `--deployment` option is a remembered option.[^3]
+The deployment flag installs the Gems into the vendor subdirectory rather the to
+the global Ruby Gem location.  This makes your deployed instances more
+independent of one another.  The `--without` flag omit installing Gems that are
+only used in the test and developments environments.  (This may be installed
+later if desired.)  Note that the `--deployment` and `--without` options are
+remembered options.[^4]
 
-## Step 6: Make a Site Key File
+## Step 9: Make a Site Key File
 
 This will create the needed file:
 ```sh
@@ -91,38 +122,66 @@ REST_AUTH_DIGEST_STRETCHES = 10
 EOF
 ```
 
-Without this, you won't be able to log in to the BETYdb Rails app.  For the site key to do any good, it should be kept a secret.
+Without this, you won't be able to log in to the BETYdb Rails app.  For the site
+key to do any good, it should be kept a secret.  _Note that if you ever change
+the value of `REST_AUTH_SITE_KEY`, all of your user's passwords will be
+invalidated!_
 
-## Step 7: Configure Apache HTTP Server to Serve Your New Rails App Instance[^4]
+## Step 10: Configure Apache HTTP Server to Serve Your New Rails App Instance[^5]
 
-First of all, create a symbolic link from the DocumentRoot directory `/var/www/html` to the public directory of your Rails instance:
-```sh
-cd /var/www/html
-sudo ln -s /usr/local/<bety_url>/public <bety_url>
+Add the following to your Apache HTTP Server configuration:
 ```
-
-Now edit the VirtualHost configuration in file `/etc/httpd/conf.d/servers.conf` by adding the following inside of the VirtualHost block for which DocumentRoot is set to `/var/www/html`:
-
-First add a new RackBaseURI:
-```
-RackBaseURI /<bety_url>
-```
-Then add a new Directory block:
-```
-<Directory /var/www/html/<bety_url>>
-    PassengerRuby [[path to ruby executable]]
+Alias /<bety_url> /usr/local/<betyapp>/public
+<Location /<bety_url>>
+    PassengerBaseURI /<bety_url>
+    PassengerAppRoot /usr/local/<betyapp>
+    # Also add the following as needed (see note below)
+    # PassengerRuby [[path to ruby executable]]
+</Location>
+<Directory /usr/local/<betyapp>/public>
+    Allow from all
+    Options -Multiviews
+    # Uncomment this if you're on Apache >= 2.4:
+    # Require all granted
 </Directory>
 ```
-Here, "path to ruby executable" varies with the machine.[^5]  On pecandev it is
+
+If you are using virtual hosting (we _are_ on pecandev and ebi-forecast, and so
+we add this to a VirtualHost configuration in file
+`/etc/httpd/conf.d/servers.conf`), put this inside the VirtualHost block whose
+ServerName and/or ServerAlias values correspond to the URL at which you want to
+access the application (pecandev.igb.illinois.edu and
+ebi-forecast.igb.illinois.edu on pecandev and ebi-forecast, respectively).
+Otherwise, include the configuration code at the top level.
+
+Note that the documentation at
+https://www.phusionpassenger.com/library/deploy/apache/deploy/ruby/ says to use
+`Require all granted` for Apache versions _greater_ than 2.4, but it seems that
+this is required for version 2.4 itself.  (As of this writing, both pecandev and
+ebi-forecast use version 2.2).
+
+
+Note: As of this writing, the path to the Ruby executables that should be used are
 ```    
 /usr/local/rvm/wrappers/ruby-2.1.5@betydb_rails3/ruby
 ```
-On ebi-forecast, it is
+on pecandev, and
 ```
 /usr/local/ruby-2.1.5/bin/ruby
 ```
+on ebi-forecast.  Check the value of PassengerDefaultRuby in
+`mod_passenger.conf`.  If the path doesn't match the appropriate setting, you
+must either override it with a PassengerRuby setting or update it (being sure to
+override the new default if necessary for any Rails applications that still need
+to use the old setting).  If you are using a virtual host and all of the Rails
+applications served by that host will use this Ruby version, you may add the
+PassengerRuby directive directly inside the VirtualHost block.  Otherwise,
+restrict it to a particular location by placing it in the Location block for the
+app instance you are adding as shown above.
 
-## Step 8: Restart the Apache Server
+
+
+## Step 11: Restart the Apache Server
 
 On pecandev, this works:
 ```
@@ -131,7 +190,7 @@ sudo apachectl restart
 
 At this point you should be able to view the site at https://ebi-forecast.igb.illinois.edu/<bety_url> or http://pecandev.igb.illinois.edu/<bety_url>, depending on which machine you deployed to.
 
-## Step 9: Create an Administrative Account
+## Step 12: Create an Administrative Account
 
 Go to the login page (https://ebi-forecast.igb.illinois.edu/<bety_url> or http://pecandev.igb.illinois.edu/<bety_url>) and click the "Register for BETYdb" button.  Fill out at least the required fields (Login, Email, and the two password fields), type the captcha text, and click "Sign Up".  You should see the "Thanks for signing up!" message.
 
@@ -145,7 +204,7 @@ UPDATE users SET access_level = 1, page_access_level = 1 WHERE login = 'betydb-a
 ```
 
 
-## Step 10: Set the Guest User Account Password
+## Step 13: Set the Guest User Account Password
 
 The Guest User account password will not be set correctly unless you
 used 'thisisnotasecret' as the site key in step 6, and you shouldn't
@@ -159,25 +218,17 @@ fields; then click the "Update" button.
 
 Now log out and try the "Log in as Guest" button.
 
-## Step 11 (optional): Change File Permissions
-
-If multiple users are going to administer the new BETYdb Rails instance, it is a good idea to change the group owner of all files under the Rails root directory.  Otherwise, once one person finds they have to run a command using sudo, then everyone will have to.  On pecandev, do
-
-```
-cd /usr/local/<betyapp>
-chgrp -R pecandev .
-```
-or perhaps
-```
-cd /usr/local/<betyapp>
-chgrp -R admin .
-```
 
 
+[^1] The relevant Phusion Passenger documentation is at
+https://www.phusionpassenger.com/library/walkthroughs/deploy/ruby/ownserver/nginx/oss/rubygems_norvm/deploy_app.html.
+You may wish to give the <betyappuser> account a home directory--for example, to
+be able to log in as that user with a ssh key.  In this case, leave out the `-M`
+option.
 
-[^1] This sets up a bare-bones `database.yml` file for the production environment only.  You may wish to add sections for the development and test environments.  See the template file `config/database.yml.template` for a model.  It may be convenient in certain cases to use the same database for both development and production.  **_The test database, however, should always be different!_**
+[^2] This sets up a bare-bones `database.yml` file for the production environment only.  You may wish to add sections for the development and test environments.  See the template file `config/database.yml.template` for a model.  It may be convenient in certain cases to use the same database for both development and production.  **_The test database, however, should always be different!_**
 
-[^2] All table, views, constraints, indices, and functions for the BETY database are defined in the file db/production_structure.sql.  We could have loaded the database schema by loading this file: 
+[^3] All table, views, constraints, indices, and functions for the BETY database are defined in the file db/production_structure.sql.  We could have loaded the database schema by loading this file: 
 ``` 
 bundle exec rake db:structure:load RAILS_ENV=production DB_STRUCTURE=db/production_structure.sql 
 ``` 
@@ -193,15 +244,26 @@ bundle exec rake db:structure:load RAILS_ENV=development DB_STRUCTURE=db/product
 ```
 The development environment is usually the default, so the `RAILS_ENV` setting is most likely not strictly necessary.  **_Note that we still pull the database schema definition from `db/production_structure.sql` even though we are setting up a development database!_**
 
-[^3] If you have trouble installing Capybara Webkit and you don't care about using it for testing, you can add the `--without=javascript_testing` option to your bundle install command to skip installing it.  This is a "remembered" option.  Subsequent "bundle install" commands will automatically use this option unless you remove it from the bundler configuration.
+[^4] If you set up the development and test database specifications in step 5, this means you probably want to be able to use these environments in which case you should omit the `--without` flag.
 
-[^4] Instructions here are for sub-URL deployments.  These are deployments where the Rails root is reached via a URL of the form
+Some users may want to do _some_ testing but may have trouble installing
+Capybara Webkit.  If you don't care about using Capabara Webkit for testing, you
+can add the `--without javascript_testing` option to your bundle install command
+to skip installing it.  Similarly, add `--without debug` to skip installation of
+the Selenium web driver, or skip both with `--without javascript_testing debug`.
+Again, this is a "remembered" option: subsequent "bundle install" commands will
+automatically re-use the `--without` option unless you remove it from the
+bundler configuration.  But note that if you specify the `--without` option a
+second time, the list of groups to skip will overwrite any previous remembered
+list; you must specify the complete list of groups you wish to skip each time
+unless the list is the same as it was the last time you ran `bundle install`.
+
+[^5] Instructions here are for sub-URL deployments.  These are deployments where the Rails root is reached via a URL of the form
 ```
 http(s)://hostname/directoryname
 ```
-Look at VirtualHost block for ServerName `www.betydb.org` on ebi-forecast for an example of a top-level deployment.  We need only specify the public directory of the instance as the DocumentRoot, obviating the need for a RackBaseURI directive.
+Look at VirtualHost block for ServerName `www.betydb.org` on ebi-forecast for an example of a top-level deployment.  We need only specify the public directory of the instance as the DocumentRoot, obviating the need for a PassengerBaseURI directive.
 
-[^5] The path to the ruby executable need not be set at the directory level if it is set globally to the version you want to use.  Therefore, this `<Directory` block may be unnecessary.
 
 
 
