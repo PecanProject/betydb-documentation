@@ -18,7 +18,7 @@ In most or all cases later versions of these will work, and in many cases earlie
 * **`<betydb>` — the name of the database this instance of the BETY app will use**
 * **`<dbuser>` — the owner of database `<betydb>`**
 * **`<dbpw>` — the password for database user `<dbuser>`**
-* **`<bety_url>` — the path portion of the URL at which this BETY app instance will be deployed**
+* **`<bety_url>` — the path portion of the URL at which this BETY app instance will be deployed; this _usually_ (but not always) matches `<betyapp>`.**
 
 
 
@@ -43,9 +43,9 @@ cd /usr/local
 sudo -u <betyappuser> -H git clone https://github.com/PecanProject/bety.git <betyapp>
 ```
 
-(Note that -H should only be used if you created a home directory for <betyappuser>.)
+(Note that -H should only be used if you created a home directory for `<betyappuser>`.)
 
-## Step 4: Log in as the app's user (<betyappuser>) and CD to the root directory of the new BETYdb instance.
+## Step 4: Log in as the app's user (`<betyappuser>`) and CD to the root directory of the new BETYdb instance.
 
 You can log in by running
 ```
@@ -78,7 +78,7 @@ Just run
 ```
 createdb -U <dbuser> <betydb>
 ```
-You will be prompted for <dbuser>'s password.
+You will be prompted for `<dbuser>`'s password.
 
 ## Step 7: Load the Database Schema and Essential Data
 
@@ -98,14 +98,14 @@ This will create the tables, views, indices, constraints, and functions required
 ## Step 8: Run the Bundler to Install Ruby Gems
 
 To install all Ruby Gems needed by the Rails application, run
-```sh
+```
 bundle install --deployment --without development test javascript_testing debug
 ```
 
-The deployment flag installs the Gems into the vendor subdirectory rather the to
+The deployment flag installs the Gems into the vendor subdirectory rather than to
 the global Ruby Gem location.  This makes your deployed instances more
-independent of one another.  The `--without` flag omit installing Gems that are
-only used in the test and developments environments.  (This may be installed
+independent of one another.  The `--without` flag omits installing Gems that are
+only used in the test and developments environments.  (They may be installed
 later if desired.)  Note that the `--deployment` and `--without` options are
 remembered options.[^4]
 
@@ -119,7 +119,12 @@ REST_AUTH_DIGEST_STRETCHES = 10
 EOF
 ```
 
-Without this, you won't be able to log in to the BETYdb Rails app.  For the site
+Without this, you won't be able to log in to the BETYdb Rails app.  You can run the command
+```
+bundle exec rake secret
+```
+in the Rails root directory to generate an arbitrary key.
+For the site
 key to do any good, it should be kept a secret.  _Note that if you ever change
 the value of `REST_AUTH_SITE_KEY`, all of your user's passwords will be
 invalidated!_
@@ -241,7 +246,7 @@ bundle exec rake db:structure:load RAILS_ENV=development DB_STRUCTURE=db/product
 ```
 The development environment is usually the default, so the `RAILS_ENV` setting is most likely not strictly necessary.  **_Note that we still pull the database schema definition from `db/production_structure.sql` even though we are setting up a development database!_**
 
-[^4] If you set up the development and test database specifications in step 5, this means you probably want to be able to use these environments in which case you should omit the `--without` flag.
+[^4] If you set up the development and test database specifications in step 5, this means you probably actually want to be able to use these environments.  In this case you should omit the `--without` flag.
 
 Some users may want to do _some_ testing but may have trouble installing
 Capybara Webkit.  If you don't care about using Capabara Webkit for testing, you
