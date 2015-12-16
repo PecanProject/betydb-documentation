@@ -152,8 +152,8 @@ If you are using virtual hosting (we _are_ on pecandev and ebi-forecast, and so
 we add this to a VirtualHost configuration in file
 `/etc/httpd/conf.d/servers.conf`), put this inside the VirtualHost block whose
 ServerName and/or ServerAlias values correspond to the URL at which you want to
-access the application (pecandev.igb.illinois.edu and
-ebi-forecast.igb.illinois.edu on pecandev and ebi-forecast, respectively).
+access the application ("pecandev.igb.illinois.edu" on pecandev and
+"ebi-forecast.igb.illinois.edu" on ebi-forecast).
 Otherwise, include the configuration code at the top level.
 
 Note that the documentation at
@@ -175,11 +175,13 @@ on ebi-forecast.  Check the value of PassengerDefaultRuby in
 `mod_passenger.conf`.  If the path doesn't match the appropriate setting, you
 must either override it with a PassengerRuby setting or update it (being sure to
 override the new default if necessary for any Rails applications that still need
-to use the old setting).  If you are using a virtual host and all of the Rails
+to use the old setting).
+
+Where should the PassengerRuby directive be added?  If you are using a virtual host and all of the Rails
 applications served by that host will use this Ruby version, you may add the
 PassengerRuby directive directly inside the VirtualHost block.  Otherwise,
 restrict it to a particular location by placing it in the Location block for the
-app instance you are adding as shown above.
+app instance you are adding, as shown above.
 
 
 
@@ -190,7 +192,7 @@ On pecandev, this works:
 sudo apachectl restart
 ```
 
-At this point you should be able to view the site at https://ebi-forecast.igb.illinois.edu/<bety_url> or http://pecandev.igb.illinois.edu/<bety_url>, depending on which machine you deployed to.
+At this point you should be able to view the site at https://ebi-forecast.igb.illinois.edu/`<bety_url>` or http://pecandev.igb.illinois.edu/`<bety_url>`, depending on which machine you deployed to.
 
 ## Step 12: Create an Administrative Account
 
@@ -264,8 +266,7 @@ unless the list is the same as it was the last time you ran `bundle install`.
 ```
 http(s)://hostname/directoryname
 ```
-Look at VirtualHost block for ServerName `www.betydb.org` on ebi-forecast for an example of a top-level deployment.  We need only specify the public directory of the instance as the DocumentRoot, obviating the need for a PassengerBaseURI directive.
-
+If you want to serve your app at `http(s)://<hostname>`, and if your `DocumentRoot` equals `/usr/local/<betyapp>/public`, then omit the Alias directive and the Location block.
 
 
 
