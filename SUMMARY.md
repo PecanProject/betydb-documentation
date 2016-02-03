@@ -1,6 +1,7 @@
 # Summary
 
 * [Introduction](README.md)
+   * [BETYdb Tables](betydb_tables.md)
    * [About BETYdb](about_betydb.md)
        * [BETYdb Tables](betydb_tables.md)
 * [Installing BETYdb](installing_betydb.md)
