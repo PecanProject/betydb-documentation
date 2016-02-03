@@ -1,4 +1,4 @@
-# Dependencies: Setting up a Server
+# Setting up a RedHat or CentOS Server
 
 ## Overview
 
