@@ -1,8 +1,7 @@
 # BETYdb Tables
 
 
-
-### Full Schema: Enhanced Entity-Relationship Model
+## Full Schema: Enhanced Entity-Relationship Model
 
  **Note: An up-to-date list of the tables in BETYdb along with their descriptions and diagrams of their interrelationships may be found at https://www.betydb.org/schemas.**
 
