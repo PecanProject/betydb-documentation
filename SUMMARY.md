@@ -1,9 +1,8 @@
 # Summary
 
 * [Introduction](README.md)
-   * [BETYdb Tables](betydb_tables.md)
    * [About BETYdb](about_betydb.md)
-       * [BETYdb Tables](betydb_tables.md)
+* [BETYdb Tables](betydb_tables.md)
 * [Installing BETYdb](installing_betydb.md)
    * [Installing BETYdb Postgres database](installing_betydb_postgres_database.md)
    * [installing-betydb-web-application](installing-betydb-web-application.md)
