@@ -137,7 +137,7 @@ industry.
 
 
 The [Data Entry
-Workflow](https://authorea.com/users/5574/articles/6800/_show_article)
+Workflow](https://dlebauer.gitbooks.io/betydbdoc-dataentry/content/)
 provides a complete description of the data entry process. BETYdb’s web
 interface has been developed to facilitate accurate and efficient data
 entry. This interface provides logical workflow to guide the user
