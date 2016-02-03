@@ -2,6 +2,26 @@
 
 
 
+### Full Schema: Enhanced Entity-Relationship Model
+
+ **Note: An up-to-date list of the tables in BETYdb along with their descriptions and diagrams of their interrelationships may be found at https://www.betydb.org/schemas.**
+
+[Figure 3](#Figure-3) provides a visualization of the complete schema, including
+interrelationships among tables, of the biofuel database.
+
+<a id="Figure-3"></a>  
+![Alt text] (figures/ug figure 3.png "figure 3")   
+**Figure 3**: Full schema of BETYdb, showing all tables and relations on the data base
+
+
+[Figure 3.1](#Figure-3.1) provides a visualization of the complete schema, including
+interrelationships among tables, of the biofuel database.
+
+<a name="Figure 3.1" style="width: 600 height: 400"></a>  
+![Alt text] (figures/models_brief_small.png "figure 3.1")   
+**Figure 3**: View of Database from perspective of Ruby
+
+
 ## Tables
 
 
@@ -214,22 +234,3 @@ multiple pfts.
 The **pfts\_species** table allows a many-to-many relationship between
 the **pfts** and **species** tables ([Table 13](#Table-13)).
 
-
-### Full Schema: Enhanced Entity-Relationship Model
-
- **Note: An up-to-date list of the tables in BETYdb along with their descriptions and diagrams of their interrelationships may be found at https://www.betydb.org/schemas.**
-
-[Figure 3](#Figure-3) provides a visualization of the complete schema, including
-interrelationships among tables, of the biofuel database.
-
-<a id="Figure-3"></a>  
-![Alt text] (figures/ug figure 3.png "figure 3")   
-**Figure 3**: Full schema of BETYdb, showing all tables and relations on the data base
-
-
-[Figure 3.1](#Figure-3.1) provides a visualization of the complete schema, including
-interrelationships among tables, of the biofuel database.
-
-<a name="Figure 3.1" style="width: 600 height: 400"></a>  
-![Alt text] (figures/models_brief_small.png "figure 3.1")   
-**Figure 3**: View of Database from perspective of Ruby
