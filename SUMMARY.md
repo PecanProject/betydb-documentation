@@ -13,4 +13,5 @@
 * [BETYdb Development](betydb_development.md)
    * [Ruby on Rails Application Overview](ruby_on_rails_application_overview.md)
    * [Automated Tests](automated_tests.md)
+   * Code Style
 
