@@ -5,7 +5,7 @@
 The original BETYdb (betydb.org) runs on a Red Hat Enterprise Linux version 5.8 Server. 
 To simulate this environment, we have set up a CentOS 5.8 server at pecandev.igb.illinois.edu for testing.
 
-BETYdb also runs on Ubuntu and OSX. 
+This documentation is aimed at installing BETYdb on a production RedHat, CentOS or similar operating system. BETYdb also runs on Ubuntu and OSX; instructions for installing on these systems can be found in the PEcAn documentation. 
 
 ### Notes
 
