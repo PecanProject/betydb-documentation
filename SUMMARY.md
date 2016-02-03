@@ -6,4 +6,5 @@
 * [Database Constraints](database_constraints.md)
 * [Installing BETYdb](installing_betydb.md)
    * installing-betydb-web-application
+* Installing BETYdb Postgres database
 
