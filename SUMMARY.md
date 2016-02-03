@@ -8,6 +8,7 @@
    * [installing-betydb-web-application](installing-betydb-web-application.md)
    * [Dependencies: Setting up a Server](dependencies_setting_up_a_server.md)
    * [Installing Postgres](installing_postgres.md)
+   * Installing the BETYdb Rails Application
 * BETYdb System Administration
    * [Updating BETYdb When New Versions are Released](updating_betydb_when_new_versions_are_released.md)
    * [Distributed BETYdb](distributed_betydb.md)
