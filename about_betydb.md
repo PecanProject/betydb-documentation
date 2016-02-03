@@ -146,6 +146,7 @@ information, and experimental methods. This workflow is outlined in the
 BETYdb Data Entry Workflow document. Data entry requires a login with `Create`
 permissions; this can be obtained by contacting [David
 LeBauer](mailto:dlebauer@illinois.edu).
+
 ### Software
 
 
