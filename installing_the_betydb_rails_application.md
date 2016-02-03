@@ -112,7 +112,7 @@ cp config/application.yml.template config/application.yml
 
 ## Installing the Database
 
-_**Note**_ to join the distributed network of databases, see the chapter ["Distributed BETYdb"](
+_**Note**_ to join the distributed network of databases, see the chapter ["Distributed BETYdb"](distributed_betydb.md)
 
 In the `script` directory of the bety Rails installation, find and run the update-betydb.sh script:
 
