@@ -10,4 +10,5 @@
 * [Database Constraints](database_constraints.md)
 * [BETYdb Development](betydb_development.md)
    * [Ruby on Rails Application Overview](ruby_on_rails_application_overview.md)
+   * Automated Tests
 
