@@ -6,5 +6,5 @@
    * [installing-betydb-web-application](installing-betydb-web-application.md)
 * [Database Constraints](database_constraints.md)
 * BETYdb System Administration
-   * Updating BETYdb When New Versions are Released
+   * [Updating BETYdb When New Versions are Released](updating_betydb_when_new_versions_are_released.md)
 
