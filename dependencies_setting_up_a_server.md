@@ -7,13 +7,9 @@ To simulate this environment, we have set up a CentOS 5.8 server at pecandev.igb
 
 This documentation is aimed at installing BETYdb on a production RedHat, CentOS or similar operating system. BETYdb also runs on Ubuntu and OSX; instructions for installing on these systems can be found in the [PEcAn documentation](https://github.com/PecanProject/pecan/wiki/Installing-PEcAn#installing-bety). 
 
-### Notes
+These instructions have been tested and refined on our production (ebi-forecast.igb.illinois.edu) and development (pecandev.igb.illinois.edu) servers. See the ["Installing BETY"](https://github.com/PecanProject/pecan/wiki/Installing-PEcAn#installing-bety) section of the PEcAn wiki for more generic installation instructions.
 
-1. This wiki is mostly used to document the configuration of our production (ebi-forecast.igb.illinois.edu) and development (pecandev.igb.illinois.edu) servers. See the ["Installing BETY"](https://github.com/PecanProject/pecan/wiki/Installing-PEcAn#installing-bety) section of the PEcAn wiki for more generic installation instructions.
-2. Both this wiki and the PEcAn wiki include information to installing BETYdb _and_ PEcAn. If you don't plan to use PEcAn ... there is no need to install R, netCDF, Fortran, ED2, BioCro, Sipnet.  
-3. Ideally ... we would have a cross-platform script like [ghgvc.sh](https://github.com/ebimodeling/ghgvc/blob/master/ghgvc.sh) that installs the greenhouse gas value calculator on either Ubuntu or CentOS... and may also be helpful.
-
-If you have any questions about installing BETYdb ... please [submit an issue](https://github.com/ebimodeling/ghgvc/blob/master/ghgvc.sh) or [send an email](mailto:betydb@gmail.com).
+If you have any questions about installing BETYdb ... please [submit an issue](https://github.com/pecanproject/bety/issues/new) or [send an email](mailto:betydb@gmail.com).
 
 ### Create an netinstall of the CentOS ISO 
 
