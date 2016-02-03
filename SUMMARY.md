@@ -7,5 +7,5 @@
 * [Database Constraints](database_constraints.md)
 * BETYdb System Administration
    * [Updating BETYdb When New Versions are Released](updating_betydb_when_new_versions_are_released.md)
-   * Distributed BETYdb
+   * [Distributed BETYdb](distributed_betydb.md)
 
