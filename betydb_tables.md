@@ -6,7 +6,6 @@
  **Note: An up-to-date list of the tables in BETYdb along with their descriptions and diagrams of their interrelationships may be found at https://www.betydb.org/schemas.**
 
 
-
 ![Alt text] (figures/summarymodel_lg.png "figure 3")   
 
 **Figure 1**: Full schema of BETYdb, showing all tables and relations on the data base
