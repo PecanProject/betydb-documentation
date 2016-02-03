@@ -1,11 +1,14 @@
 # Setting up a RedHat or CentOS Server
 
+
 ## Overview
+
+BETYdb runs on RedHat, CentOS, Ubuntu and OSX; instructions for installing on these systems can be found in the [PEcAn documentation](https://github.com/PecanProject/pecan/wiki/Installing-PEcAn#installing-bety). 
 
 The original BETYdb (betydb.org) runs on a Red Hat Enterprise Linux version 5.8 Server. 
 To simulate this environment, we have set up a CentOS 5.8 server at pecandev.igb.illinois.edu for testing.
 
-This documentation is aimed at installing BETYdb on a production RedHat, CentOS or similar operating system. BETYdb also runs on Ubuntu and OSX; instructions for installing on these systems can be found in the [PEcAn documentation](https://github.com/PecanProject/pecan/wiki/Installing-PEcAn#installing-bety). 
+This documentation is aimed at installing BETYdb on a production RedHat, CentOS or similar operating system. 
 
 These instructions have been tested and refined on our production (ebi-forecast.igb.illinois.edu) and development (pecandev.igb.illinois.edu) servers. See the ["Installing BETY"](https://github.com/PecanProject/pecan/wiki/Installing-PEcAn#installing-bety) section of the PEcAn wiki for more generic installation instructions.
 
