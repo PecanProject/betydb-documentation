@@ -7,7 +7,7 @@ To simulate this environment, we have set up a CentOS 5.8 server at pecandev.igb
 
 BETYdb also runs on Ubuntu and OSX. 
 
-#### Notes
+### Notes
 
 1. This wiki is mostly used to document the configuration of our production (ebi-forecast.igb.illinois.edu) and development (pecandev.igb.illinois.edu) servers. See the ["Installing BETY"](https://github.com/PecanProject/pecan/wiki/Installing-PEcAn#installing-bety) section of the PEcAn wiki for more generic installation instructions.
 2. Both this wiki and the PEcAn wiki include information to installing BETYdb _and_ PEcAn. If you don't plan to use PEcAn ... there is no need to install R, netCDF, Fortran, ED2, BioCro, Sipnet.  
