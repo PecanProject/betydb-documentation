@@ -94,7 +94,7 @@ sudo -u postgres CREATE=YES REMOTESITE=0 scripts/load.bety.sh
 REMOTESITE=1 scripts/load.bety.sh
 ```
 
-Open up updatedb.sh and remove the two lines
+Open up `updatedb.sh` and remove the two lines
 
 ```
 #change to home
