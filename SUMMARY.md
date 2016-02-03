@@ -4,8 +4,8 @@
 * [Installing BETYdb](installing_betydb.md)
    * [Installing BETYdb Postgres database](installing_betydb_postgres_database.md)
    * [installing-betydb-web-application](installing-betydb-web-application.md)
-* [Database Constraints](database_constraints.md)
 * BETYdb System Administration
    * [Updating BETYdb When New Versions are Released](updating_betydb_when_new_versions_are_released.md)
    * [Distributed BETYdb](distributed_betydb.md)
+* [Database Constraints](database_constraints.md)
 
