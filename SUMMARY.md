@@ -17,5 +17,5 @@
    * [Ruby on Rails Application Overview](ruby_on_rails_application_overview.md)
    * [Automated Tests](automated_tests.md)
    * [Code Style](code_style.md)
-       * Complex Joins in the Web Interface
+       * [Complex Joins in the Web Interface](complex_joins_in_the_web_interface.md)
 
