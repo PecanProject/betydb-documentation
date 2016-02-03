@@ -16,7 +16,6 @@
 * [BETYdb Development](betydb_development.md)
    * [Ruby on Rails Application Overview](ruby_on_rails_application_overview.md)
    * [Automated Tests](automated_tests.md)
-   * [Complex Joins in the Web Interface](complex_joins_in_the_web_interface.md)
    * [Code Style](code_style.md)
-       * [Complex Joins in the Web Interface](complex_joins_in_the_web_interface.md)
+   * [Complex Joins in the Web Interface](complex_joins_in_the_web_interface.md)
 
