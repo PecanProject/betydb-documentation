@@ -116,12 +116,9 @@ from a species in an experimental low-input, high diversity prairie.
 
 An annotated, interactive schema can be accessed on the website by selecting ["docs --> schema"](https://www.betydb.org/schemas)
 
-<a name="Table-1"> </a>
-**Table 1**: Data from the targeted species-specific data collection for BETYdb. Data are summarized by genus for the top seven genera, and the rest of the data are summarized by plant function type.   
-![Alt text] (figures/ug table 1.png "Table 1")   
 
-<a name="Figure-1"></a>  
-![Alt text] (figures/ug figure 1.png "Figure 1")  
+![BETYdb Schema as Entity-Relationship Diagram](figures/summarymodel_lg.png "Figure 1")  
+
 **Figure 1**: Abbreviated schema for BETYdb.  Up-to-date versions of this figure and of the other figures and tables in this document may be found at https://www.betydb.org/schemas. 
 
 ## Design
