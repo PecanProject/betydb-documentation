@@ -51,7 +51,7 @@ Often when I'm coding, I'm tempted to "fix" the formatting of a file I'm working
 
 So here are my recommendations:
 
-* If you have to work extensively with a file, and reformatting it will help you to understand the code better, then go ahead and reformat it.  But if you do do this, please:
+* If you have to work extensively with a file, and reformatting it will help you to understand the code better, then go ahead and reformat it.  But if you do this, please:
   * Look up and follow Rails code formatting guidelines (e.g., 2-space indentation levels, etc.)
   * Devote a single commit to just reformatting--don't include any "significant" code changes in that commit.  This will make it easier to figure out the history of a file and what significant code changes were made to it.
 * If you are only making minor changes to a file and don't need to reformat the file to figure out what you are doing, just leave the existing formatting alone.  Any new code you add, however, should follow good formatting conventions to the extent possible given that it may be surrounded by poorly-formatted code.
