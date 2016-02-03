@@ -214,8 +214,6 @@ multiple pfts.
 The **pfts\_species** table allows a many-to-many relationship between
 the **pfts** and **species** tables ([Table 13](#Table-13)).
 
-## Appendix
-
 
 ### Full Schema: Enhanced Entity-Relationship Model
 
