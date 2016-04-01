@@ -50,4 +50,4 @@ At this point your database should have migrated to the latest version and the B
 
 ## Load a fresh version of database
 
-See the section of Updating BETY database above that pertains to BETYdb Ruby-on-Rails developers. 
+See the section of _Updating BETY database_ above that pertains to BETYdb Ruby-on-Rails developers. 
