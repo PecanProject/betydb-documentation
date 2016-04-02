@@ -11,4 +11,4 @@ agronomic, the structure of the database itself is general and can
 therefore be used more generally for ecosystem studies.
 
 Note that this document does not cover the suite of tables used by PEcAn. 
-These are covered in the [[ PEcAn documentation | https://github.com/PecanProject/pecan/wiki ]].
+These are covered in the[ PEcAn documentation]|(https://github.com/PecanProject/pecan/wiki ).
