@@ -105,8 +105,8 @@ phylogenetic groups and plant functional types.
 BETYdb contains data from intensive efforts to find data for specific
 species of interest as well as from previous plant trait and yield
 syntheses and other databases. Most of the data currently in the
-database is from plant groups that are the focus of our current research
-([Table 1](#Table-1)). These species include perennial grasses, such as miscanthus
+database is from plant genera that are the focus of our current and previous research. 
+These species include perennial grasses, such as miscanthus
 (*Miscanthus sinensis*) switchgrass (*Panicum virgatum*), and sugarcane
 (*Saccharyn* spp.). BETYdb also includes short-rotation woody species,
 including poplar (*Populus* spp.) and willow (*Salix* spp.) and a group
