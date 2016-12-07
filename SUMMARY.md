@@ -18,4 +18,4 @@
    * [Code Style](code_style.md)
    * [Complex Joins in the Web Interface](complex_joins_in_the_web_interface.md)
    * [Database Constraints](database_constraints.md)
-
+   * [Issuing a New Release](issuing_a_new_release.md)

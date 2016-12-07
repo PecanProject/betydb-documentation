@@ -1,3 +1,11 @@
 {
-    "plugins": ["mathjax"]
+    "plugins": [
+        "mathjax",
+        "footnote-string-to-number"
+    ],
+    "variables": {
+        "externalTables": {
+            "database_table_list": "https://www.betydb.org/db_docs/index.html"
+        }
+    }
 }
