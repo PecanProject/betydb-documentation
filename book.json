@@ -10,5 +10,10 @@
             "database_table_list": "https://www.betydb.org/db_docs/index.html"
         }
     },
-    "pluginsConfig": {}
+    "pluginsConfig": {
+        "edit-link": {
+            "base": "https://github.com/pecanproject/betydb-documentation",
+            "label": "Edit This Page"
+        }
+    }
 }
