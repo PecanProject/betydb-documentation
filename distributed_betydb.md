@@ -55,11 +55,21 @@ Any changes to existing records should be done on the server that owns that reco
 
 New users and 'feedback tab' submissions are sent to all users with Admin privileges ([gh-56](https://github.com/PecanProject/bety/issues/)).
  
-## Planned features
+## Customization
 
-* [GitHub issue 368](https://github.com/PecanProject/bety/issues/368) will implement the capacity to specify institution or project-specific design elements (e.g. colors, header, title, text, attribution on the front page). 
-* to edit data from records owned by another server, must edit on that server (or risk loosing this on next update)
+
+As of [BETYdb v 4.1.3](https://github.com/PecanProject/bety/releases/tag/betydb_4.13) it is possible to customize the user interface with project-specific design elements including. To do this, it is necessary to create a new file called `config/application.yml`. Details are in  [config/application.template.yml](https://github.com/PecanProject/bety/blob/master/config/application.yml.template). See also https://github.com/PecanProject/bety/issues/368).
+
+Customizable elements include:
+
+* Database name and descriptions
+* Images found on the home page
+* Sponsor logos and links in footer
+* Database citation and data use policy
+* Contact information
 
 ## Issues
 
 * to get latest data, have to query each server (or can get full dump from one server, but this is as out of date as the last sync)
+* to edit data from records owned by another server, must edit on that server (or risk loosing this on next update)
+
