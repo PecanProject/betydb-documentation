@@ -2,7 +2,8 @@
     "plugins": [
         "mathjax",
         "autocover",
-        "footnote-string-to-number"
+        "footnote-string-to-number",
+        "edit-link"
     ],
     "variables": {
         "externalTables": {
@@ -11,4 +12,3 @@
     },
     "pluginsConfig": {}
 }
-
