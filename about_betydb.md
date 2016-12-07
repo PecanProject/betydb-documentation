@@ -116,12 +116,6 @@ from a species in an experimental low-input, high diversity prairie.
 
 An annotated, interactive schema can be accessed on the website by selecting ["Docs --> Schema"](https://www.betydb.org/schemas).[^1]
 
-
-<a name="Figure-1"></a>![BETYdb Schema as Entity-Relationship Diagram](figures/summarymodel_lg.png "Figure 1")
-
-**Figure 1**: Abbreviated schema for BETYdb.  Up-to-date versions of this figure and of the other figures and tables in this document may be found at https://www.betydb.org/schemas.
-[^1]
-
 ## Design
 
 

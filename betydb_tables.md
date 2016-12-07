@@ -1,15 +1,12 @@
 # BETYdb Tables
 
 
-## Full Schema: Enhanced Entity-Relationship Model
-
- **Note: An up-to-date list of the tables in BETYdb along with their descriptions and diagrams of their interrelationships may be found at https://www.betydb.org/schemas.**
+## Schema: Enhanced Entity-Relationship Model
 
 
-<a name="Figure-1"></a>![Alt text](figures/summarymodel_lg.png "figure 1")
+<a name="Figure-1"></a>![BETYdb Schema as Entity-Relationship Diagram](figures/summarymodel_lg.png "Figure 1")
 
-**Figure 1**: Full schema of BETYdb, showing all tables and relations on the data base
-
+**Figure 1**: Abbreviated schema for BETYdb, focusing on tables used to store plant trait and yield data. This figure excludes other tables used for PEcAn workflow system provenance and data management and for synchronizing independent instances of BETYdb across many servers. A complete and up-to-date interactive schema is published at https://www.betydb.org/schemas.
 
 ## Tables
 

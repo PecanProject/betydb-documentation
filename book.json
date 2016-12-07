@@ -1,6 +1,7 @@
 {
     "plugins": [
         "mathjax",
+        "autocover",
         "footnote-string-to-number"
     ],
     "variables": {
@@ -8,4 +9,6 @@
             "database_table_list": "https://www.betydb.org/db_docs/index.html"
         }
     }
+    "pluginsConfig": {}
 }
+
