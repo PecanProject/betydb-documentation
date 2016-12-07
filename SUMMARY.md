@@ -4,7 +4,6 @@
    * [About BETYdb](about_betydb.md)
    * [BETYdb Tables](betydb_tables.md)
 * [Installing BETYdb](installing_betydb.md)
-   * [Installing BETYdb Postgres database](installing_betydb_postgres_database.md)
    * [installing-betydb-web-application](installing-betydb-web-application.md)
    * [Dependencies: Setting up a Server](dependencies_setting_up_a_server.md)
    * [Installing Postgres](installing_postgres.md)
@@ -19,3 +18,4 @@
    * [Complex Joins in the Web Interface](complex_joins_in_the_web_interface.md)
    * [Database Constraints](database_constraints.md)
    * [Issuing a New Release](issuing_a_new_release.md)
+
