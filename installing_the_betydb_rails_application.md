@@ -1,7 +1,6 @@
 # Installing the BETYdb Rails Application
 
-[Note: This guide is aimed at Rails developers and testers.  If you are a Pecan developer, you may want to use the notes in the [Pecan Wiki](https://github.com/PecanProject/pecan/wiki/Installing-PEcAn#installing-bety) instead of or in addition to the notes below.]
-
+*Note:* This guide is aimed at Rails developers and testers.  If you are a Pecan developer, you may want to use the notes in the [PEcAn documentation](https://pecan.gitbooks.io/pecan-documentation/content/installation/Installing-PEcAn.html) instead of or in addition to the notes below.
 
 # Prerequisites
 
