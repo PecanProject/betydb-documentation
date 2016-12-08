@@ -12,7 +12,7 @@
     },
     "pluginsConfig": {
         "edit-link": {
-            "base": "https://github.com/pecanproject/betydb-documentation",
+            "base": "https://github.com/pecanproject/betydb-documentation/edit/master",
             "label": "Edit This Page"
         }
     }
