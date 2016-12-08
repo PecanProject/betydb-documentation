@@ -2,6 +2,9 @@
 
 *Note:* This guide is aimed at Rails developers and testers.  If you are a Pecan developer, you may want to use the notes in the [PEcAn documentation](https://pecan.gitbooks.io/pecan-documentation/content/installation/Installing-PEcAn.html) instead of or in addition to the notes below.
 
+*quick start* The install_pecan.sh script contains [steps used to create a Virtual Machine on line 398](https://github.com/PecanProject/pecan/blob/master/scripts/install_pecan.sh#L398) and [dependencies for different OS's on line 102](
+https://github.com/PecanProject/pecan/blob/master/scripts/install_pecan.sh#L102)
+
 # Prerequisites
 
 1. Git
