@@ -49,6 +49,7 @@ Any changes to existing records should be done on the server that owns that reco
 | TERRA MEPP UIUC | ebi-forecast.igb.illinois.edu | http://ebi-forecast.igb.illinois.edu/mepp-bety | 8 | 8,000,000,001-9,000,000,000|
 | TERRA TAMU |  | *.tamu.edu/tamu-bety | 9 | 9,000,000,001-10,000,000,000|
 | Ghent      |  |  | 10 | 10,000,000,001 - 11,000,000,000|
+|TERRA Purdue | | *ecn.purdue.edu| 11 | 11,000,000,001 - 12,000,000,000| 
 | Development / Virtual Machine |localhost| https://localhost:6480/bety| 99 | 99,000,000,000-a zillion|
 
 ## Feedback Tab
