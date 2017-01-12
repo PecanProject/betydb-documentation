@@ -1,3 +1,19 @@
 {
-    "plugins": ["mathjax"]
+    "plugins": [
+        "mathjax",
+        "autocover",
+        "footnote-string-to-number",
+        "edit-link"
+    ],
+    "variables": {
+        "externalTables": {
+            "database_table_list": "https://www.betydb.org/db_docs/index.html"
+        }
+    },
+    "pluginsConfig": {
+        "edit-link": {
+            "base": "https://github.com/pecanproject/betydb-documentation/edit/master",
+            "label": "Edit This Page"
+        }
+    }
 }

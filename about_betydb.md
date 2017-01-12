@@ -1,6 +1,6 @@
 # About BETYdb
 
-# Database Description and User's Guide 
+# Database Description and User's Guide
 
 This wiki describes the purpose, design, and use of the Biofuel
 Ecophysiological Traits and Yields database (BETYdb). BETYdb is a
@@ -10,14 +10,14 @@ production of cellulosic biofuel crops. While the content of BETYdb is
 agronomic, the structure of the database itself is general and can
 therefore be used more generally for ecosystem studies.
 
-Note that this document does not cover the suite of tables used by PEcAn. 
-These are covered in the [[ PEcAn documentation | https://github.com/PecanProject/pecan/wiki ]].
+Note that this document does not cover the suite of tables used by PEcAn.
+These are covered in the [PEcAn documentation](https://pecan.gitbooks.io/pecan-documentation/content/).
 
 ## Objectives
 
 A major motivation of the biofuel industry is to reduce greenhouse gas
 emissions by providing ecologically and economically sustainable sources
-of fuel and dependence on fossil fuel. The goals of this database are to
+of fuel thereby reducing dependence on fossil fuel. The goals of this database are to
 provide a clearinghouse of existing research on potential biofuel crops;
 to provide a source of data on plant ecophysiological traits and yields;
 and to present ecosystem-scale re-analysis and forecasts that can
@@ -105,8 +105,8 @@ phylogenetic groups and plant functional types.
 BETYdb contains data from intensive efforts to find data for specific
 species of interest as well as from previous plant trait and yield
 syntheses and other databases. Most of the data currently in the
-database is from plant groups that are the focus of our current research
-([Table 1](#Table-1)). These species include perennial grasses, such as miscanthus
+database is from plant genera that are the focus of our current and previous research.
+These species include perennial grasses, such as miscanthus
 (*Miscanthus sinensis*) switchgrass (*Panicum virgatum*), and sugarcane
 (*Saccharyn* spp.). BETYdb also includes short-rotation woody species,
 including poplar (*Populus* spp.) and willow (*Salix* spp.) and a group
@@ -114,12 +114,7 @@ of species that are being evaluated at the energy farm as novel woody
 crops. In addition to these herbaceous species, we are collecting data
 from a species in an experimental low-input, high diversity prairie.
 
-An annotated, interactive schema can be accessed on the website by selecting ["docs --> schema"](https://www.betydb.org/schemas)
-
-
-![BETYdb Schema as Entity-Relationship Diagram](figures/summarymodel_lg.png "Figure 1")  
-
-**Figure 1**: Abbreviated schema for BETYdb.  Up-to-date versions of this figure and of the other figures and tables in this document may be found at https://www.betydb.org/schemas. 
+An annotated, interactive schema can be accessed on the website by selecting ["Docs --> Schema"](https://www.betydb.org/schemas).[^1]
 
 ## Design
 
@@ -130,7 +125,7 @@ structure of BETYdb is designed to support meta-analysis and ecological
 modeling. A key feature is the PFT (plant functional type) table which
 allows a user to group species for analysis. On top of the database, we
 have created a web-portal that targets a larger range of end users,
-including scientists, agronimists, foresters, and those in the biofuel
+including scientists, agronomists, foresters, and those in the biofuel
 industry.
 
 ## Data Entry
@@ -150,10 +145,31 @@ LeBauer](mailto:dlebauer@illinois.edu).
 ### Software
 
 
-The BETYdb was originally developed in MySQL and later converted to PostgreSQL.  It uses Ruby on Rails for its web portal and is hosted on a RedHat Linux Server (ebi-forecast.igb.uiuc.edu). 
+The BETYdb was originally developed in MySQL and later converted to PostgreSQL.  It uses Ruby on Rails for its web portal and is hosted on a RedHat Linux Server (ebi-forecast.igb.illinois.edu).
 BETYdb is a relational database designed in a generic way to facilitate easy
 implementation of additional traits and parameters.
 
 ## List of Tables in the BETY Database
 
-An up-to-date list of the tables in BETYdb along with their descriptions and diagrams of their interrelationships may be found at https://www.betydb.org/schemas.
+An up-to-date list of the tables in BETYdb along with their descriptions and diagrams of their interrelationships may be found at https://www.betydb.org/schemas. [^2]
+
+[^1] Not all of the columns intended as foreign keys are marked as such in the SQL schema.  Thus some lines (and even some tables) may be missing from the schema diagram.
+
+
+[^2] More comprehensive documentation of the schema may be found at
+https://www.betydb.org/db_docs/index.html.  The software used to produce this
+documentation, SchemeSpy, unfortunately does not document PostgreSQL check
+constraints.  Also note that row counts in this document are not, in general,
+completely up-to-date.  The complete, definitive documentation of the schema is
+the PostgreSQL code used to produce it, which may be found at
+https://github.com/PecanProject/bety/blob/master/db/production_structure.sql.
+
+Some background information about intended constraints may be found in the
+spreadsheet at
+https://docs.google.com/spreadsheets/d/1fJgaOSR0egq5azYPCP0VRIWw1AazND0OCduyjONH9Wk/edit?pli=1#gid=956483089
+and in a PDF document viewable and downloadable at
+https://www.overleaf.com/2086241dwjyrd.  These two documents are not necessarily
+up-to-date, and not all of the constraints mentioned in them have been
+implemented.  In some instances, constraints on new data have been imposed at
+the application level but have not yet been imposed on the database itself
+because of violations in existing data.

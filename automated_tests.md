@@ -2,9 +2,16 @@
 
 We use RSpec with Capybara for testing the BETYdb Rails application.  If you are involved in changing code, you should run the entire test suite before submitting a pull request.  If you discover a bug, you may wish to _write_ a failing test that demonstrates the bug, one that will pass once the bug is fixed.
 
-# Running the RSpec tests on BETYdb.
+## Development and Testing
 
-## Preparing the test database.
+Testing is an integral part of releasing a new version of the BETYdb Rails
+app. Developers should test prospective code on their development machines prior
+to submitting a pull request, and code managers should re-test the code before
+accepting a pull request.  See complete testing instructions below.
+
+## Running the RSpec tests on BETYdb.
+
+### Preparing the test database.
 
 [Note: The instructions below assume that the current Rails environment is `development` (the default).  If you have set it to something else--for example, by running `export RAILS_ENV=production` (you might do this, for example, if you only run BETYdb in production mode and didn't bother to set up a development environment or a development database)--modify these instructions accordingly.]
 
@@ -51,7 +58,7 @@ This will check for any pending migrations in the development database.  If ther
 (The fixtures are YAML files under `test/fixtures`.)
 
 
-## Running the tests
+### Running the tests
 
 * The simplest way to run the tests is to simply run 
 
@@ -98,7 +105,7 @@ This command will appear under the "Failed examples" section of a test run (assu
   2. --format documentation (-fd for short): get nicely formatted output
   3. --backtrace (-b for short): get a full backtrace
 
-## Troubleshooting
+### Troubleshooting
 
 Sometimes it is useful to carry out a features test manually as a web site user.  To do this, start up the rails server in the _test_ environment using the command `rails s -etest`.  Many or most of the features tests are written in such a way that you can figure out exactly what actions to carry out in order to mimic the test.
 
@@ -122,7 +129,7 @@ to
 
 the test will be run with a JavaScript driver (Selenium, if you set RAILS_DEBUG=true).  Then you can add `binding.pry` breakpoint lines as needed and see the test in action.
 
-## Creating a new PostGIS-enabled database template
+### Creating a new PostGIS-enabled database template
 
 As mentioned above, you must have a PostGIS-enabled database template set up in order for the `rake db:test:prepare` command to work.  The easiest way to do this is to add the PostGIS extension to the default database template, which is called `template`.  This can be done with the command
 
