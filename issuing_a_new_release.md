@@ -167,8 +167,8 @@ and check it in:[^automatic_generation_of_structure_file]
  ```
  bundle exec rake db:test:prepare
  bundle exec rake db:fixtures:load RAILS_ENV=test
- rspec -t ~js
- rspec -t js
+ bundle exec rspec -t ~js
+ bundle exec rspec -t js
  ```
 
  The two rspec lines can be combined (just `rspec`), but I generally like to run
