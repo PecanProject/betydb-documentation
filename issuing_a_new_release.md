@@ -30,7 +30,7 @@ release, you can examine the Git log content starting with the previous release
 using (for example) the command
 
 ```
-git log betydb_x.xx master --stat
+git log betydb_x.xx..master --stat
 ```
 
 (Here, `betydb_x.xx` is assumed to be the tag name for the previous release.
