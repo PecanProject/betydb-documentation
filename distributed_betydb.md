@@ -32,7 +32,7 @@ This will set the number range based on the `MYSITE` variable
 
 ### Primary Key Allocations
 
-Assigning a unique set of primary key values to each instance of BETYdb allows each distributed system to create new records that can later be shared, and to import new records from other databases.
+Assigning a unique set of primary key values to each instance of BETYdb allows each distributed system to create new records that can later be shared, and to import new records from other databases. Ranges with no server listed are reserved but may not be deployed or are used offline.
 
 Any changes to existing records should be done on the server that owns that record.
 
@@ -42,14 +42,14 @@ Any changes to existing records should be done on the server that owns that reco
 | Boston University| psql-pecan.bu.edu |https://psql-pecan.bu.edu/bety | 1 | 1,000,000,001-2,000,000,000|
 | Brookhaven National Lab|modex.test.bnl.gov|http://modex.test.bnl.gov/bety|  2 | 2,000,000,001-3,000,000,000|
 | Purdue| bety.bio.purdue.edu | http://bety.bio.purdue.edu/ | 3 | 3,000,000,001-4,000,000,000|
-| Virginia Tech| | | 4 | 4,000,000,001-5,000,000,000|
+| Virginia Tech  | | 4 | 4,000,000,001-5,000,000,000|
 | University of Wisconsin | tree.aos.wisc.edu | http://tree.aos.wisc.edu:6480/bety | 5 | 5,000,000,001-6,000,000,000|
 | TERRA Ref | 141.142.209.94  | http://terraref.ncsa.illinois.edu/bety | 6 | 6,000,000,001-7,000,000,000|
 | TERRA test | 141.142.209.95 | http://terraref.ncsa.illinois.edu/bety-test  | 7 | 7,000,000,001-8,000,000,000|
-| TERRA MEPP UIUC | ebi-forecast.igb.illinois.edu | http://ebi-forecast.igb.illinois.edu/mepp-bety | 8 | 8,000,000,001-9,000,000,000|
-| TERRA TAMU |  | *.tamu.edu/tamu-bety | 9 | 9,000,000,001-10,000,000,000|
+| TERRA MEPP UIUC | terra-mepp.ncsa.illinois.edu | terra-mepp.ncsa.illinois.edu/bety | 8 | 8,000,000,001-9,000,000,000|
+| TERRA TAMU |  |  | 9 | 9,000,000,001-10,000,000,000|
 | Ghent      |  |  | 10 | 10,000,000,001 - 11,000,000,000|
-|TERRA Purdue | | *ecn.purdue.edu| 11 | 11,000,000,001 - 12,000,000,000| 
+|TERRA Purdue | | | 11 | 11,000,000,001 - 12,000,000,000| 
 | Development / Virtual Machine |localhost| https://localhost:6480/bety| 99 | 99,000,000,000-a zillion|
 
 ## Feedback Tab
