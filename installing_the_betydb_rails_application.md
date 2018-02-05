@@ -135,3 +135,22 @@ See instructions [[Updating-BETY]]
 1. You should now be able to visit the web application at http://localhost:3000.
 1. To log in, use `Login: carya`, `Password: illinois`
 
+# Logrotation
+
+To prevent the log files from growing to large it is recommended to use logrotation. This will rotate the logs (for example every week) and append .1 etc to the logfiles. The following can be used on an Ubuntu system.
+
+Edit `/etc/logrotate.conf` and add the following snippet at the bottom (replacing /home/bety/bety with the actual path to the installation of bety):
+
+```
+/home/bety/bety/log/*.log {
+  daily
+  missingok
+  rotate 7
+  compress
+  delaycompress
+  notifempty
+  copytruncate
+}
+```
+
+Once this installed you can force a logrotate to happen (or wait till Sunday) by using: `sudo /usr/sbin/logrotate -f /etc/logrotate.conf`
