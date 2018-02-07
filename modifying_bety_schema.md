@@ -35,9 +35,45 @@ production:
 
 6. Modifying the database involves adding new Ruby scripts to the `db/migrate` directory.
    In a nutshell, each migration describes a database revision (`up` -- how to make the change) and its inverse (`down` -- how to undo the change).
+   Here is an example that adds a new `workflow_id` column to the `ensembles` table.
+
+```
+class AddWorkflowIdToEnsembles < ActiveRecord::Migration
+  def self.up
+    add_column :ensembles, :workflow_id, :integer
+  end
+
+  def self.down
+    remove_column :ensembles, :workflow_id
+  end
+end
+```
+
+   Here is another example that runs SQL code directly to add a constraint on a column in a table:
+
+```
+class AddGeometryConstraint < ActiveRecord::Migration
+  def self.up
+    execute %q{
+      ALTER TABLE public.sites
+        ADD CONSTRAINT enforce_valid_geom CHECK (st_isvalid(geometry))
+    }
+  end
+
+  def self.down
+    execute %q{
+      ALTER TABLE public.sites
+        DROP CONSTRAINT enforce_valid_geom
+    }
+  end
+end
+```
+
    There are lots of examples of previous migrations in this directory that can be used for reference.
    Database operations can be performed by passing SQL queries directly to an `execute %q{<YOUR QUERY HERE>}` statement, or through Ruby helper commands like `change_column`.
    Although you can name migrations whatever you want, because they are run in numerical-alphabetical order, the convention is to prefix your script with the current year, month, day, hour, minute, and second (you can generate this string by running `date +%Y%m%d%H%M%S` on the command line).
+   Alternatively, a command like the following can be used to automatically generate a properly named file in the appropriate place:
+   `bundle exec rails generate migration MyNewMigration`.
 
 7. To apply the new database changes, re-run `bundle exec rake db:migrate RAILS_ENV=production` from the bety repository root directory.
 
