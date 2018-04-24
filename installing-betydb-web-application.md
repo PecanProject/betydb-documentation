@@ -1,15 +1,17 @@
 # Installing a Production Copy of BETYdb on ebi-forecast or pecandev
 
-These instructions are specifically tailored to the task of adding new instances of BETYdb to a CentOS 5 machine using the deployment scheme we already currently have in place.  Thus, they assume the following are installed:
+These instructions are specifically tailored to the task of adding new instances
+of BETYdb to a CentOS 5 machine using the deployment scheme we already currently
+have in place.  Thus, they assume the following are installed:
 
-1. Ruby version 2.1.5.
-2. Apache 2.2.
-3. PostgreSQL 9.3.
-4. PostGIS 2.1.3.
-5. Git 1.8.2.1.
-6. R 3.1.0
-
-In most or all cases later versions of these will work, and in many cases earlier versions may work as well.
+1. Ruby version 2.2.2 or greater.
+2. Apache 2.2 or greater.
+3. PostgreSQL 9.3 or greater.
+4. PostGIS 2.1.0 or greater.
+5. Git 1.8.2.1 or greater.
+6. R 3.1.0 or greater.[^package_notes]
+7. Graphviz dot version 2.2.1 a version greater than 2.4.[^package_notes]
+8. Java 1.8 or greater.[^package_notes]
 
 
 **IMPORTANT! In what follows, we use the following placeholder strings to represent names that will vary with the installation:**
@@ -22,7 +24,7 @@ In most or all cases later versions of these will work, and in many cases earlie
 
 
 
-## Step 1: Log in to the Deployment Machine.
+## Step 1: Log in to the Deployment Machine
 
 You will need to have root access or sudo permission to add a new user and edit
 the HTTPD configuration files.
@@ -31,12 +33,12 @@ the HTTPD configuration files.
 
 It is recommended to run each Rails app under its own user account.  By
 convention, the user account will have the same name as the app.  Use the
-following command to create the user:[^1]
+following command to create the user:[^phusion_passenger]
 ```
 CREATE_MAIL_SPOOL=no sudo useradd -M <betyappuser>
 ```
 
-## Step 3: Clone a new BETYdb instance.
+## Step 3: Clone a new BETYdb instance
 
 ```sh
 cd /usr/local
@@ -45,7 +47,7 @@ sudo -u <betyappuser> -H git clone https://github.com/PecanProject/bety.git <bet
 
 (Note that -H should only be used if you created a home directory for `<betyappuser>`.)
 
-## Step 4: Log in as the app's user (`<betyappuser>`) and CD to the root directory of the new BETYdb instance.
+## Step 4: Log in as the app's user (`<betyappuser>`) and CD to the root directory of the new BETYdb instance
 
 You can log in by running
 ```
@@ -58,7 +60,7 @@ cd <betyapp>
 
 ## Step 5: Create a Database Configuration File
 
-To do this from the command line, just run[^2]
+To do this from the command line, just run[^database_config]
 ```
 cat > config/database.yml << EOF
 production:
@@ -82,7 +84,10 @@ You will be prompted for `<dbuser>`'s password.
 
 ## Step 7: Load the Database Schema and Essential Data
 
-Use the script `script/update-betydb.sh` to load the database schema.  `update-betydb.sh` is just a wrapper around the script `load.bety.sh`, which doesn't exist until you download it.  To do so, run `update-betydb.sh` without options:
+Use the script `script/update-betydb.sh` to load the database schema.
+`update-betydb.sh` is just a wrapper around the script `load.bety.sh`, which
+doesn't exist until you download it.  To do so, run `update-betydb.sh` without
+options:
 ```sh
 ./script/update-betydb.sh
 ```
@@ -90,10 +95,14 @@ Then re-run it with the -c, -e, -m, -r, -g, and -d options as follows:
 ```sh
 ./script/update-betydb.sh -c -e -m <localdb id number> -r 0 -g -d <betydb>
 ```
-(Here, "localdb id number" is some integer that is unique to each database.  See https://github.com/PecanProject/bety/wiki/Distributed-BETYdb for further information.) 
+(Here, "localdb id number" is some integer that is unique to each database.  See
+https://github.com/PecanProject/bety/wiki/Distributed-BETYdb for further
+information.)
 
-This will create the tables, views, indices, constraints, and functions required for BETYdb.  The tables will all be empty except for the following: `formats`, `machines`, `mimetypes`, `schema_migrations`, `spacial_ref_sys`, and `users`.  A guestuser account will be added to the users table.
-[^3]
+This will create the tables, views, indices, constraints, and functions required
+for BETYdb.  The tables will all be empty except for the following: `formats`,
+`machines`, `mimetypes`, `schema_migrations`, `spacial_ref_sys`, and `users`.  A
+guestuser account will be added to the users table.  [^database_structure_file]
 
 ## Step 8: Run the Bundler to Install Ruby Gems
 
@@ -107,7 +116,7 @@ the global Ruby Gem location.  This makes your deployed instances more
 independent of one another.  The `--without` flag omits installing Gems that are
 only used in the test and developments environments.  (They may be installed
 later if desired.)  Note that the `--deployment` and `--without` options are
-remembered options.[^4]
+remembered options.[^running_the_bundler]
 
 ## Step 9: Make a Site Key File
 
@@ -129,7 +138,7 @@ key to do any good, it should be kept a secret.  _Note that if you ever change
 the value of `REST_AUTH_SITE_KEY`, all of your user's passwords will be
 invalidated!_
 
-## Step 10: Configure Apache HTTP Server to Serve Your New Rails App Instance[^5]
+## Step 10: Configure Apache HTTP Server to Serve Your New Rails App Instance[^deployment_note]
 
 Add the following to your Apache HTTP Server configuration:
 ```
@@ -177,11 +186,11 @@ must either override it with a PassengerRuby setting or update it (being sure to
 override the new default if necessary for any Rails applications that still need
 to use the old setting).
 
-Where should the PassengerRuby directive be added?  If you are using a virtual host and all of the Rails
-applications served by that host will use this Ruby version, you may add the
-PassengerRuby directive directly inside the VirtualHost block.  Otherwise,
-restrict it to a particular location by placing it in the Location block for the
-app instance you are adding, as shown above.
+Where should the PassengerRuby directive be added?  If you are using a virtual
+host and all of the Rails applications served by that host will use this Ruby
+version, you may add the PassengerRuby directive directly inside the VirtualHost
+block.  Otherwise, restrict it to a particular location by placing it in the
+Location block for the app instance you are adding, as shown above.
 
 
 
@@ -192,11 +201,19 @@ On pecandev, this works:
 sudo apachectl restart
 ```
 
-At this point you should be able to view the site at `https://ebi-forecast.igb.illinois.edu/<bety_url>` or `http://pecandev.igb.illinois.edu/<bety_url>`, depending on which machine you deployed to.
+At this point you should be able to view the site at
+`https://ebi-forecast.igb.illinois.edu/<bety_url>` or
+`http://pecandev.igb.illinois.edu/<bety_url>`, depending on which machine you
+deployed to.
 
 ## Step 12: Create an Administrative Account
 
-Go to the login page (`https://ebi-forecast.igb.illinois.edu/<bety_url>` or `http://pecandev.igb.illinois.edu/<bety_url>`) and click the "Register for BETYdb" button.  Fill out at least the required fields (Login, Email, and the two password fields—do _not_ change the access level settings!), type the captcha text, and click "Sign Up".  You should see the "Thanks for signing up!" message.
+Go to the login page (`https://ebi-forecast.igb.illinois.edu/<bety_url>` or
+`http://pecandev.igb.illinois.edu/<bety_url>`) and click the "Register for
+BETYdb" button.  Fill out at least the required fields (Login, Email, and the
+two password fields—do _not_ change the access level settings!), type the
+captcha text, and click "Sign Up".  You should see the "Thanks for signing up!"
+message.
 
 Once you have created a user, give that user full access privileges.  To do this, use psql:
 ```sh
@@ -215,26 +232,23 @@ used 'thisisnotasecret' as the site key in step 6, and you shouldn't
 use this as a site key on a production server.  So you need to reset
 the guestuser password.
 
-Log in as the administrative user you created in step 12 and go to the Users list (menu item `Data/Users`).  Search
-for "guestuser" and click the edit button for that user.  Check the
-"change password" checkbox and then enter "guestuser" in both password
-fields; then click the "Update" button.
+Log in as the administrative user you created in step 12 and go to the Users
+list (menu item `Data/Users`).  Search for "guestuser" and click the edit button
+for that user.  Check the "change password" checkbox and then enter "guestuser"
+in both password fields; then click the "Update" button.
 
 Now log out and try the "Log in as Guest" button.
 
 ___
+[^package_notes]: BETYdb will mostly run without R, dot, and Java.  R is needed for generating preview images on the Priors pages.  Java is needed in order to generate the database schema documentation, and dot is needed to generate diagrams for that documentation.
 
-[^1] The relevant Phusion Passenger documentation is at
-https://www.phusionpassenger.com/library/walkthroughs/deploy/ruby/ownserver/nginx/oss/rubygems_norvm/deploy_app.html.
-You may wish to give the <betyappuser> account a home directory—for example, to
-be able to log in as that user with an ssh key.  In this case, leave out the `-M`
-option.
+[^phusion_passenger]: The relevant Phusion Passenger documentation is at https://www.phusionpassenger.com/library/walkthroughs/deploy/ruby/ownserver/nginx/oss/rubygems_norvm/deploy_app.html. You may wish to give the <betyappuser> account a home directory—for example, to be able to log in as that user with an ssh key.  In this case, leave out the `-M` option.
 
-[^2] This sets up a bare-bones `database.yml` file for the production environment only.  You may wish to add sections for the development and test environments.  See the template file `config/database.yml.template` for a model.  It may be convenient in certain cases to use the same database for both development and production.  **_The test database, however, should always be different!_**
+[^database_config]: This sets up a bare-bones `database.yml` file for the production environment only.  You may wish to add sections for the development and test environments.  See the template file `config/database.yml.template` for a model.  It may be convenient in certain cases to use the same database for both development and production.  **_The test database, however, should always be different!_**
 
-[^3] All table, views, constraints, indices, and functions for the BETY database are defined in the file db/production_structure.sql.  We could have loaded the database schema by loading this file: 
+[^database_structure_file]: All table, views, constraints, indices, and functions for the BETY database are defined in the file db/structure.sql.  We could have loaded the database schema by loading this file: 
 ``` 
-bundle exec rake db:structure:load RAILS_ENV=production DB_STRUCTURE=db/production_structure.sql 
+bundle exec rake db:structure:load RAILS_ENV=production DB_STRUCTURE=db/structure.sql 
 ``` 
 (The `RAILS_ENV` variable tells which block in `config/database.yml` to consult when looking up the database name, and the `DB_STRUCTURE` variable tells which file contains the database schema definition.)  This would have created an entirely empty database, however, and would not set the initial indices for newly-generated ids so as to be compatible with the database synchonization scripts.
 
@@ -244,11 +258,11 @@ createdb -U <dbuser> betydb_dev
 ```
 and then run
 ```sh
-bundle exec rake db:structure:load RAILS_ENV=development DB_STRUCTURE=db/production_structure.sql
+bundle exec rake db:structure:load RAILS_ENV=development DB_STRUCTURE=db/structure.sql
 ```
-The development environment is usually the default, so the `RAILS_ENV` setting is most likely not strictly necessary.  **_Note that we still pull the database schema definition from `db/production_structure.sql` even though we are setting up a development database!_**
+The development environment is usually the default, so the `RAILS_ENV` setting is most likely not strictly necessary.  **_Note that we still pull the database schema definition from `db/structure.sql` even though we are setting up a development database!_**
 
-[^4] If you set up the development and test database specifications in step 5, this means you probably actually want to be able to use these environments.  In this case you should omit the `--without` flag.
+[^running_the_bundler]: If you set up the development and test database specifications in step 5, this means you probably actually want to be able to use these environments.  In this case you should omit the `--without` flag.
 
 Some users may want to do _some_ testing but may have trouble installing
 Capybara Webkit.  If you don't care about using Capabara Webkit for testing, you
@@ -262,7 +276,7 @@ second time, the list of groups to skip will overwrite any previous remembered
 list; you must specify the complete list of groups you wish to skip each time
 unless the list is the same as it was the last time you ran `bundle install`.
 
-[^5] Instructions here are for sub-URL deployments.  These are deployments where the Rails root is reached via a URL of the form
+[^deployment_note]: Instructions here are for sub-URL deployments.  These are deployments where the Rails root is reached via a URL of the form
 ```
 http(s)://hostname/directoryname
 ```
