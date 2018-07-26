@@ -4,7 +4,7 @@
    * [About BETYdb](about_betydb.md)
    * [BETYdb Tables](betydb_tables.md)
 * [Installing BETYdb](installing_betydb.md)
-   * [installing-betydb-web-application](installing-betydb-web-application.md)
+   * [Deploying BETYdb on CentOS](installing-betydb-web-application.md)
    * [Dependencies: Setting up a Server](dependencies_setting_up_a_server.md)
    * [Installing Postgres](installing_postgres.md)
    * [Installing the BETYdb Rails Application](installing_the_betydb_rails_application.md)
