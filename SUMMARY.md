@@ -3,7 +3,6 @@
 * [Introduction](README.md)
    * [About BETYdb](about_betydb.md)
    * [BETYdb Tables](betydb_tables.md)
-* [Setting up BETYdb](setting_up_betydb.md)
 * [Installing BETYdb](installing_betydb.md)
    * [Deploying BETYdb on CentOS](installing-betydb-web-application.md)
    * Dependencies
