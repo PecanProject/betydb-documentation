@@ -4,16 +4,18 @@ These instructions are specifically tailored to the task of setting up a new
 instance of BETYdb on a CentOS 7 machine.  We assume the following are installed:
 
 1. Ruby Version Manager (RVM).
-2. Apache 2.2 or greater.
-3. PostgreSQL 9.3 or greater.
-4. PostGIS 2.1.0 or greater.
-5. Git 1.8.2.1 or greater.
-6. R 3.1.0 or greater.[^package_notes]
-7. Graphviz dot version 2.2.1 or a version greater than 2.4.[^package_notes]
-8. Java 1.8 or greater.[^package_notes]
-9. nodejs and npm
-10. curl
-11. Your preferred editor.
+1. Bundler
+1. Phusion Passenger
+1. Apache 2.2 or greater.
+1. PostgreSQL 9.3 or greater.
+1. PostGIS 2.1.0 or greater.
+1. Git 1.8.2.1 or greater.
+1. R 3.1.0 or greater.[^package_notes]
+1. Graphviz dot version 2.2.1 or a version greater than 2.4.[^package_notes]
+1. Java 1.8 or greater.[^package_notes]
+1. nodejs and npm
+1. curl
+1. Your preferred editor.
 
 In addition, we assume:
 
@@ -93,7 +95,7 @@ cd /var/www/betyapp
 sudo -u betyappuser -H git clone https://github.com/PecanProject/bety.git code
 ```
 
-### Step 5: Install the correct version of Ruby
+### Step 5: If you have not already done so, install the correct version of Ruby
 
 First cd to the Rails root directory:
 ```bash
@@ -165,6 +167,8 @@ production:
   password: <dbpw>
 EOF
 ```
+replacing the placeholders `<betydb>`, `<dbuser>`, and `<dbpw>` with whatever
+identifiers you chose to user for these entities.
 
 ### Step 9: Create a Rails application customization file
 
@@ -262,16 +266,16 @@ information.
 This will create the tables, views, indices, constraints, and functions required
 for BETYdb, replicating the database schema found on machine 0, the Energy
 Biosciences Institute server for BETYdb, whose BETYdb database schema is
-considered the "canonical" or "official" schema.  (Other machines may have a
-slightly modified schema, so it important to use the the creation (`-c-`) option
-only when the remote machine is machine 0.)  The tables will all be empty except
-for the following: `formats`, `machines`, `mimetypes`, `schema_migrations`,
-`spacial_ref_sys`, and `users`.  A guest user account ("guestuser") will be added to the users
-table.
+considered the "canonical" or "official" schema.[^schema] (Other machines may
+have a slightly modified schema, so it is important to use the creation (`-c`)
+option only when the remote machine is machine 0.)  The tables will all be empty
+except for the following: `formats`, `machines`, `mimetypes`,
+`schema_migrations`, `spacial_ref_sys`, and `users`.  A guest user account
+("guestuser") will be added to the users table.
 
 This machine's database contains the most extensive metadata, so you may want
-load the _data_ from this machine as well.  To do so run the above command
-without the "-e" option.
+load the _data_ from this machine, not just the database schema.  To do so, run
+the above command without the "-e" option.
 
 ### Step 16: (Optional) Load data from another machine:
 ```bash
@@ -520,6 +524,8 @@ ___
 [^phusion_passenger]: The relevant Phusion Passenger documentation is at https://www.phusionpassenger.com/library/walkthroughs/deploy/ruby/ownserver/apache/oss/el7/deploy_app.html#rails_login-to-your-server-create-a-user-for-the-app
 
 [^sticky bundle configuration]: We don't need to repeat all the options to `bundle install` that we used earlier because these options are "sticky": they are stored in the bundle configuration file and will be used automatically until explicitly removed.
+
+[^schema]: Unless otherwise noted, we use the word "schema" in its traditional sense, where it refers to the logical structure of a database, including the tables, views, functions, and integrity constraints it comprises.  We are not using "schema" in its PostgreSQL-specific sense, where it refers to a namespace within a database.
 
 [^ssl]: If the Web site is to be served using SSL (Secure Sockets Layer), the virtual host directive should be `<VirtualHost *:443>`.  Data providers that are particularly concerned about data security are advised to use SSL.  If SSL is used, it is recommended to redirect calls to port 80 (http) to port 443 (https) using a directive such as the following:
 ```
