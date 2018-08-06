@@ -216,7 +216,8 @@ be in the `/var/www/betyapp/code` directory._
 
 ### Step 11: Download the load.bety.sh script from the PEcAn repository:
 ```bash
-curl https://raw.githubusercontent.com/PecanProject/pecan/develop/scripts/load.bety.sh > scripts/load.bety.sh
+curl https://raw.githubusercontent.com/PecanProject/pecan/develop/scripts/load.bety.sh > script/load.bety.sh
+chmod +x script/load.bety.sh
 ```
 
 Now exit the `<betyappuser>` account:
