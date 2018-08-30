@@ -1,11 +1,10 @@
-# Setting Up a CentOS Server
+# Setting up a CentOS Server
 
 ## Install CentOS 7
 
-Download CentOS from https://www.centos.org/download/.  The DVD ISO should have the essentials.
+Download CentOS from [https://www.centos.org/download/](https://www.centos.org/download/). The DVD ISO should have the essentials.
 
-Alternatively, you can use the NetInstall verion.  Instructions are here:
-https://www.if-not-true-then-false.com/2014/centos-7-netinstall-guide/
+Alternatively, you can use the NetInstall verion. Instructions are here: [https://www.if-not-true-then-false.com/2014/centos-7-netinstall-guide/](https://www.if-not-true-then-false.com/2014/centos-7-netinstall-guide/)
 
 ## Install additional system software
 
@@ -28,9 +27,9 @@ yum install R
 yum install java
 ```
 
-## Install required Ruby and Rails software[^ruby_with_rvm]
+## Install required Ruby and Rails software
 
-### RVM (Ruby Version Manager)
+### RVM \(Ruby Version Manager\)
 
 * Run the following three commands to get and install RVM and add yourself to the `rvm` group:
 
@@ -47,11 +46,9 @@ yum install java
   ```
 
 * Log out of the server and then log back in to make RVM take effect.
-
 * Install the correct version of Ruby
 
-  First, visit https://github.com/PecanProject/bety/blob/master/.ruby-version and
-note the version of Ruby that BETYdb currently expects.
+  First, visit [https://github.com/PecanProject/bety/blob/master/.ruby-version](https://github.com/PecanProject/bety/blob/master/.ruby-version) and note the version of Ruby that BETYdb currently expects.
 
   To install that version of Ruby, run
 
@@ -59,8 +56,7 @@ note the version of Ruby that BETYdb currently expects.
   rvm install ruby-X.X.X
   ```
 
-  where X.X.X is the version number found in the .ruby-version file.  Ensure this
-version is set as the default by running
+  where X.X.X is the version number found in the .ruby-version file. Ensure this version is set as the default by running
 
   ```bash
   rvm --default use ruby-2.3.0
@@ -68,21 +64,20 @@ version is set as the default by running
 
 ## Bundler:
 
-```
+```text
 gem install bundler --no-rdoc --no-ri
 ```
 
-
-## node.js (needed to be able to compile Rails assets):
+## node.js \(needed to be able to compile Rails assets\):
 
 ```bash
 sudo yum install -y epel-release
 sudo yum install -y --enablerepo=epel nodejs npm
 ```
 
-## Phusion Passenger[^phusion_passenger]
+## Phusion Passenger
 
-Passenger requires EPEL.  Enable it with the following commands:
+Passenger requires EPEL. Enable it with the following commands:
 
 ```bash
 sudo yum install -y epel-release yum-utils
@@ -129,8 +124,3 @@ Check installation:
 sudo /usr/bin/passenger-config validate-install
 ```
 
----
-
-[^ruby_with_rvm]: See the Phusion Passenger site's instructions for installing RVM, Ruby, Bundler, and nodejs here: https://www.phusionpassenger.com/library/walkthroughs/deploy/ruby/ownserver/apache/oss/install_language_runtime.html
-
-[^phusion_passenger]: See the Phusion Passenger site's instructions for installing Passenger here: https://www.phusionpassenger.com/library/walkthroughs/deploy/ruby/ownserver/apache/oss/el7/install_passenger.html
