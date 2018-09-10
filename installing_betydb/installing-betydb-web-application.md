@@ -302,6 +302,7 @@ Create a new Apache configuration file (call it, say, `bety.conf`) in the
 configuration directory `/usr/httpd/conf.d` and open it in an editor.  Add the
 following contents to the file:[^ssl]
 
+      ```text
       <VirtualHost *:80>
           ServerName yourserver.com
 
@@ -323,7 +324,7 @@ following contents to the file:[^ssl]
             #Require all granted
           </Directory>
       </VirtualHost>
-
+      ```
    Here, replace `yourserver.com` with your server's host name and replace
    `/path-to-bety` with the path found above using the `passenger-config`
    command.
@@ -338,7 +339,7 @@ following contents to the file:[^ssl]
 
    Note: If you want your app to be served at a sub-URI of your server name,
    say, `yourserver.com/suburi`, use the following configuration instead:
-
+      ```text
       <VirtualHost *:80>
           ServerName yourserver.com
           
@@ -359,7 +360,7 @@ following contents to the file:[^ssl]
               #Require all granted
           </Directory>
       </VirtualHost>
-
+      ```
 ### Step 23: Restart Apache:
 
 ```text
