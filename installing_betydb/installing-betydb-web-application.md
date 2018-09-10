@@ -1,4 +1,4 @@
-# Deploying BETYdb on CentOS
+# Deploying a Production Copy of the BETYdb Web Application
 
 These instructions are specifically tailored to the task of setting up a new instance of BETYdb on a CentOS 7 machine. We assume the following are installed:
 
@@ -298,23 +298,67 @@ Use the location given in the resulting output as the value of `path-to-ruby` in
 
 ### Step 20: Configure the Apache Server
 
-Create a new Apache configuration file \(call it, say, `bety.conf`\) in the configuration directory `/usr/httpd/conf.d` and open it in an editor. Add the following contents to the file:
+Create a new Apache configuration file (call it, say, `bety.conf`) in the
+configuration directory `/usr/httpd/conf.d` and open it in an editor.  Add the
+following contents to the file:[^ssl]
 
- ServerName yourserver.com \# Tell Apache and Passenger where your app's 'public' directory is DocumentRoot /var/www/betyapp/code/public PassengerRuby /path-to-ruby \# Relax Apache security settings Allow from all Options -MultiViews SetEnv SECRET\_KEY\_BASE \# \(Alternatively, put "export SECRET\_KEY\_BASE=" in the .bash\_profile file for user.\) \# Uncomment this if you're on Apache &gt;= 2.4: \#Require all granted
+      <VirtualHost *:80>
+          ServerName yourserver.com
 
-Here, replace `yourserver.com` with your server's host name and replace `/path-to-bety` with the path found above using the `passenger-config` command.
+          # Tell Apache and Passenger where your app's 'public' directory is
+          DocumentRoot /var/www/betyapp/code/public
 
-Also, replace `<secret key>` with some long, random word. You can generate a suitable value using the command
+          PassengerRuby /path-to-ruby
 
-```text
-  bundle exec rake secret
-```
+          # Relax Apache security settings
+          <Directory /var/www/betyapp/code/public>
+            Allow from all
+            Options -MultiViews
 
-\(As noted in the comment, this setting can be put in the environment of `<betyappuser>` instead of here in the server configuration file.\)
+            SetEnv SECRET_KEY_BASE <secret key>
+            # (Alternatively, put "export SECRET_KEY_BASE=<secret key>" in the
+              .bash_profile file for user <betyappuser>.)
 
-Note: If you want your app to be served at a sub-URI of your server name, say, `yourserver.com/suburi`, use the following configuration instead:
+            # Uncomment this if you're on Apache >= 2.4:
+            #Require all granted
+          </Directory>
+      </VirtualHost>
 
- ServerName yourserver.com PassengerRuby /path-to-ruby Alias /suburi /var/www/betyapp/code/public PassengerBaseURI /suburi PassengerAppRoot /var/www/betyapp/code Allow from all Options -MultiViews SetEnv SECRET\_KEY\_BASE \# Uncomment this if you're on Apache &gt;= 2.4: \#Require all granted
+   Here, replace `yourserver.com` with your server's host name and replace
+   `/path-to-bety` with the path found above using the `passenger-config`
+   command.
+
+   Also, replace `<secret key>` with some long, random word.  You can generate a
+   suitable value using the command
+
+      bundle exec rake secret
+
+   (As noted in the comment, this setting can be put in the environment of
+   `<betyappuser>` instead of here in the server configuration file.)
+
+   Note: If you want your app to be served at a sub-URI of your server name,
+   say, `yourserver.com/suburi`, use the following configuration instead:
+
+      <VirtualHost *:80>
+          ServerName yourserver.com
+          
+          PassengerRuby /path-to-ruby
+
+          Alias /suburi /var/www/betyapp/code/public
+          <Location /suburi>
+              PassengerBaseURI /suburi
+              PassengerAppRoot /var/www/betyapp/code
+          </Location>
+          <Directory /var/www/betyapp/code/public>
+              Allow from all
+              Options -MultiViews
+
+              SetEnv SECRET_KEY_BASE <secret key>
+
+              # Uncomment this if you're on Apache >= 2.4:
+              #Require all granted
+          </Directory>
+      </VirtualHost>
 
 ### Step 23: Restart Apache:
 
