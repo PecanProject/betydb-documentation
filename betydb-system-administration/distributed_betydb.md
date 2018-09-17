@@ -29,7 +29,7 @@ MYSITE=X REMOTESITE=Y load.bety.sh
 
 This will set the number range based on the `MYSITE` variable
 
-> \(1,000,000,000  _MYSITE\) to \(\(1,000,000,000_  \(MYSITE + 1\)\) - 1\)
+> \(1,000,000,000 × __MYSITE\) to \(\(1,000,000,000 __× \(MYSITE + 1\)\) - 1\)
 
 ### Primary Key Allocations
 

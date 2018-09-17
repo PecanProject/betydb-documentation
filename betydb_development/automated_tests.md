@@ -34,7 +34,6 @@ Testing is an integral part of releasing a new version of the BETYdb Rails app. 
 
    ```yaml
       template: [your template name]
-    `
    ```
 
 4. Create the test database by running
