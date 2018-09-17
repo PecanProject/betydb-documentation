@@ -32,7 +32,7 @@ Once the release notes are written, it remains only to fill in the release title
 > * Making a backup copy of the database is unnecessary.
 > * **Important** If a migration is done, _do not_ commit the updated `production_structure.sql` to the Git repository. It is the structure of the canonical copy of the database—ebi\_production—that we want to document. While it is likely that the structure of the beta site's database and the structure of the production site's database are identical, it is best not to rely on this.
 
-Here are the steps required to upgrade the primary BETYdb Rails site to a newly-released version.. These step are roughly the same for _all_ the sites to be upgraded, but there are some slight differences, which we shall make note of where appropriate.
+Here are the steps required to upgrade the primary BETYdb Rails site to a newly-released version. These step are roughly the same for _all_ the sites to be upgraded, but there are some slight differences, which we shall make note of where appropriate.
 
 1. Log in to the host machine ebi-forecast.igb.illinois.edu:
 
