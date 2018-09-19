@@ -8,7 +8,7 @@
 
 ## Tables
 
-BETYdb is designed as a relational database, somewhat normalized as shown in the structure diagram [Figure 1](betydb_tables.md#figure-1). Each table has a primary key field, `id`, which serves as surrogate key, a unique identifier for each row in the table. Most tables have a natural key defined as well, by which rows can be uniquely identified by real-world attributes. In addition, most tables have a `created_at` and an `updated_at` column to record row-insertion and update timestamps, and the traits and yields tables each have a `user_id` field to record the user who originally entered the data.
+BETYdb is designed as a relational database, somewhat normalized as shown in the structure diagram [Figure 1](betydb_tables.md#schema-enhanced-entity-relationship-model). Each table has a primary key field, `id`, which serves as surrogate key, a unique identifier for each row in the table. Most tables have a natural key defined as well, by which rows can be uniquely identified by real-world attributes. In addition, most tables have a `created_at` and an `updated_at` column to record row-insertion and update timestamps, and the traits and yields tables each have a `user_id` field to record the user who originally entered the data.
 
 A complete list of tables along with short descriptions is provided in [Table 2](betydb_tables.md#table-2-list-of-key-data-tables-in-betydb), and a comprehensive description of the contents of each table is provided below. **Note: An up-to-date list of the tables in BETYdb along with their descriptions and diagrams of their interrelationships may be found at** [https://www.betydb.org/schemas](https://www.betydb.org/schemas)**.**
 
