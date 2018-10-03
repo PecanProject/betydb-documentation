@@ -54,14 +54,14 @@ will be used for several of these; for example, often `<betyappuser>`,
 
 ## Installing and Configuring Ruby and Rails Code
 
-### Step 1: Log in to the deployment machine as an administrator
+### Step 1: Log in to the deployment machine as an administrator {-}
 
 This is the account we refer to as `<adminuser>` above.  This user will need to
 have sudo permissions to do such tasks as adding a new user, deploying the
 BETYdb code base, editing the HTTPD configuration files, and starting and
 restarting the Web server.
 
-### Step 2: Add a new user as the owner of the BETYdb instance
+### Step 2: Add a new user as the owner of the BETYdb instance {-}
 
 It is recommended that each Rails app be run under its own user account.  Use
 the following command to create the user:[^phusion_passenger]
@@ -81,12 +81,12 @@ sudo sh -c "chmod 600 ~betyappuser/.ssh/*"
 ```
 
 
-### Step 3: Choose a location for the application code
+### Step 3: Choose a location for the application code {-}
 
 In this example, we'll choose `/var/www/betyapp` as the parent directory for the
 Rails root directory, which we'll call `code`.
 
-### Step 4: Create the target parent directory and clone the BETYdb code from the GitHub repository:
+### Step 4: Create the target parent directory and clone the BETYdb code from the GitHub repository: {-}
 
 ```bash
 sudo mkdir -p /var/www/betyapp
@@ -95,7 +95,7 @@ cd /var/www/betyapp
 sudo -u betyappuser -H git clone https://github.com/PecanProject/bety.git code
 ```
 
-### Step 5: If you have not already done so, install the correct version of Ruby
+### Step 5: If you have not already done so, install the correct version of Ruby {-}
 
 First cd to the Rails root directory:
 ```bash
@@ -126,7 +126,7 @@ to check that you have the correct version activated.
 _The next several steps should be run as the app's user (`<betyappuser>`)._
 
 
-### Step 6: Log in to the application's user account and make sure you are in the Rails root directory:
+### Step 6: Log in to the application's user account and make sure you are in the Rails root directory: {-}
 
 ```bash
 sudo -u betyappuser -H bash -l
@@ -139,20 +139,20 @@ but you should check that the correct version of Ruby is active:
 rvm current
 ```
 
-### Step 7: Use the Bundler to install the application Gems:
+### Step 7: Use the Bundler to install the application Gems: {-}
 
 ```bash
 bundle install --deployment --without development test javascript_testing debug
 ```
 
 If the bundler fails to install the "pg" Gem, use the "bundle config" command to
-add an option as follows and then re-run the bundle install command:[^sticky bundle configuration]
+add an option as follows and then re-run the bundle install command:[^sticky_bundle_configuration]
 ```bash
 bundle config --local build.pg --with-pg-config=/usr/pgsql-9.4/bin/pg_config
 bundle install
 ```
 
-### Step 8: Create a database configuration file
+### Step 8: Create a database configuration file {-}
 
 To do this from the command line, just run
 ```
@@ -170,7 +170,7 @@ EOF
 replacing the placeholders `<betydb>`, `<dbuser>`, and `<dbpw>` with whatever
 identifiers you chose to user for these entities.
 
-### Step 9: Create a Rails application customization file
+### Step 9: Create a Rails application customization file {-}
 
 The most important purpose of this file is to override the default site key so
 that your site will be more secure.
@@ -196,7 +196,7 @@ recommended to set the contact information appropriate for your site.
 Below, we show how to modify this file to enable the SchemaSpy documentation
 generator.
    
-### Step 10: Compile Rails assets:
+### Step 10: Compile Rails assets: {-}
 ```bash
 bundle exec rake assets:precompile RAILS_ENV=production
 ```
@@ -214,7 +214,7 @@ bundle exec rake assets:precompile RAILS_ENV=production RAILS_RELATIVE_URL_ROOT=
 _For this first step you should still be logged in as `<betyappuser>` and still
 be in the `/var/www/betyapp/code` directory._
 
-### Step 11: Download the load.bety.sh script from the PEcAn repository:
+### Step 11: Download the load.bety.sh script from the PEcAn repository: {-}
 ```bash
 curl https://raw.githubusercontent.com/PecanProject/pecan/develop/scripts/load.bety.sh > script/load.bety.sh
 chmod +x script/load.bety.sh
@@ -228,17 +228,17 @@ exit
 You should now be back to the administrator account `<adminuser>` that you
 originally logged in to.
 
-### Step 12: If you aren't already there, cd to the application root directory:
+### Step 12: If you aren't already there, cd to the application root directory: {-}
 ```bash
 cd /var/www/betyapp/code
 ```
 
-### Step 13: Log in as user postgres:
+### Step 13: Log in as user postgres: {-}
 ```bash
 sudo su postgres
 ```
 
-### Step 14: Create a role and a database for the BETYdb app
+### Step 14: Create a role and a database for the BETYdb app {-}
 
 First start psql:
 
@@ -254,7 +254,7 @@ CREATE DATABASE betydb WITH OWNER dbuser;
 \q
 ```
 
-### Step 15: Run the load.bety.sh script:
+### Step 15: Run the load.bety.sh script: {-}
 ```bash
 script/load.bety.sh -a postgres -c -d betydb -e -g -m <localdb id number> -o dbuser -r 0
 ```
@@ -278,7 +278,7 @@ This machine's database contains the most extensive metadata, so you may want
 load the _data_ from this machine, not just the database schema.  To do so, run
 the above command without the "-e" option.
 
-### Step 16: (Optional) Load data from another machine:
+### Step 16: (Optional) Load data from another machine: {-}
 ```bash
 script/load.bety.sh -a postgres -d betydb -m <localdb id number> -o dbuser -r <remotedb id number>
 ```
@@ -291,7 +291,7 @@ are available.
 (If you used the `-e` option in the previous step but then decided you want the
 full data from machine 0 after all, you can chose `<remotedb id number>`=0.)
 
-### Step 17: Exit the postgres user account:
+### Step 17: Exit the postgres user account: {-}
 
 ```bash
 exit
@@ -303,7 +303,7 @@ in the BETYdb app's root directory, `/var/www/betyapp/code`.
 
 ## Complete Apache and Passenger configuration
 
-### Step 18: Check that the correct version of Ruby is enabled:
+### Step 18: Check that the correct version of Ruby is enabled: {-}
 
 ```bash
 rvm current
@@ -311,7 +311,7 @@ rvm current
 
 This should be the version listed in the file .ruby-version
 
-### Step 19: Find the path to the Ruby interpreter:
+### Step 19: Find the path to the Ruby interpreter: {-}
 
 ```bash
 passenger-config about ruby-command
@@ -320,7 +320,7 @@ passenger-config about ruby-command
 Use the location given in the resulting output as the value of `path-to-ruby` in
 the next step.
 
-### Step 20: Configure the Apache Server
+### Step 20: Configure the Apache Server {-}
 
 Create a new Apache configuration file (call it, say, `bety.conf`) in the
 configuration directory `/usr/httpd/conf.d` and open it in an editor.  Add the
@@ -384,11 +384,11 @@ following contents to the file:[^ssl]
           </Directory>
       </VirtualHost>
 
-### Step 23: Restart Apache:
+### Step 21: Restart Apache: {-}
 
       sudo apachectl restart
 
-### Step 24: Test:
+### Step 22: Test: {-}
 
       curl yourserver.com
 
@@ -401,7 +401,7 @@ following contents to the file:[^ssl]
 
 ## Final Steps
 
-### Step 25: Create a BETYdb administrative account
+### Step 23: Create a BETYdb administrative account {-}
 
 In a browser, visit the home page of your new BETYdb site and click the
 "Register for BETYdb" button.  Fill out the form; at a minimum, you must supply
@@ -428,7 +428,7 @@ UPDATE users SET access_level = 1, page_access_level = 1 WHERE login = 'admin';
 ```
 
 
-### Step 26: Re-Set the Guest user account password
+### Step 24: Re-Set the Guest user account password {-}
 
 The Guest User account password will not be set correctly unless you use
 'thisisnotasecret' as the site key.  But for security reasons, you shouldn't use
@@ -445,7 +445,7 @@ enter "guestuser" in both password fields; then click the "Update" button.
 Now log out and try the "Log in as Guest" button to make sure that it works.
 
 
-### Step 27: Ensure images for Priors pages are generated
+### Step 25: Ensure images for Priors pages are generated {-}
 
 BETYdb uses `R` to generate images for the Priors pages on the fly if they don't
 already exist.  In order for this to work, the `ggplot2` `R` package must be
@@ -464,7 +464,7 @@ This will likely take a few minutes.  To check that all is well, open the BETYdb
 app in a browser and navigate to the Data/Priors page.  The images in the middle
 column should start being generated on the fly.
 
-### Step 28: Ensure the SchemaSpy documentation can be generated
+### Step 26: Ensure the SchemaSpy documentation can be generated {-}
 
 SchemaSpy documentation is generated using Java.  Two Jar files are needed, a
 PostgreSQL JDBC Driver file and a customized version of the SchemaSpy file.
@@ -524,7 +524,7 @@ ___
 
 [^phusion_passenger]: The relevant Phusion Passenger documentation is at https://www.phusionpassenger.com/library/walkthroughs/deploy/ruby/ownserver/apache/oss/el7/deploy_app.html#rails_login-to-your-server-create-a-user-for-the-app
 
-[^sticky bundle configuration]: We don't need to repeat all the options to `bundle install` that we used earlier because these options are "sticky": they are stored in the bundle configuration file and will be used automatically until explicitly removed.
+[^sticky_bundle_configuration]: We don't need to repeat all the options to `bundle install` that we used earlier because these options are "sticky": they are stored in the bundle configuration file and will be used automatically until explicitly removed.
 
 [^schema]: Unless otherwise noted, we use the word "schema" in its traditional sense, where it refers to the logical structure of a database, including the tables, views, functions, and integrity constraints it comprises.  We are not using "schema" in its PostgreSQL-specific sense, where it refers to a namespace within a database.
 
