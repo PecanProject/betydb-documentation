@@ -1,8 +1,6 @@
 # BETYdb Tables
 
-
 ## Schema: Enhanced Entity-Relationship Model
-
 
 <a name="Figure-1"></a>![BETYdb Schema as Entity-Relationship Diagram](figures/summarymodel_lg.png "Figure 1")
 
@@ -18,41 +16,41 @@ traits and yields tables each have a `user_id` field to record the user
 who originally entered the data.
 
 A complete list of tables along with short descriptions is provided in [Table 2](#Table-2), and a comprehensive
-description of the contents of each table is provided below. **Note: An up-to-date list of the tables in BETYdb along with their descriptions and diagrams of their interrelationships may be found at https://www.betydb.org/schemas.**
+description of the contents of each table is provided below. **Note: An up-to-date list of the tables in BETYdb along with their descriptions and diagrams of their interrelationships may be found at** https://www.betydb.org/schemas.
 
 <a name="Table-2"></a>
-![Alt text] (figures/ug table 2.png "Table 2")
 
-| Table                 | Key Fields                                                                  | Contents                                                                                                                                           | Use                                                                                                                                                                  |
-|-----------------------|-----------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Traits, Yields        | mean, n, variance estimate,date, time,site*, citation*,species*, treatment* | Trait, yield,,and ecosystem service data, including values and summary statistics.                                                                 | Stores primary,data                                                                                                                                                  |
-| Variables             | Name, Definition, Units                                                     | Definitions,,description, units, and allowable ranges of specific traits and ecosystem,services contained in the database                          | Defines primary,data, covariates, and priors                                                                                                                         |
-| Covariates            | Variable*, level                                                            | Context required,to interpret a particular data point, for example the time, temperature, or,location of a measurement                             | Contextual,information necessary to interpret data                                                                                                                   |
-| Plant Functional Type | Name, Definition, reference                                                 | Context required,to interpret a particular data point, for example the time, temperature, or,location of a measurement                             | Data synthesis,,QA/QC                                                                                                                                                |
-| Species               | Scientific name                                                             | USDA Plants database, amended with additional species and links to other tables within BETYdb                                                      |                                                                                                                                                                      |
-| Cultivars             | species*,name,citation                                                      | Specific,genotype bred for cultivation                                                                                                             |                                                                                                                                                                      |
-| Priors                | Variable*,citation*,                                                        | Probability distributions,that quantify knowledge of a variable in the absence of information at the,level of functional type, species or cultivar | Stores expert,knowledge, used in QA/QC and data analysis                                                                                                             |
-|                       | phylogeny,distribution                                                      |                                                                                                                                                    |                                                                                                                                                                      |
-| Treatments            | Name,definition                                                             | Qualitative,descriptions of treatments described in the primary publication                                                                        | Categorize,experimental treatments, permits reference to original publication                                                                                        |
-| Managements           | Date, Citation*,Type,Level,units                                            | Quantitative record of management activities performed on all plots or specific experimental interventions                                         |                                                                                                                                                                      |
-| Sites                 | Name, Lat, Lon                                                              | Location and,basic climate and soil information                                                                                                    |                                                                                                                                                                      |
-| Citations             | Author, Year, Title, doi                                                    | Unique reference,for source of information, not necessarily published                                                                              | Used in many,tables to independently record source of information that may come from,multiple publications                                                           |
-| Entities              | Parent, Name                                                                | Links related,trait records                                                                                                                        | Used to identify measurments made on the same unit of replication (e.g. leaf, plant, or plot),when information is available; used to ’pivot’ data from long to wide. |
+| Table                 | Key Fields                                                                  | Contents                                                                                                                                            | Use                                                                                                                                                                  |
+|-----------------------|-----------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Traits, Yields        | mean, n, variance estimate, date, time, site, citation, species, treatment  | Trait, yield, and ecosystem service data, including values and summary statistics.                                                                  | Stores primary,data                                                                                                                                                  |
+| Variables             | name, definition, units                                                     | Definitions, description, units, and allowable ranges of specific traits and ecosystem,services contained in the database                           | Defines primary,data, covariates, and priors                                                                                                                         |
+| Covariates            | variable, level                                                             | Context required to interpret a particular data point—for example the time, temperature, or location of a measurement                               | Contextual information necessary to interpret data                                                                                                                   |
+| Plant Functional Type | name, definition, reference                                                 | Context required to interpret a particular data point—for example the time, temperature, or location of a measurement                               | Data synthesis, QA/QC                                                                                                                                                |
+| Species               | scientific name                                                             | USDA Plants database, amended with additional species and links to other tables within BETYdb                                                       |                                                                                                                                                                      |
+| Cultivars             | species, name, citation                                                     | Specific genotype bred for cultivation                                                                                                              |                                                                                                                                                                      |
+| Priors                | variable, citation, phylogeny, distribution                                 | Probability distributions that quantify knowledge of a variable in the absence of information at the level of functional type, species, or cultivar | Stores expert knowledge; used in QA/QC and data analysis                                                                                                             |
+| Treatments            | name, definition                                                            | Qualitative descriptions of treatments described in the primary publication                                                                         | Categorize experimental treatments; permits reference to original publication                                                                                        |
+| Managements           | date, citation, type, level, units                                          | Quantitative record of management activities performed on all plots or specific experimental interventions                                          |                                                                                                                                                                      |
+| Sites                 | name, latitude, longitude                                                   | Location and basic climate and soil information                                                                                                     |                                                                                                                                                                      |
+| Citations             | author, year, title, DOI                                                    | Unique reference for source of information, not necessarily published                                                                               | Used in many tables to independently record source of information that may come from multiple publications                                                           |
+| Entities              | parent, name                                                                | Links related trait records                                                                                                                         | Used to identify measurments made on the same unit of replication (e. g. leaf, plant, or plot) when information is available; used to "pivot" data from long to wide. |
+
+Table: Table 2
 
 ## Table and field naming conventions
 
 
 Each table is given a name that describes the information that it
 contains. For example, the table containing trait data is called
-`traits`, the table containing yield data is `yields`, and so on. Each
-table also has a *primary key*; the primary key is always `id`, and the
-primary key of a specific table might be identified as `yields.id` . One
+"traits", the table containing yield data is "yields", and so on. Each
+table also has a *primary key*; the primary key is always "id", and the
+primary key of a specific table might be identified as "yields.id" . One
 table can reference another table using a *foreign key*; the foreign key
 is given a name using the singular form of the foreign table, an
-underscore, and `id`, e.g. `trait_id` or `yield_id`.
+underscore, and "id", e. g. "trait_id" or "yield_id".
 
 In some cases, two tables can have multiple references to one another,
-known as a ’many to many’ or ’m:n’ relationship. For example, one
+known as a "many to many" or "m:n" relationship. For example, one
 citation may contain data from many sites; at the same time, data from a
 single site may be included in multiple citations. Such relationships
 use join tables (also known as "association tables" or "junction tables"). Join tables (e.g. [Table 4](#Table-4), [Table 5](#Table-5), [Table 10](#Table-10), [Table 12](#Table-12), [Table 13](#Table-13))
@@ -72,7 +70,7 @@ be seen in [Table 17](#Table-17) and [Table 20](#Table-20).
 #### traits
 
 The **traits** table contains trait data ([Table 17](#Table-17)). Traits are measurable
-phenotypes that are influenced by a plants genotype and environment.
+phenotypes that are influenced by a plant's genotype and environment.
 Most trait records presently in BETYdb describe tissue chemistry,
 photosynthetic parameters, and carbon allocation by plants.
 
@@ -83,8 +81,8 @@ ha ([Table 20](#Table-20)). Biomass harvested in the fall and winter generally
 represents what a farmer would harvest, whereas spring and summer
 harvests are generally from small samples used to monitor the progress
 of a crop over the course of the growing season. Managements associated
-with Yields can be used to determine the age of a crop, the
-fertilization history, harvest history, and other useful information.
+with yields can be used to determine the age of a crop, the
+fertilization history, the harvest history, and other useful information.
 
 ### Auxillary Tables
 
@@ -109,7 +107,7 @@ be recorded in the managements table. A treatment name is used
 as a categorical (rather than continuous) variable, and the name relates
 directly to the nomenclature used in the original citation. The
 treatment name does not have to indicate the level of treatment used in
-a particular treatment&mdash;if required for analysis, this information is
+a particular treatment; if required for analysis, this information is
 recorded as a management.
 
 Each study includes a control treatment; when there is no experimental
@@ -138,7 +136,7 @@ Managements are distinct from treatments in that a management is used to
 describe the agronomic or experimental intervention that occurs at a
 specific time and may have a quantity whereas _treatment_ is a categorical
 identifier of an experimental group. Managements include actions that
-are done to a plant or ecosystem&mdash;for example the planting density or
+are done to a plant or ecosystem—for example the planting density or
 rate of fertilizer application.
 
 In other words, managements are the way a treatment becomes quantified.
@@ -189,7 +187,7 @@ In many cases, it is appropriate to use a pre-defined default PFT (for example
 define a new PFT to query a specific set of priors or subset of species.
 For example, there is a PFT for each of the functional types found at
 the EBI Farm prairie. Such project-specific PFTs can be named using the binomial scheme
-_projectname_._pftname_&mdash;for example, `ebifarm.c4grass` instead of simply `c4grass`.
+_projectname_._pftname_—for example, `ebifarm.c4grass` instead of simply `c4grass`.
 
 #### variables
 
@@ -203,7 +201,7 @@ the variable.
 
 
 Join tables are required when each row in one table may be related
-to many rows in another table, and vice-versa; this is called a ’many-to-many’ relationship.
+to many rows in another table and vice-versa; this is called a "many-to-many" relationship.
 
 #### citations\_sites
 
@@ -226,7 +224,7 @@ ensures this.
 
 #### managements\_treatments
 
-It is clear that one treatment may have many managements, e.g. tillage,
+It is clear that one treatment may have many managements, e. g. tillage,
 planting, fertilization. It is also important to note that any
 managements applied to a control plot should, by definition, be
 associated with all of the treatments in an experiment; this is why the

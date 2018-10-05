@@ -70,7 +70,7 @@ the _Save draft_ button to ensure your release notes don't disappear.**
 > this.
 
 Here are the steps required to upgrade the primary BETYdb Rails site to a
-newly-released version.[^newly_released].  These step are roughly the same for
+newly-released version.[^newly_released]  These step are roughly the same for
 _all_ the sites to be upgraded, but there are some slight differences, which we
 shall make note of where appropriate.
 
@@ -85,7 +85,7 @@ shall make note of where appropriate.
 
 1. Go to the Rails root directory for the EBI site:
 
- ```{bash}
+ ```bash
  cd /usr/local/ebi
  ```
 

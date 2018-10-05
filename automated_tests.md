@@ -35,7 +35,7 @@ If it doesn't, you can copy the section for `development` and then change the he
 
     ```yaml
       template: [your template name]
-    ````
+    ```
 
 1. Create the test database by running
 

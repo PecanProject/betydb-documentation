@@ -23,7 +23,7 @@ The instructions below are written mainly with the code manager in mind but are 
 
 Here is an outline "script" for deploying a new version of BETYdb to the production server:
 
-```{bash}
+```bash
 cd /usr/local/ebi # or to the Rails root of the copy you are upgrading
 
 # Check the git status to be sure the copy is "clean".

@@ -17,7 +17,7 @@ These are covered in the [PEcAn documentation](https://pecan.gitbooks.io/pecan-d
 
 A major motivation of the biofuel industry is to reduce greenhouse gas
 emissions by providing ecologically and economically sustainable sources
-of fuel thereby reducing dependence on fossil fuel. The goals of this database are to
+of fuel, thereby reducing dependence on fossil fuel. The goals of this database are to
 provide a clearinghouse of existing research on potential biofuel crops;
 to provide a source of data on plant ecophysiological traits and yields;
 and to present ecosystem-scale re-analysis and forecasts that can
@@ -78,7 +78,7 @@ interests of contributors. Trait and yield data are provided at the
 level of species, with cultivar and clone information provided where
 available.
 
-The yield data not only includes end-of-season harvestable yield, but
+The yield data not only includes end-of-season harvestable yield, it
 also includes measurements made over the course of the growing season.
 These yield data are useful in the assessment of historically observed
 crop yields, and they can also be used in the validation of plant
@@ -106,15 +106,15 @@ BETYdb contains data from intensive efforts to find data for specific
 species of interest as well as from previous plant trait and yield
 syntheses and other databases. Most of the data currently in the
 database is from plant genera that are the focus of our current and previous research.
-These species include perennial grasses, such as miscanthus
-(*Miscanthus sinensis*) switchgrass (*Panicum virgatum*), and sugarcane
+These species include perennial grasses such as miscanthus
+(*Miscanthus sinensis*), switchgrass (*Panicum virgatum*), and sugarcane
 (*Saccharyn* spp.). BETYdb also includes short-rotation woody species,
 including poplar (*Populus* spp.) and willow (*Salix* spp.) and a group
 of species that are being evaluated at the energy farm as novel woody
 crops. In addition to these herbaceous species, we are collecting data
-from a species in an experimental low-input, high diversity prairie.
+from a species in an experimental low-input, high-diversity prairie.
 
-An annotated, interactive schema can be accessed on the website by selecting ["Docs --> Schema"](https://www.betydb.org/schemas).[^1]
+An annotated, interactive database schema can be accessed on the BETYdb website by selecting ["Docs --> Schema"](https://www.betydb.org/schemas).[^foreign_key_note]
 
 ## Design
 
@@ -151,20 +151,20 @@ implementation of additional traits and parameters.
 
 ## List of Tables in the BETY Database
 
-An up-to-date list of the tables in BETYdb along with their descriptions and diagrams of their interrelationships may be found at https://www.betydb.org/schemas. [^2]
+An up-to-date list of the tables in BETYdb along with their descriptions and diagrams of their interrelationships may be found at https://www.betydb.org/schemas. [^full_docs]
 
-[^1] Not all of the columns intended as foreign keys are marked as such in the SQL schema.  Thus some lines (and even some tables) may be missing from the schema diagram.
+[^foreign_key_note]: Not all of the columns intended as foreign keys are marked as such in the SQL schema.  Thus some lines (and even some tables) may be missing from the schema diagram.
 
 
-[^2] More comprehensive documentation of the schema may be found at
+[^full_docs]: More comprehensive documentation of the schema may be found at
 https://www.betydb.org/db_docs/index.html.  The software used to produce this
 documentation, SchemeSpy, unfortunately does not document PostgreSQL check
 constraints.  Also note that row counts in this document are not, in general,
 completely up-to-date.  The complete, definitive documentation of the schema is
 the PostgreSQL code used to produce it, which may be found at
-https://github.com/PecanProject/bety/blob/master/db/production_structure.sql.
+https://github.com/PecanProject/bety/blob/master/db/structure.sql.
 
-Some background information about intended constraints may be found in the
+    Some background information about intended constraints may be found in the
 spreadsheet at
 https://docs.google.com/spreadsheets/d/1fJgaOSR0egq5azYPCP0VRIWw1AazND0OCduyjONH9Wk/edit?pli=1#gid=956483089
 and in a PDF document viewable and downloadable at
