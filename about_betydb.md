@@ -1,6 +1,4 @@
-# About BETYdb
-
-# Database Description and User's Guide
+# About BETYdb: Database Description and User's Guide
 
 This wiki describes the purpose, design, and use of the Biofuel
 Ecophysiological Traits and Yields database (BETYdb). BETYdb is a
@@ -11,7 +9,7 @@ agronomic, the structure of the database itself is general and can
 therefore be used more generally for ecosystem studies.
 
 Note that this document does not cover the suite of tables used by PEcAn.
-These are covered in the [PEcAn documentation](https://pecan.gitbooks.io/pecan-documentation/content/).
+These are covered in the [PEcAn documentation](https://pecanproject.github.io/pecan-documentation/master/){target="_blank"}.
 
 ## Objectives
 
@@ -59,11 +57,11 @@ summary, we hope to inspire new scientific perspectives on biofuel crop
 ecology that are based on a comprehensive evaluation of available
 knowledge.
 
-All public data in BETYdb is made available under the [Open Data Commons Attribution License (ODC-By) v1.0](http://opendatacommons.org/licenses/by/1-0/). You are free to share, create, and adapt its contents. Data in tables having an an access_level column and in rows where the access_level value is 1 or 2 are not covered by this license but may be available for use with consent.
+All public data in BETYdb is made available under the [Open Data Commons Attribution License (ODC-By) v1.0](http://opendatacommons.org/licenses/by/1-0/){target="_blank"}. You are free to share, create, and adapt its contents. Data in tables having an an access_level column and in rows where the access_level value is 1 or 2 are not covered by this license but may be available for use with consent.
 
 Please cite the source of data as:
 
-> LeBauer, David; Dietze, Michael; Kooper, Rob; Long, Steven; Mulrooney, Patrick; Rohde, Gareth Scott; Wang, Dan; (2010): Biofuel Ecophysiological Traits and Yields Database (BETYdb); Energy Biosciences Institute, University of Illinois at Urbana-Champaign. http://dx.doi.org/10.13012/J8H41PB9
+> LeBauer, David; Dietze, Michael; Kooper, Rob; Long, Steven; Mulrooney, Patrick; Rohde, Gareth Scott; Wang, Dan; (2010): Biofuel Ecophysiological Traits and Yields Database (BETYdb); Energy Biosciences Institute, University of Illinois at Urbana-Champaign. [http://dx.doi.org/10.13012/J8H41PB9](http://dx.doi.org/10.13012/J8H41PB9){target="_blank"}
 
 
 
@@ -114,25 +112,25 @@ of species that are being evaluated at the energy farm as novel woody
 crops. In addition to these herbaceous species, we are collecting data
 from a species in an experimental low-input, high-diversity prairie.
 
-An annotated, interactive database schema can be accessed on the BETYdb website by selecting ["Docs --> Schema"](https://www.betydb.org/schemas).[^foreign_key_note]
+An annotated, interactive database schema can be accessed on the BETYdb website by selecting ["Docs --> Schema"](https://www.betydb.org/schemas){target="_blank"}.[^foreign_key_note]
 
 ## Design
 
 
-BETYdb is a relational database that comprehensively documents available
-trait and yield data from diverse plant species ([Figure 1](#Figure-1)). The underlying
-structure of BETYdb is designed to support meta-analysis and ecological
-modeling. A key feature is the PFT (plant functional type) table which
-allows a user to group species for analysis. On top of the database, we
-have created a web-portal that targets a larger range of end users,
-including scientists, agronomists, foresters, and those in the biofuel
-industry.
+BETYdb is a relational database that comprehensively documents available trait
+and yield data from diverse plant species (Figure
+\@ref(fig:abbreviated-schema)).  The underlying structure of BETYdb is designed
+to support meta-analysis and ecological modeling. A key feature is the PFT
+(plant functional type) table which allows a user to group species for
+analysis. On top of the database, we have created a web-portal that targets a
+larger range of end users, including scientists, agronomists, foresters, and
+those in the biofuel industry.
 
 ## Data Entry
 
 
 The [Data Entry
-Workflow](https://dlebauer.gitbooks.io/betydbdoc-dataentry/content/)
+Workflow](https://dlebauer.gitbooks.io/betydbdoc-dataentry/content/){target="_blank"}
 provides a complete description of the data entry process. BETYdb’s web
 interface has been developed to facilitate accurate and efficient data
 entry. This interface provides logical workflow to guide the user
@@ -142,7 +140,7 @@ BETYdb Data Entry Workflow document. Data entry requires a login with `Create`
 permissions; this can be obtained by contacting [David
 LeBauer](mailto:dlebauer@illinois.edu).
 
-### Software
+## Software
 
 
 The BETYdb was originally developed in MySQL and later converted to PostgreSQL.  It uses Ruby on Rails for its web portal and is hosted on a RedHat Linux Server (ebi-forecast.igb.illinois.edu).
@@ -151,24 +149,24 @@ implementation of additional traits and parameters.
 
 ## List of Tables in the BETY Database
 
-An up-to-date list of the tables in BETYdb along with their descriptions and diagrams of their interrelationships may be found at https://www.betydb.org/schemas. [^full_docs]
+An up-to-date list of the tables in BETYdb along with their descriptions and diagrams of their interrelationships may be found at [https://www.betydb.org/schemas](https://www.betydb.org/schemas){target="_blank"}. [^full_docs]
 
 [^foreign_key_note]: Not all of the columns intended as foreign keys are marked as such in the SQL schema.  Thus some lines (and even some tables) may be missing from the schema diagram.
 
 
 [^full_docs]: More comprehensive documentation of the schema may be found at
-https://www.betydb.org/db_docs/index.html.  The software used to produce this
+[https://www.betydb.org/db_docs/index.html](https://www.betydb.org/db_docs/index.html){target="_blank"}.  The software used to produce this
 documentation, SchemeSpy, unfortunately does not document PostgreSQL check
 constraints.  Also note that row counts in this document are not, in general,
 completely up-to-date.  The complete, definitive documentation of the schema is
 the PostgreSQL code used to produce it, which may be found at
-https://github.com/PecanProject/bety/blob/master/db/structure.sql.
+[https://github.com/PecanProject/bety/blob/master/db/structure.sql](https://github.com/PecanProject/bety/blob/master/db/structure.sql){target="_blank"}.
 
     Some background information about intended constraints may be found in the
 spreadsheet at
-https://docs.google.com/spreadsheets/d/1fJgaOSR0egq5azYPCP0VRIWw1AazND0OCduyjONH9Wk/edit?pli=1#gid=956483089
+[https://docs.google.com/spreadsheets/d/1fJgaOSR0egq5azYPCP0VRIWw1AazND0OCduyjONH9Wk/edit?pli=1#gid=956483089](https://docs.google.com/spreadsheets/d/1fJgaOSR0egq5azYPCP0VRIWw1AazND0OCduyjONH9Wk/edit?pli=1#gid=956483089){target="_blank"}
 and in a PDF document viewable and downloadable at
-https://www.overleaf.com/2086241dwjyrd.  These two documents are not necessarily
+[https://www.overleaf.com/2086241dwjyrd](https://www.overleaf.com/2086241dwjyrd){target="_blank"}.  These two documents are not necessarily
 up-to-date, and not all of the constraints mentioned in them have been
 implemented.  In some instances, constraints on new data have been imposed at
 the application level but have not yet been imposed on the database itself

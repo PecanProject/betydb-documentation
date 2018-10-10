@@ -2,9 +2,9 @@
 
 ## Schema: Enhanced Entity-Relationship Model
 
-<a name="Figure-1"></a>![BETYdb Schema as Entity-Relationship Diagram](figures/summarymodel_lg.png "Figure 1")
-
-**Figure 1**: Abbreviated schema for BETYdb, focusing on tables used to store plant trait and yield data. This figure excludes other tables used for PEcAn workflow system provenance and data management and for synchronizing independent instances of BETYdb across many servers. A complete and up-to-date interactive schema is published at https://www.betydb.org/schemas.
+```{r abbreviated-schema, echo=FALSE, fig.cap='Abbreviated schema for BETYdb, focusing on tables used to store plant trait and yield data. This figure excludes other tables used for PEcAn workflow system provenance and data management and for synchronizing independent instances of BETYdb across many servers. A complete and up-to-date interactive schema is published at https://www.betydb.org/schemas.'}
+knitr::include_graphics("figures/summarymodel_lg.png")
+```
 
 ## Tables
 
