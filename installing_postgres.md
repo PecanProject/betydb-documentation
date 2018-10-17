@@ -1,5 +1,3 @@
-# Installing Postgres
-
 # Instructions for Installing and Configuring PostgreSQL
 
 These instructions are for installation on Ubuntu.  For other Linux-like systems, the steps are similar.  Mainly the file locations and the installation command (`apt-get` here) will be different.
@@ -54,7 +52,7 @@ postgres=# \c bety_copy
 postgres=# CREATE EXTENSION POSTGIS;
 ```
 
-Also see [[Creating a New PostGIS Enabled Database Template | Automated-Tests#creating-a-new-postgis-enabled-database-template]]
+Also see [Creating a new PostGIS-enabled database template].
 
 #### Import database
 
