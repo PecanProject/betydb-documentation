@@ -1,22 +1,25 @@
 # Installing the BETYdb Rails Application
 
-*Note:* This guide is aimed at Rails developers and testers.  If you are a Pecan developer, you may want to use the notes in the [PEcAn documentation](https://pecan.gitbooks.io/pecan-documentation/content/installation/Installing-PEcAn.html) instead of or in addition to the notes below.
+*Note:* This guide is aimed at Rails developers and testers.  If you are a Pecan
+ developer, you may want to use the notes in the [PEcAn
+ documentation](https://pecanproject.github.io/pecan-documentation/master/pecan-setup.html#installing-bety){target="_blank"}
+ instead of or in addition to the notes below.
 
-*quick start* The install_pecan.sh script contains [steps used to create a Virtual Machine on line 398](https://github.com/PecanProject/pecan/blob/master/scripts/install_pecan.sh#L398) and [dependencies for different OS's on line 102](
-https://github.com/PecanProject/pecan/blob/master/scripts/install_pecan.sh#L102)
+*quick start* The install_pecan.sh script contains [steps used to create a Virtual Machine on line 398](https://github.com/PecanProject/pecan/blob/master/scripts/install_pecan.sh#L398){target="_blank"} and [dependencies for different OS's on line 102](
+https://github.com/PecanProject/pecan/blob/master/scripts/install_pecan.sh#L102){target="_blank"}
 
-# Prerequisites
+## Prerequisites
 
 1. Git
 2. Ruby 2.1.5 (Anything later than version 1.9.3 will probably work, but 2.1.5 is the officially supported version.) If you are doing Rails development or if you are using Ruby for outside of BETYdb, you may want to install RVM so that you can easily switch between Rails versions and Gem sets.
-3. PostgreSQL with the PostGIS extension (see [Installing and Configuring PostgreSQL](Installing-PostgreSQL) for information on installing and configuring PostgreSQL)
+3. PostgreSQL with the PostGIS extension (see [Instructions for Installing and Configuring PostgreSQL] for information on installing and configuring PostgreSQL)
 4. Apache web server (optional; developers in particular can simply use the built-in Rails server)
 
 In addition, the scripts below assume you have a working Bash shell.  (Windows users might be able to use Cygwin or some other some other port of Linux tools.)
 
-# Installing the Rails Application
+## Installing the Rails Application
 
-## Installing the Rails code and Ruby Gems
+### Installing the Rails code and Ruby Gems
 
 Run these commands to get the Rails code and the Ruby Gems that it uses:
 
@@ -44,7 +47,7 @@ Note: If you receive "checking for pg_config... no" and the associated errors th
 *bundle config build.pg --with-pg-config=/usr/pgsql-9.4/bin/pg_config*
 This assumes your pg_config is located at */usr/pgsql-9.4/bin/*.  Update this path as necessary for your local PostgreSQL/Postgis install]
 
-### Minimizing Gem Installation
+#### Minimizing Gem Installation
 
 Certain Ruby Gems are difficult or time-consuming to install on certain platforms, and if they are not essential to your work, you may wish to avoid installing them.  (If this isn't a concern, you may skip this section.)
 
@@ -86,7 +89,7 @@ To revert to installing everything when you run `bundle install`, remove the `wi
 bundle config --delete without
 ```
 
-## Configuring Rails
+### Configuring Rails
 
 Configure the BETYdb Rails application using the following commands:
 
@@ -112,9 +115,9 @@ cp config/application.yml.template config/application.yml
 
 ```
 
-## Installing the Database
+### Installing the Database
 
-_**Note**_ to join the distributed network of databases, see the chapter ["Distributed BETYdb"](distributed_betydb.md)
+_**Note**_ To join the distributed network of databases, see the chapter [Distributed instances of BETYdb].
 
 In the `script` directory of the bety Rails installation, find and run the update-betydb.sh script:
 
@@ -124,20 +127,20 @@ In the `script` directory of the bety Rails installation, find and run the updat
 
 This script is a wrapper script for the script `load.bety.sh` from the Pecan project.  The latter can be downloaded by running `update-betydb.sh` without options.  Use the `-h` option for more information.
 
-# Updating / Syncing the database
+## Updating / Syncing the database
 
-See instructions [[Updating-BETY]]
+See instructions [Updating the BETY database].
 
-# Starting the BETYdb Rails Web Application
+## Starting the BETYdb Rails Web Application
 
 1. cd to the bety directory, the directory you cloned the Rails code to.
 1. Run `rails s`.
-1. You should now be able to visit the web application at http://localhost:3000.
+1. You should now be able to visit the web application at [http://localhost:3000](http://localhost:3000){target="_blank"}.
 1. To log in, use `Login: carya`, `Password: illinois`
 
-# Logrotation
+## Logrotation
 
-To prevent the log files from growing to large it is recommended to use logrotation. This will rotate the logs (for example every week) and append .1 etc to the logfiles. The following can be used on an Ubuntu system.
+To prevent the log files from growing to large it is recommended to use logrotation. This will rotate the logs (for example every week) and append `.1` etc. to the logfiles. The following can be used on an Ubuntu system.
 
 Edit `/etc/logrotate.conf` and add the following snippet at the bottom (replacing /home/bety/bety with the actual path to the installation of bety):
 
