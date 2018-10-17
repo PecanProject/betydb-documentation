@@ -11,8 +11,8 @@ instance of BETYdb on a CentOS 7 machine.  We assume the following are installed
 1. PostGIS 2.1.0 or greater.
 1. Git 1.8.2.1 or greater.
 1. R 3.1.0 or greater.[^package_notes]
-1. Graphviz dot version 2.2.1 or a version greater than 2.4.[^package_notes]
-1. Java 1.8 or greater.[^package_notes]
+1. Graphviz dot version 2.2.1 or a version greater than 2.4.
+1. Java 1.8 or greater.
 1. nodejs and npm
 1. curl
 1. Your preferred editor.
@@ -34,16 +34,16 @@ various subsections below.
   represent names that will vary with the installation:**
 
 * Operating system accounts:
-  * **`<adminuser>` — the operating system account name for a user with complete sudo access**
-  * **`<betyappuser>` — the operating system account name for the user that will
-      own this BETY app instance; generally, `<betyappuser>` should equal
-      `<betyapp>`, but we distinguish them here for clarity**
+    * **`<adminuser>` — the operating system account name for a user with complete sudo access**
+    * **`<betyappuser>` — the operating system account name for the user that will
+        own this BETY app instance; generally, `<betyappuser>` should equal
+        `<betyapp>`, but we distinguish them here for clarity**
 * Path names:  
-  * **`<betyapp>` — the name of the parent directory of the Rails root directory for the BETY app instance**
+    * **`<betyapp>` — the name of the parent directory of the Rails root directory for the BETY app instance**
 * Database-related names:
-  * **`<betydb>` — the name of the database this instance of the BETY app will use**
-  * **`<dbuser>` — the owner of database `<betydb>`**
-  * **`<dbpw>` — the password for database user `<dbuser>`**
+    * **`<betydb>` — the name of the database this instance of the BETY app will use**
+    * **`<dbuser>` — the owner of database `<betydb>`**
+    * **`<dbpw>` — the password for database user `<dbuser>`**
 
 For convenience, we generally leave off the angle brackets below as if these are
 the actual names that we will be using.  In practice, sometimes the same name
@@ -52,7 +52,7 @@ will be used for several of these; for example, often `<betyappuser>`,
 "bety".
 
 
-## Installing and Configuring Ruby and Rails Code
+## Installing and Configuring Ruby and Rails Code {-}
 
 ### Step 1: Log in to the deployment machine as an administrator {-}
 
@@ -209,7 +209,7 @@ you need to set the RAILS_RELATIVE_URL_ROOT variable when precompiling:
 bundle exec rake assets:precompile RAILS_ENV=production RAILS_RELATIVE_URL_ROOT=/suburi
 ```
 
-## Loading the BETYdb Database
+## Loading the BETYdb Database {-}
 
 _For this first step you should still be logged in as `<betyappuser>` and still
 be in the `/var/www/betyapp/code` directory._
@@ -260,8 +260,7 @@ script/load.bety.sh -a postgres -c -d betydb -e -g -m <localdb id number> -o dbu
 ```
 
 Here, `<localdb id number>` is some integer that is unique to each database. See
-[Distributed BETYdb](distributed_betydb.md#primary-key-allocations) for further
-information.
+[Distributed instances of BETYdb] for further information.
 
 
 This will create the tables, views, indices, constraints, and functions required
@@ -284,9 +283,8 @@ script/load.bety.sh -a postgres -d betydb -m <localdb id number> -o dbuser -r <r
 ```
 
 This may be executed multiple times with different remote database id numbers.
-Again, consult [Distributed
-BETYdb](distributed_betydb.md#primary-key-allocations) to see what data sources
-are available.
+Again, consult [Distributed instances of BETYdb] to see what data sources are
+available.
 
 (If you used the `-e` option in the previous step but then decided you want the
 full data from machine 0 after all, you can chose `<remotedb id number>`=0.)
@@ -301,7 +299,7 @@ You should now once again be in the administrative account (`<adminuser>`) and
 in the BETYdb app's root directory, `/var/www/betyapp/code`.
 
 
-## Complete Apache and Passenger configuration
+## Complete Apache and Passenger configuration {-}
 
 ### Step 18: Check that the correct version of Ruby is enabled: {-}
 
@@ -324,7 +322,7 @@ the next step.
 
 Create a new Apache configuration file (call it, say, `bety.conf`) in the
 configuration directory `/usr/httpd/conf.d` and open it in an editor.  Add the
-following contents to the file:[^ssl]
+following contents to the file: [^ssl]
 
       <VirtualHost *:80>
           ServerName yourserver.com
@@ -399,7 +397,7 @@ following contents to the file:[^ssl]
    Alternatively, try visiting the URL in a browser.
 
 
-## Final Steps
+## Final Steps {-}
 
 ### Step 23: Create a BETYdb administrative account {-}
 
@@ -519,29 +517,32 @@ your running BETYdb instance and clicking the `Schema` menu item under the
 
 **You should now have a fully-functional BETYdb instance.**
 
-___
+
 [^package_notes]: BETYdb will mostly run without R, dot, and Java.  R is needed for generating preview images on the Priors pages.  Java is needed in order to generate the database schema documentation, and dot is needed to generate diagrams for that documentation.
 
-[^phusion_passenger]: The relevant Phusion Passenger documentation is at https://www.phusionpassenger.com/library/walkthroughs/deploy/ruby/ownserver/apache/oss/el7/deploy_app.html#rails_login-to-your-server-create-a-user-for-the-app
+[^phusion_passenger]: The relevant Phusion Passenger documentation is at [https://www.phusionpassenger.com/library/walkthroughs/deploy/ruby/ownserver/apache/oss/el7/deploy_app.html#rails_login-to-your-server-create-a-user-for-the-app](https://www.phusionpassenger.com/library/walkthroughs/deploy/ruby/ownserver/apache/oss/el7/deploy_app.html#rails_login-to-your-server-create-a-user-for-the-app){target="_blank"}
 
 [^sticky_bundle_configuration]: We don't need to repeat all the options to `bundle install` that we used earlier because these options are "sticky": they are stored in the bundle configuration file and will be used automatically until explicitly removed.
 
-[^schema]: Unless otherwise noted, we use the word "schema" in its traditional sense, where it refers to the logical structure of a database, including the tables, views, functions, and integrity constraints it comprises.  We are not using "schema" in its PostgreSQL-specific sense, where it refers to a namespace within a database.
+[^schema]: Unless otherwise noted, we use the word "schema" in its traditional sense, where it refers to the logical structure of a database, including the tables, views, functions, and integrity constraints it comprises.
+    We are not using "schema" in its PostgreSQL-specific sense, where it refers to a namespace within a database.
 
 [^ssl]: If the Web site is to be served using SSL (Secure Sockets Layer), the virtual host directive should be `<VirtualHost *:443>`.  Data providers that are particularly concerned about data security are advised to use SSL.  If SSL is used, it is recommended to redirect calls to port 80 (http) to port 443 (https) using a directive such as the following:
-```
-<VirtualHost *:80>
-    ServerName yourserver.com
-    Redirect permanent / https://yourserver.com
-</VirtualHost>
-```
-or, for suburi deployments,
-```
-<VirtualHost *:80>
-    ServerName yourserver.com
-    Redirect permanent /suburi https://yourserver.com/suburi
-</VirtualHost>
-```
 
+    ```
+    <VirtualHost *:80>
+        ServerName yourserver.com
+        Redirect permanent / https://yourserver.com
+    </VirtualHost>
+    ```
 
+    or, for suburi deployments,
 
+    ```
+    <VirtualHost *:80>
+        ServerName yourserver.com
+        Redirect permanent /suburi https://yourserver.com/suburi
+    </VirtualHost>
+    ```
+
+    This way, the site will always be served up securely.
