@@ -1,4 +1,4 @@
-# Instructions for Installing and Configuring PostgreSQL
+## Instructions for Installing and Configuring PostgreSQL
 
 These instructions are for installation on Ubuntu.  For other Linux-like systems, the steps are similar.  Mainly the file locations and the installation command (`apt-get` here) will be different.
 
@@ -28,7 +28,7 @@ psql -U bety
  
 
 
-### Manually dumping and installing BETYdb
+#### Manually dumping and installing BETYdb
 
 In this example, we are dumping BETY from "betyhost" to "myserver"
 ```sh
@@ -37,14 +37,14 @@ pg_dump -U postgres bety > bety_YYYYMMDD.sql
 rsync bety_YYYYMMDD.sql myserver:  
 ```
 
-#### Create Copy of BETY
+##### Create Copy of BETY
 
 ```sh
 ssh myserver
 createdb -U postgres bety_copy
 ```
 
-#### Enable PostGIS
+##### Enable PostGIS
 
 ```sh
 psql -U postgres
@@ -54,7 +54,7 @@ postgres=# CREATE EXTENSION POSTGIS;
 
 Also see [Creating a new PostGIS-enabled database template].
 
-#### Import database
+##### Import database
 
 ```shell
 psql -U postgres bety_copy < bety_YYYYMMDD.sql

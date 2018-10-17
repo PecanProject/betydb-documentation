@@ -1,7 +1,12 @@
-# Setting up a RedHat or CentOS Server
+# Archived Setup Documentation
+
+These pages are being kept temporarily for reference.  Much of what is here is
+superceded by the preceding setup documentation.
+
+## Setting up a RedHat or CentOS Server
 
 
-## Overview
+### Overview
 
 BETYdb runs on RedHat, CentOS, Ubuntu and OSX; instructions for installing on these systems can be found in the [PEcAn documentation](https://pecanproject.github.io/pecan-documentation/master/){target="_blank"}.
 
@@ -20,9 +25,9 @@ If you have any questions about installing BETYdb ... please [submit an
 issue](https://github.com/pecanproject/bety/issues/new){target="_blank"} or
 [send an email](mailto:betydb@gmail.com).
 
-### Create an netinstall of the CentOS ISO 
+#### Create an netinstall of the CentOS ISO 
 
-### Boot from CD and Install 
+#### Boot from CD and Install 
 
 * Following instructions here: [http://www.if-not-true-then-false.com/2010/centos-netinstall-network-installation/](http://www.if-not-true-then-false.com/2010/centos-netinstall-network-installation/){target="_blank"}
 * Download this iso: [http://vault.centos.org/5.8/isos/x86_64/CentOS-5.8-x86_64-netinstall.iso](http://vault.centos.org/5.8/isos/x86_64/CentOS-5.8-x86_64-netinstall.iso){target="_blank"}
@@ -32,7 +37,7 @@ issue](https://github.com/pecanproject/bety/issues/new){target="_blank"} or
 * ftp server: `vault.centos.org`
 * directory: `/centos/5.8/os/x86_64`
 
-### Configuration
+#### Configuration
 
 1. Add new user
  ```
@@ -48,7 +53,7 @@ emacs /etc/sudoers
 johndoe  ALL=(ALL)  ALL
 ```
 
-### Add new repository
+#### Add new repository
 
 instructions here: [http://www.rackspace.com/knowledge_center/article/installing-rhel-epel-repo-on-centos-5x-or-6x](http://www.rackspace.com/knowledge_center/article/installing-rhel-epel-repo-on-centos-5x-or-6x){target="_blank"}
 
@@ -71,7 +76,7 @@ make
 sudo make install
 ```
 
-###Site data installation
+####Site data installation
 
 ```
 cd /usr/local/ebi
@@ -88,7 +93,7 @@ tar zxf inputs.tgz
 rm inputs.tgz
 ```
 
-###Database Creation
+####Database Creation
 
 See the [PEcAn
 documentation](https://pecanproject.github.io/pecan-documentation/master/){target="_blank"}
@@ -118,7 +123,7 @@ If these are left in, the script will attempt to put the site data in ~/sites in
 ./updatedb.sh
 ```
 
-###Ruby installation
+####Ruby installation
 The version of ruby available through yum is too low, so we have to use rvm
 ```
 user$ \curl -L https://get.rvm.io | sudo bash -s stable
