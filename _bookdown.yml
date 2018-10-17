@@ -11,11 +11,8 @@ site: bookdown::bookdown_site
 biblio-style: apalike
 book_filename: "betydb-documentation"
 delete_merged_file: true
-language:
-  ui:
-    chapter_name: "Chapter "
-rmd_files: [#Introduction
-#            "README.md",
+rmd_files: ["overview.md",
+#             "README.md",
                 "about_betydb.md",
                 "betydb_tables.md",
             "installing_betydb.md",
@@ -23,7 +20,7 @@ rmd_files: [#Introduction
                 #Dependencies
                     "setting-up-a-centos-server.md",
                     "configuring-postgresql.md",
-                "archived-setup-documentation.md",
+                #"archived-setup-documentation.md",
                     "dependencies_setting_up_a_server.md",
                     "installing_postgres.md",
                     "installing_the_betydb_rails_application.md",

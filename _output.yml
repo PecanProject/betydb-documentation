@@ -1,2 +1,2 @@
 bookdown::gitbook:
-  split_by: section
+  split_by: chapter
