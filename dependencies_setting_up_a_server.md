@@ -3,23 +3,29 @@
 
 ## Overview
 
-BETYdb runs on RedHat, CentOS, Ubuntu and OSX; instructions for installing on these systems can be found in the [PEcAn documentation](https://github.com/PecanProject/pecan/wiki/Installing-PEcAn#installing-bety). 
+BETYdb runs on RedHat, CentOS, Ubuntu and OSX; instructions for installing on these systems can be found in the [PEcAn documentation](https://pecanproject.github.io/pecan-documentation/master/){target="_blank"}.
 
 The original BETYdb (betydb.org) runs on a Red Hat Enterprise Linux version 5.8 Server. 
 To simulate this environment, we have set up a CentOS 5.8 server at pecandev.igb.illinois.edu for testing.
 
 This documentation is aimed at installing BETYdb on a production RedHat, CentOS or similar operating system. 
 
-These instructions have been tested and refined on our production (ebi-forecast.igb.illinois.edu) and development (pecandev.igb.illinois.edu) servers. See the ["Installing BETY"](https://github.com/PecanProject/pecan/wiki/Installing-PEcAn#installing-bety) section of the PEcAn wiki for more generic installation instructions.
+These instructions have been tested and refined on our production
+(ebi-forecast.igb.illinois.edu) and development (pecandev.igb.illinois.edu)
+servers. See the [Installing
+BETY](https://pecanproject.github.io/pecan-documentation/master/pecan-setup.html#installing-bety){target="_blank"}
+section of the PEcAn documentation for more generic installation instructions.
 
-If you have any questions about installing BETYdb ... please [submit an issue](https://github.com/pecanproject/bety/issues/new) or [send an email](mailto:betydb@gmail.com).
+If you have any questions about installing BETYdb ... please [submit an
+issue](https://github.com/pecanproject/bety/issues/new){target="_blank"} or
+[send an email](mailto:betydb@gmail.com).
 
 ### Create an netinstall of the CentOS ISO 
 
 ### Boot from CD and Install 
 
-* Following instructions here: http://www.if-not-true-then-false.com/2010/centos-netinstall-network-installation/
-* Download this iso: http://vault.centos.org/5.8/isos/x86_64/CentOS-5.8-x86_64-netinstall.iso
+* Following instructions here: [http://www.if-not-true-then-false.com/2010/centos-netinstall-network-installation/](http://www.if-not-true-then-false.com/2010/centos-netinstall-network-installation/){target="_blank"}
+* Download this iso: [http://vault.centos.org/5.8/isos/x86_64/CentOS-5.8-x86_64-netinstall.iso](http://vault.centos.org/5.8/isos/x86_64/CentOS-5.8-x86_64-netinstall.iso){target="_blank"}
  * it is the "netinstall" version, small enough to fit on a CD, but requires internet to install
  * burn to CD
  * boot from CD
@@ -44,16 +50,16 @@ johndoe  ALL=(ALL)  ALL
 
 ### Add new repository
 
-instructions here: http://www.rackspace.com/knowledge_center/article/installing-rhel-epel-repo-on-centos-5x-or-6x
+instructions here: [http://www.rackspace.com/knowledge_center/article/installing-rhel-epel-repo-on-centos-5x-or-6x](http://www.rackspace.com/knowledge_center/article/installing-rhel-epel-repo-on-centos-5x-or-6x){target="_blank"}
 
 ```
 wget http://dl.fedoraproject.org/pub/epel/5/x86_64/epel-release-5-4.noarch.rpm
 sudo rpm -Uvh epel-release-5*.rpm
 ```
 
-... move to PEcAn wiki page for build environment 
+... move to PEcAn documentation page for build environment 
 
-https://github.com/PecanProject/pecan/wiki/Installing-PEcAn#installing-bety
+[https://pecanproject.github.io/pecan-documentation/master/pecan-setup.html#installing-bety](https://pecanproject.github.io/pecan-documentation/master/pecan-setup.html#installing-bety){target="_blank"}
 
 Remember to install R 3.0:
 ```
@@ -84,7 +90,11 @@ rm inputs.tgz
 
 ###Database Creation
 
-See the [PEcAn wiki](https://github.com/PecanProject/pecan/wiki/Installing-PEcAn#installing-bety) for additional information, e.g. on the scripts ([load.bety.sh](https://github.com/PecanProject/pecan/blob/master/scripts/load.bety.sh) is in the PEcAn repo), running the rails and/or php front-ends
+See the [PEcAn
+documentation](https://pecanproject.github.io/pecan-documentation/master/){target="_blank"}
+for additional information, e.g. on the scripts
+([load.bety.sh](https://github.com/PecanProject/pecan/blob/master/scripts/load.bety.sh){target="_blank"}
+is in the PEcAn repo), running the rails and/or php front-ends
 
 ```
 # install database (code assumes password is bety)
