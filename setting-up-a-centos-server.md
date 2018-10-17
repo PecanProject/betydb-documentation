@@ -2,10 +2,12 @@
 
 ## Install CentOS 7
 
-Download CentOS from https://www.centos.org/download/.  The DVD ISO should have the essentials.
+Download CentOS from
+[https://www.centos.org/download/](https://www.centos.org/download/){target="_blank"}.
+The DVD ISO should have the essentials.
 
 Alternatively, you can use the NetInstall verion.  Instructions are here:
-https://www.if-not-true-then-false.com/2014/centos-7-netinstall-guide/
+[https://www.if-not-true-then-false.com/2014/centos-7-netinstall-guide/](https://www.if-not-true-then-false.com/2014/centos-7-netinstall-guide/){target="_blank"}
 
 ## Install additional system software
 
@@ -34,37 +36,38 @@ yum install java
 
 * Run the following three commands to get and install RVM and add yourself to the `rvm` group:
 
-  ```bash
-  sudo grgpg --keyserver hkp://keys.gnupg.net --recv-keys 409B6B1796C275462A1703113804BB82D39DC0E3
-  curl -sSL https://get.rvm.io | sudo bash -s stable
-  sudo usermod -a -G rvm `whoami`
-  ```
+    ```bash
+    sudo grgpg --keyserver hkp://keys.gnupg.net --recv-keys 409B6B1796C275462A1703113804BB82D39DC0E3
+    curl -sSL https://get.rvm.io | sudo bash -s stable
+    sudo usermod -a -G rvm `whoami`
+    ```
 
 * Ensure rvmsudo works:
 
-  ```bash
-  if sudo grep -q secure_path /etc/sudoers; then sudo sh -c "echo export rvmsudo_secure_path=1 >> /etc/profile.d/rvm_secure_path.sh" && echo Environment variable installed; fi
-  ```
+    ```bash
+    if sudo grep -q secure_path /etc/sudoers; then sudo sh -c "echo export rvmsudo_secure_path=1 >> /etc/profile.d/rvm_secure_path.sh" && echo Environment variable installed; fi
+    ```
 
 * Log out of the server and then log back in to make RVM take effect.
 
 * Install the correct version of Ruby
 
-  First, visit https://github.com/PecanProject/bety/blob/master/.ruby-version and
-note the version of Ruby that BETYdb currently expects.
+    First, visit
+[https://github.com/PecanProject/bety/blob/master/.ruby-version](https://github.com/PecanProject/bety/blob/master/.ruby-version){target="_blank"}
+and note the version of Ruby that BETYdb currently expects.
 
-  To install that version of Ruby, run
+    To install that version of Ruby, run
 
-  ```bash
-  rvm install ruby-X.X.X
-  ```
+    ```bash
+    rvm install ruby-X.X.X
+    ```
 
-  where X.X.X is the version number found in the .ruby-version file.  Ensure this
+    where X.X.X is the version number found in the .ruby-version file.  Ensure this
 version is set as the default by running
 
-  ```bash
-  rvm --default use ruby-2.3.0
-  ```
+    ```bash
+    rvm --default use ruby-2.3.0
+    ```
 
 ## Bundler:
 
@@ -129,8 +132,11 @@ Check installation:
 sudo /usr/bin/passenger-config validate-install
 ```
 
----
 
-[^ruby_with_rvm]: See the Phusion Passenger site's instructions for installing RVM, Ruby, Bundler, and nodejs here: https://www.phusionpassenger.com/library/walkthroughs/deploy/ruby/ownserver/apache/oss/install_language_runtime.html
+[^ruby_with_rvm]: See the Phusion Passenger site's instructions for installing
+RVM, Ruby, Bundler, and nodejs here:
+[https://www.phusionpassenger.com/library/walkthroughs/deploy/ruby/ownserver/apache/oss/install_language_runtime.html](https://www.phusionpassenger.com/library/walkthroughs/deploy/ruby/ownserver/apache/oss/install_language_runtime.html){target="_blank"}
 
-[^phusion_passenger]: See the Phusion Passenger site's instructions for installing Passenger here: https://www.phusionpassenger.com/library/walkthroughs/deploy/ruby/ownserver/apache/oss/el7/install_passenger.html
+[^phusion_passenger]: See the Phusion Passenger site's instructions for
+installing Passenger here:
+[https://www.phusionpassenger.com/library/walkthroughs/deploy/ruby/ownserver/apache/oss/el7/install_passenger.html](https://www.phusionpassenger.com/library/walkthroughs/deploy/ruby/ownserver/apache/oss/el7/install_passenger.html){target="_blank"}
