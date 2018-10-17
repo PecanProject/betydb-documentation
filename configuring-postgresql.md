@@ -59,7 +59,7 @@ sudo systemctl restart postgresql-9.4
 By way of example, we'll call the new role for BETYdb `dbuser` and give it
 password `dbpw`, and the BETYdb database will be called `betydb`.  (See the note
 on placeholder names in the beginning section of [Deploying a Production Copy of
-the BETYdb Web Application](installing-betydb-web-application.md).)
+the BETYdb Web Application].
 
 Since user `postgres` (the only database role so far) uses peer authenication,
 we have to become that user to log in to the database:
