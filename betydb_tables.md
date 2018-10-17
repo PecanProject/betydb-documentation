@@ -2,21 +2,21 @@
 
 ## Schema: Enhanced Entity-Relationship Model
 
-```{r abbreviated-schema, echo=FALSE, fig.cap='Abbreviated schema for BETYdb, focusing on tables used to store plant trait and yield data. This figure excludes other tables used for PEcAn workflow system provenance and data management and for synchronizing independent instances of BETYdb across many servers. A complete and up-to-date interactive schema is published at https://www.betydb.org/schemas.'}
+```{r abbreviated-schema, echo=FALSE, fig.cap='Abbreviated schema for BETYdb, focusing on tables used to store plant trait and yield data. This figure excludes other tables used for PEcAn workflow system provenance and data management and for synchronizing independent instances of BETYdb across many servers. A complete and up-to-date interactive schema is published at [https://www.betydb.org/schemas](https://www.betydb.org/schemas){target="_blank"}.'}
 knitr::include_graphics("figures/summarymodel_lg.png")
 ```
 
 ## Tables
 
 
-BETYdb is designed as a relational database, somewhat normalized as shown in the structure diagram [Figure 1](#Figure-1). Each table has a primary key
+BETYdb is designed as a relational database, somewhat normalized as shown in the structure diagram Figure \@ref(fig:abbreviated-schema). Each table has a primary key
 field, `id`, which serves as surrogate key, a unique identifier for each row in the table.  Most tables have a natural key defined as well, by which rows can be uniquely identified by real-world attributes.
 In addition, most tables have a `created_at` and an `updated_at` column to record row-insertion and update timestamps, and the
 traits and yields tables each have a `user_id` field to record the user
 who originally entered the data.
 
 A complete list of tables along with short descriptions is provided in [Table 2](#Table-2), and a comprehensive
-description of the contents of each table is provided below. **Note: An up-to-date list of the tables in BETYdb along with their descriptions and diagrams of their interrelationships may be found at** https://www.betydb.org/schemas.
+description of the contents of each table is provided below. **Note: An up-to-date list of the tables in BETYdb along with their descriptions and diagrams of their interrelationships may be found at** [https://www.betydb.org/schemas](https://www.betydb.org/schemas){target="_blank"}.
 
 <a name="Table-2"></a>
 
@@ -58,7 +58,7 @@ combine the names of the two tables being related. For
 example, the table used to link `citations` and `sites` is named
 `citations_sites`. These join tables have two foreign keys (`citation_id` and `site_id` in this example) which together uniquely identify a row of the table (and thus constitute a _candidate key_).  (For various implementational reasons, these tables also have a surrogate key named `id`, but in general such a key is extraneous.)
 
-While foreign key columns are identified implicitly by the naming convention whereby such columns end with the suffix `_id`, foreign keys can be made explicit by imposing a _foreign-key constraint_ at the database level.  Such a constraint identifies the table and column which the foreign key refers to and in addition guaranties that a row with the required value exists.  Thus, if there is a foreign-key constraint saying that the column `yields.citation_id` refers to `citations.id`, then if there is a row in the yields table where `cititation_id = 9`, there must also be a row in the citations table where `id = 9`.  Explicit foreign keys show up in the [schema](https://www.betydb.org/schemas) documentation as an entry in the _References_ column of the table listing and as a line between tables in the schema diagrams.
+While foreign key columns are identified implicitly by the naming convention whereby such columns end with the suffix `_id`, foreign keys can be made explicit by imposing a _foreign-key constraint_ at the database level.  Such a constraint identifies the table and column which the foreign key refers to and in addition guaranties that a row with the required value exists.  Thus, if there is a foreign-key constraint saying that the column `yields.citation_id` refers to `citations.id`, then if there is a row in the yields table where `cititation_id = 9`, there must also be a row in the citations table where `id = 9`.  Explicit foreign keys show up in the [schema](https://www.betydb.org/schemas){target="_blank"} documentation as an entry in the _References_ column of the table listing and as a line between tables in the schema diagrams.
 
 ### Data Tables
 
