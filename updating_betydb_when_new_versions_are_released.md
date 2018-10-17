@@ -1,6 +1,8 @@
+# (PART) BETYdb System Administration {-}
+
 # Updating BETYdb When New Versions are Released
 
-## Updating BETY database
+## Updating the BETY database
 
 A new system is in place which will allow you to update the BETY database without losing any local changes (this is still BETA though). See the section [Distributed BETYdb](distributed_betydb.md) wiki for details on updating a local database in a way that retains any local changes.
 
