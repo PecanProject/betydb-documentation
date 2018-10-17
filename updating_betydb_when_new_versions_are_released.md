@@ -4,7 +4,7 @@
 
 ## Updating the BETY database
 
-A new system is in place which will allow you to update the BETY database without losing any local changes (this is still BETA though). See the section [Distributed BETYdb](distributed_betydb.md) wiki for details on updating a local database in a way that retains any local changes.
+A new system is in place which will allow you to update the BETY database without losing any local changes (this is still BETA though). See the section [Distributed instances of BETYdb] for details on updating a local database in a way that retains any local changes.
 
 If you are a BETYdb Ruby-on-Rails developer, you probably don't care about losing changes to your copy of the BETY database.  You probably just want a reasonably up-to-date copy that you can use to test code changes with.  If so, you may use the script `update-betydb.sh` in the `script` directory.  This is just a wrapper for `load.bety.sh` script that makes it easy to download that script (without having to download all of Pecan) and easy to run it with the options you probably want.  Step for doing this are:
 
@@ -28,6 +28,7 @@ The CREATE=YES **WILL** destroy all data in your database
 ## Update the Rails app and schema
 
 If you have an instance of BETY and you might want to update it to the latest version at certain points for the following reasons.
+
 - security updates
 - new functionality
 - importing data and remote server has newer version
