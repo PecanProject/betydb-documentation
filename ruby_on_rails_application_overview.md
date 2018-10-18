@@ -1,17 +1,16 @@
-# Ruby on Rails Application Overview
-
+<!-- Possibly rename this file -->
 # Ruby-on-Rails: Developing, Upgrading, and Deploying
 
 ## Development and Testing
 
-Testing is an integral part of releasing a new version of the BETYdb Rails app. Developers should test prospective code on their development machines prior to submitting a pull request, and code managers should re-test the code before accepting a pull request.  See [[running the automated tests | automated-tests]] for complete testing instructions.
+Testing is an integral part of releasing a new version of the BETYdb Rails app. Developers should test prospective code on their development machines prior to submitting a pull request, and code managers should re-test the code before accepting a pull request.  See [Automated Tests] for complete testing instructions.
 
 
 ## Deploying a new version:
 
-**For up-to-date instructions on making a new release, see https://dlebauer.gitbooks.io/betydb-documentation/content/management/making_a_new_release.html**
+**For up-to-date instructions on making a new release, see [Issuing a New Release].**
 
-At the end of each sprint (or set of sprints, or when ready to deploy a new version), the version should be tagged, and a "release" should be created.  See the [[Release Notes Template | Release-Notes-Template]] page for a sample draft of release notes.
+At the end of each sprint (or set of sprints, or when ready to deploy a new version), the version should be tagged, and a "release" should be created.  See the [Release Notes Template] page for a sample draft of release notes.
 
 
 (We use the terms "deploy" and "upgrade" roughly synonymously, but "deploy" connotes what code manager does when providing a new version of BETYdb to, say, the production server, and "upgrade" connotes what developers maintaining their own copies of BETYdb do to keep those copies up-to-date.  Making a new "release" is part of the deployment process but is not part of the upgrade process for individual users.
@@ -76,9 +75,9 @@ If you do not wish to install the test pieces you can run `bundle install --with
 [Note: If you can't or don't wish to install the capybara-webkit gem, you can comment it out in the Gemfile.  It is only needed for testing the RSpec tests and it is only needed for a few of them.  To avoid running the tests that require it, run rspec with the "--tag ~js" option.]
 
 
-At this point, the site can be tested, both through the browser and by running the [[automated tests]].  [To do: write hints for running automated tests on production servers]
+At this point, the site can be tested, both through the browser and by running the [Automated Tests].  [To do: write hints for running automated tests on production servers]
 
-_reference:_ [protocol for pull requests, testing etc. were discussed in [#48](https://github.com/PecanProject/bety/issues/48)]
+_reference:_ [protocol for pull requests, testing etc. were discussed in [bety issue #48](https://github.com/PecanProject/bety/issues/48){target="_blank"}]
 
 ### Running Migrations
 
@@ -118,7 +117,7 @@ deployments of the BetyDB database should have precisely the same
 structure.  But in case they do not, we want to capture what is
 actually be used live.)
 
-Note that we no longer use the `schema.rb` file (see https://github.com/PecanProject/bety/issues/44).  The `structure.sql` files allow for complete documentation of the database structure, including features that (by default) are not expressible in the `schema.rb` file.  <strong>production_structure.sql is the canonical specification of the complete database schema, the schema which the Rails code is meant to be run against.</strong>
+Note that we no longer use the `schema.rb` file (see [bety issue #44](https://github.com/PecanProject/bety/issues/44){target="_blank"}).  The `structure.sql` files allow for complete documentation of the database structure, including features that (by default) are not expressible in the `schema.rb` file.  <strong>production_structure.sql is the canonical specification of the complete database schema, the schema which the Rails code is meant to be run against.</strong>
 
 ## Versioning and Tagging
 
@@ -129,7 +128,7 @@ Note that we no longer use the `schema.rb` file (see https://github.com/PecanPro
   1. Merge pull requests into the master branch of PecanProject/bety as
   necessary (in order to avoid conflicts, preferably within one working
   day) .
-  1. [to-do: clarify how we handle pre-releases and why they are necessary] Create a [pre-release](https://github.com/PecanProject/bety/releases/new). This should include a list of key expected features to be implemented during the sprint.
+  1. [to-do: clarify how we handle pre-releases and why they are necessary] Create a [pre-release](https://github.com/PecanProject/bety/releases/new){target="_blank"}. This should include a list of key expected features to be implemented during the sprint.
   1. If critical bug fix is required on production server:
       1. Create a branch off of the currently-deployed master version.  (If subsequent critical bug fixes are later needed, they can also go on this branch.)
       1. Apply the bug fix to the branch.
@@ -157,7 +156,7 @@ Note that we no longer use the `schema.rb` file (see https://github.com/PecanPro
 
 ### Version Numbering
 
-We loosely follow [semantic versioning](http://semver.org/).
+We loosely follow [semantic versioning](http://semver.org/){target="_blank"}.
 
 * Any tag of the form betydb\_x.x or betydb\_x.x.x refers to a version that has been tested and deployed.
 * Changes in the first or second digit of the version number mark some
@@ -169,8 +168,8 @@ We loosely follow [semantic versioning](http://semver.org/).
 
 Example of a properly commented citation model (
 /app/models/citations.rb ):
-[https://gist.github.com/e68fea1baa070e68b984](https://gist.github.com/e68fea1baa070e68b984)
+[https://gist.github.com/e68fea1baa070e68b984](https://gist.github.com/e68fea1baa070e68b984){target="_blank"}
 
 And a properly commented covariates model ( /app/models/covariates.rb
 ):
-[https://gist.github.com/5d0d96d7be1b1fd7b47c](https://gist.github.com/5d0d96d7be1b1fd7b47c)
+[https://gist.github.com/5d0d96d7be1b1fd7b47c](https://gist.github.com/5d0d96d7be1b1fd7b47c){target="_blank"}

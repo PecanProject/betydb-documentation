@@ -1,4 +1,4 @@
-# Issuing a new release of the BETYdb Rails application
+# Issuing a New Release
 
 From time to time, or whenever an important and needed code change is made, the
 principle maintainer of the BETYdb Rails application should issue a new release

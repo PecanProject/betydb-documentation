@@ -1,4 +1,6 @@
-# BETYdb Development
+# (PART) BETYdb Development {-}
+
+# Ruby on Rails Application Overview (draft)
 
 _This is a Draft_
 

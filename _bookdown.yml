@@ -34,4 +34,6 @@ rmd_files: ["overview.md",
                 "complex_joins_in_the_web_interface.md",
                 "database_constraints.md",
                 "modifying_bety_schema.md",
-                "issuing_a_new_release.md"]
+                "issuing_a_new_release.md",
+             #appendix
+                "release_notes_template.md"]
