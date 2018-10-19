@@ -43,11 +43,24 @@ If it doesn't, you can copy the section for `development` and then change the he
     bundle exec rake db:test:prepare
     ```
 [Note: If you are using RVM version 1.11 or later, you can omit the "bundle exec" portion of all rake and rspec commands.  For example, the command above could just be typed as
-   ```
-   rake db:test:prepare
-   ```
+```
+rake db:test:prepare
+```
 ]
-This will check for any pending migrations in the development database.  If there are none, it will re-create the `db/development_structure.sql` file, create the database for the testing environment ("test" if you use the configuration listed above), and then create the tables, views, functions, etc. mentioned in the _structure_ file.  _Note that we no longer use the `schema.rb` file_ (see https://github.com/PecanProject/bety/issues/44). The `config.active_record.schema_format` setting has been changed from `:ruby` to `:sql` to permit complete documentation of the database structure, including features that (by default) are not expressible in the `schema.rb` file.  <strong>production_structure.sql is the canonical specification of the complete database schema for the last-released version of BETYdb; this is the schema which the latest release of the Rails code is meant to be run against.</strong>
+This will check for any pending migrations in the development database.  If
+there are none, it will re-create the `db/structure.sql` file,
+create the database for the testing environment ("test" if you use the
+configuration listed above), and then create the tables, views, functions,
+etc. mentioned in the _structure_ file.  _Note that we no longer use the
+`schema.rb` file_ (see
+[https://github.com/PecanProject/bety/issues/44](https://github.com/PecanProject/bety/issues/44){target="_blank"}). The
+`config.active_record.schema_format` setting has been changed from `:ruby` to
+`:sql` to permit complete documentation of the database structure, including
+features that (by default) are not expressible in the `schema.rb` file.
+**_structure.sql_ is the canonical specification of the complete
+database schema for the last-released version of BETYdb; this is the schema
+which the latest release of the Rails code is meant to be run against.**
+
 1. If there are pending migrations, run them ("`bundle exec rake db:migrate`") and repeat the previous step.
 *Note: I found that I ran into permissions problems when attempting this step.  To get around this, I started psql as a superuser and then ran "ALTER USER bety WITH SUPERUSER;" to make user `bety` a superuser as well.  This shouldn't be a security worry if you are just running tests on your own copy of BETYdb.]
 1. Populate the database from the fixtures:
