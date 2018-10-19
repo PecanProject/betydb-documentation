@@ -7,23 +7,23 @@ Building constraints into the SQL schema provides a way of explicitly defining t
 ## Types of Constraints
 
 1.	**Value** constraints include:
- *	range constraints on continuous variables
- *	“enum” constraints on, for example, state or country designations; this is a form of normalization (“US” and “USA” should be folded into a common designation); forms utilized by SELECT controls should perhaps be favored
- *	consistency constraints: for example (year, month, day) can’t be (2001, 2, 29); or city-(state)-country vs. latitude-longitude (this may be hard, but some level of checking may not be too difficult; for example, “select * from sites where country in ('US', 'United States', 'USA') and lon > 0;” shouldn’t return any rows)
+    *	range constraints on continuous variables
+    *	“enum” constraints on, for example, state or country designations; this is a form of normalization (“US” and “USA” should be folded into a common designation); forms utilized by SELECT controls should perhaps be favored
+    *	consistency constraints: for example `(year, month, day)` can’t be `(2001, 2, 29)`; or the city, state, and country specified for a site should be consistent with the latitude and longitude; (this may be hard to check, but some level of checking may not be too difficult: for example, `SELECT * FROM sites WHERE country IN ('US', 'United States', 'USA') AND lon > 0;` shouldn’t return any rows)
 2.	**Foreign key** constraints
-  * Prevents accidental deletion of meta-data records in lookup tables
-  * Prevents entry of primary data without contextual information required to interpret the data
+    * Prevents accidental deletion of meta-data records in lookup tables
+    * Prevents entry of primary data without contextual information required to interpret the data
 3.	**Non-NULL** constraints
-  * Constrains which fields can not be empty
+    * Constrains which fields can not be empty
 4.	**Uniqueness** constraints 
-  * These define what makes a row unique, by designating a 'natural key' - a combination of fields that make a row unique (distinct from primary keys that are used in cross-table joins).
+    * These define what makes a row unique, by designating a 'natural key' - a combination of fields that make a row unique (distinct from primary keys that are used in cross-table joins).
 
-All constraints are defined in the database schema, [`db/production_structure.sql`](https://github.com/PecanProject/bety/blob/master/db/production_structure.sql)
+All constraints are defined in the database schema, [`db/structure.sql`](https://github.com/PecanProject/bety/blob/master/db/structure.sql){target="_blank"}
 
 
 ## Value Constraints (including some NOT NULL constraints)
 
-### Global
+### Global {-}
 
 * Text fields should not have leading or trailing white spaces. (Are there any fields for which this is not the case?)  
 This can be checked with
@@ -40,14 +40,14 @@ For convenience, we should probably define a function so we can just do somethin
       ```
 .
 
-### covariates:
+### covariates: {-}
 
 *	Check that `level` is in the range corresponding to variable referenced by `variable_id`.
 *	Check that `n` is positive (or > 1 ?) if it is not NULL.
 *	Check that `statname` and `stat` are either both NULL or both non-NULL.  (Alternatively, ensure that `statname` is non-NULL and that it equals the empty string if and only if `stat` is NULL.)
 *	Check that `statname` is one of "SD", "SE", "MSE", "95%CI", "LSD", "MSD" or possibly "".  Consider creating an ENUM data type for this.
 	
-### 	managements:
+### 	managements: {-}
 
 *	mgmttype: Constrain to one of the values in the web interface’s dropdown.  (Is there any reason not to store these in the variables table, or in a separate lookup table?  If we record units and range restrictions, this would be useful.  On the other hand, if we continue to use a static list of management types, we should create a new ENUM type in the database to enumerate the allowed values.
 *	level: This should always be non-negative (except in the case that we want to use the special value -999 for mgmttypes where a level has no meaning; if so, we should also constrain level to be non-NULL).
@@ -55,12 +55,12 @@ For convenience, we should probably define a function so we can just do somethin
 *	dateloc: Should be constrained to specific values.  Since there is a value (9) designated as meaning "no data", this column should be constrained to be NOT NULL.  We should perhaps constraint this column to have this value if `date` is NULL.
 * All values of citation\_id in managements should also be associated with treatment via citations\_treatments table.  Does thie mean: The management should be associated with (at least) one of the treatments associated with the citation specified by `citation_id`?
 
-###	species:
+###	species: {-}
 
 *	Ensure scientificname LIKE CONCAT(genus, ‘ ‘, species, ‘%’)
 *	Ensure genus is capitalized (and consists of a single word?).
 
-### 	sites:
+### 	sites: {-}
 
 * lat (replaced by geometry)
 * lon (replaced by geometry)
@@ -72,7 +72,7 @@ For convenience, we should probably define a function so we can just do somethin
 * sand\_pct, clay\_pct: These both have range 0--100, and sand\_pct + clay\_pct should be <= 100.
 * sitename: Unique and non-null (see below); also, ensure it does not have leading or trailing white space and no internal sequences of 2 or more consecutive spaces.  This will make the uniqueness constraint more meaningful.  (A similar white space constraint should apply to all textual keys in all tables.)
 	
-### traits:
+### traits: {-}
 
 It isn’t clear what a natural key would be, but it would probably involve several foreign key columns.  Perhaps (site_id, specie_id, cultivar_id, treatment_id, variable_id, and some combination of date and time fields.  But it is important to have some sort of uniqueness constraint other than just the default unique-id constraint.  For example, if the web-interface user accidentally presses the Create button on the New Trait page twice, two essentially equal trait rows will be created (they will differ only in the id and timestamp columns).  See Uniqueness Constraints below!
 
@@ -82,14 +82,14 @@ It isn’t clear what a natural key would be, but it would probably involve seve
 *	specie\_id and cultivar\_id need to be consistent with one another.
 *	access_level: Range is 1--4.
 	
-### treatments:
+### treatments: {-}
 
 *	name: Possibly standardize capitalization of names (easiest would be to have all words in all names not capitalized except for proper names and unit names where appropriate; this would convey the most information because (e.g.) author names would stand out from other words).  This would need to be done manually to avoid converting proper names to lowercase.  As stated below, names should be unique within a citation and site pair; standardizing capitalization will make this constraint more meaningful.
 *	definition: Treat captitalization similarly to that for names.
 *	control: There can be more than one control treatment per citation (currently there are).  Below in the uniqueness section, it is stated that there can be only one control for a given citation _and site_.
 *	Since (as stated below) names should be unique within a citation and site pair, standardizing capitalization will make this constraint more meaningful.
 
-### users:
+### users: {-}
 
 
 *	login: Enforce any constraints required by the Rails interface.
@@ -102,7 +102,7 @@ It isn’t clear what a natural key would be, but it would probably involve seve
 	
 
 
-### yields: [see also traits constraints]
+### yields: [see also traits constraints] {-}
 
 * mean: mean should be in the range of plausible yield values.
 
@@ -112,7 +112,7 @@ It isn’t clear what a natural key would be, but it would probably involve seve
 
 All foreign key constraints follow the form `table_id references tables`, following Ruby style conventions. 
 
-A [Github Gist](https://gist.github.com/dlebauer/12d8d9ed1b2965301d64) contains a list of foreign key constraints to be placed on BETYdb. The foreign keys are named using the form `fk_foreigntable_lookuptable_1` where the foreigntable has the foreign key. 
+A [Github Gist](https://gist.github.com/dlebauer/12d8d9ed1b2965301d64){target="_blank"} contains a list of foreign key constraints to be placed on BETYdb. The foreign keys are often named using the form `fk_foreigntable_lookuptable_1` where the foreigntable has the foreign key. 
 
 ## Non Null Constraints
 
@@ -190,7 +190,7 @@ For many-to-many relationship tables, the foreign key pairs should be unique; th
 
 **Database level constraints violates Ruby's "Active Record"** approach. 
 
-The [Rail Guide on Database Migrations](http://guides.rubyonrails.org/migrations.html#active-record-and-referential-integrity) suggests
+The [Rail Guide on Database Migrations](http://guides.rubyonrails.org/migrations.html#active-record-and-referential-integrity){target="_blank"} suggests
 
 > The Active Record way claims that intelligence belongs in your models, not in the database. As such, features such as triggers or foreign key constraints, which push some of that intelligence back into the database, are not heavily used.
 
