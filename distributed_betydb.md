@@ -46,7 +46,7 @@ Any changes to existing records should be done on the server that owns that reco
 |---|---|---|---|---|
 | Energy Biosciences Institute / University of Illinois|ebi-forecast.igb.illinois.edu| [https://betydb.org](https://betydb.org){target="_blank"}| 0 | 1-1,000,000,000|
 | Boston University| psql-pecan.bu.edu |[https://psql-pecan.bu.edu/bety](https://psql-pecan.bu.edu/bety){target="_blank"} | 1 | 1,000,000,001-2,000,000,000|
-| Brookhaven National Lab|modex.test.bnl.gov|[http://modex.test.bnl.gov/bety](http://modex.test.bnl.gov/bety){target="_blank"}|  2 | 2,000,000,001-3,000,000,000|
+| Brookhaven National Lab|modex.bnl.gov|[https://modex.bnl.gov/bety](https://modex.bnl.gov/bety){target="_blank"}|  2 | 2,000,000,001-3,000,000,000|
 | Purdue| bety.bio.purdue.edu | [http://bety.bio.purdue.edu/](http://bety.bio.purdue.edu/){target="_blank"} | 3 | 3,000,000,001-4,000,000,000|
 | Virginia Tech  | | 4 | 4,000,000,001-5,000,000,000|
 | University of Wisconsin | tree.aos.wisc.edu | [http://tree.aos.wisc.edu:6480/bety](http://tree.aos.wisc.edu:6480/bety){target="_blank"} | 5 | 5,000,000,001-6,000,000,000|
