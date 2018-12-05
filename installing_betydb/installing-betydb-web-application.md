@@ -6,7 +6,7 @@ These instructions are specifically tailored to the task of setting up a new ins
 2. Bundler
 3. Phusion Passenger
 4. Apache 2.2 or greater.
-5. PostgreSQL 9.3 or greater.
+5. PostgreSQL 9.4 or greater.
 6. PostGIS 2.1.0 or greater.
 7. Git 1.8.2.1 or greater.
 8. R 3.1.0 or greater.
