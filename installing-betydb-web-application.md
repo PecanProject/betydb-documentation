@@ -7,7 +7,7 @@ instance of BETYdb on a CentOS 7 machine.  We assume the following are installed
 1. Bundler
 1. Phusion Passenger
 1. Apache 2.2 or greater.
-1. PostgreSQL 9.3 or greater.
+1. PostgreSQL 9.4 or greater.
 1. PostGIS 2.1.0 or greater.
 1. Git 1.8.2.1 or greater.
 1. R 3.1.0 or greater.[^package_notes]
