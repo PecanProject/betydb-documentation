@@ -48,9 +48,8 @@ Any changes to existing records should be done on the server that owns that reco
 | TERRA Ref | 141.142.209.94 | [http://terraref.ncsa.illinois.edu/bety](http://terraref.ncsa.illinois.edu/bety) | 6 | 6,000,000,001-7,000,000,000 |
 | TERRA test | 141.142.209.95 | [http://terraref.ncsa.illinois.edu/bety-test](http://terraref.ncsa.illinois.edu/bety-test) | 7 | 7,000,000,001-8,000,000,000 |
 | TERRA MEPP UIUC | terra-mepp.ncsa.illinois.edu | terra-mepp.ncsa.illinois.edu/bety | 8 | 8,000,000,001-9,000,000,000 |
-| TERRA TAMU |  |  | 9 | 9,000,000,001-10,000,000,000 |
+| University of Arizona |  |  | 9 | 9,000,000,001-10,000,000,000 |
 | Ghent |  |  | 10 | 10,000,000,001 - 11,000,000,000 |
-| TERRA Purdue |  |  | 11 | 11,000,000,001 - 12,000,000,000 |
 | Development / Virtual Machine | localhost | [https://localhost:6480/bety](https://localhost:6480/bety) | 99 | 99,000,000,000-a zillion |
 
 ## Feedback Tab
