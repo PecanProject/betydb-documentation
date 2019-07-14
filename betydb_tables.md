@@ -23,7 +23,7 @@ description of the contents of each table is provided below. **Note: An up-to-da
 | Table                 | Key Fields                                                                  | Contents                                                                                                                                            | Use                                                                                                                                                                  |
 |-----------------------|-----------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Traits, Yields        | mean, n, variance estimate, date, time, site, citation, species, treatment  | Trait, yield, and ecosystem service data, including values and summary statistics.                                                                  | Stores primary,data                                                                                                                                                  |
-| Variables             | name, definition, units                                                     | Definitions, description, units, and allowable ranges of specific traits and ecosystem,services contained in the database                           | Defines primary,data, covariates, and priors                                                                                                                         |
+| Variables             | name, definition, units                                                     | Definitions, description, units, and allowable ranges of specific traits and ecosystem, services contained in the database                           | Defines primary,data, covariates, and priors                                                                                                                         |
 | Covariates            | variable, level                                                             | Context required to interpret a particular data point—for example the time, temperature, or location of a measurement                               | Contextual information necessary to interpret data                                                                                                                   |
 | Plant Functional Type | name, definition, reference                                                 | Context required to interpret a particular data point—for example the time, temperature, or location of a measurement                               | Data synthesis, QA/QC                                                                                                                                                |
 | Species               | scientific name                                                             | USDA Plants database, amended with additional species and links to other tables within BETYdb                                                       |                                                                                                                                                                      |
@@ -53,7 +53,7 @@ In some cases, two tables can have multiple references to one another,
 known as a "many to many" or "m:n" relationship. For example, one
 citation may contain data from many sites; at the same time, data from a
 single site may be included in multiple citations. Such relationships
-use join tables (also known as "association tables" or "junction tables"). Join tables (e.g. [Table 4](#Table-4), [Table 5](#Table-5), [Table 10](#Table-10), [Table 12](#Table-12), [Table 13](#Table-13))
+use join tables (also known as "association tables" or "junction tables"). Join tables
 combine the names of the two tables being related. For
 example, the table used to link `citations` and `sites` is named
 `citations_sites`. These join tables have two foreign keys (`citation_id` and `site_id` in this example) which together uniquely identify a row of the table (and thus constitute a _candidate key_).  (For various implementational reasons, these tables also have a surrogate key named `id`, but in general such a key is extraneous.)
@@ -64,12 +64,11 @@ While foreign key columns are identified implicitly by the naming convention whe
 
 The two data tables, **traits** and **yields**, contain the primary data
 of interest; all of the other tables provide information associated with
-these data points. These two tables are structurally very similar as can
-be seen in [Table 17](#Table-17) and [Table 20](#Table-20).
+these data points. These two tables are structurally very similar.
 
 #### traits
 
-The **traits** table contains trait data ([Table 17](#Table-17)). Traits are measurable
+The **traits** table contains trait data. Traits are measurable
 phenotypes that are influenced by a plant's genotype and environment.
 Most trait records presently in BETYdb describe tissue chemistry,
 photosynthetic parameters, and carbon allocation by plants.
@@ -77,7 +76,7 @@ photosynthetic parameters, and carbon allocation by plants.
 #### yields
 
 The **yields** table includes aboveground biomass in units of Mg per
-ha ([Table 20](#Table-20)). Biomass harvested in the fall and winter generally
+ha. Biomass harvested in the fall and winter generally
 represents what a farmer would harvest, whereas spring and summer
 harvests are generally from small samples used to monitor the progress
 of a crop over the course of the growing season. Managements associated
@@ -89,7 +88,7 @@ fertilization history, the harvest history, and other useful information.
 
 #### sites
 
-Each site is described in the **sites** table ([Table 15](#Table-15)). A site can have
+Each site is described in the **sites** table. A site can have
 multiple studies and multiple treatments. Sites are identified and
 should be used as the unit of spatial replication; treatments are used to
 identify independent units within a site, and these can be compared to
@@ -100,7 +99,7 @@ shared management entries at the same site.
 #### treatments
 
 The **treatments** table provides a categorical identifier of a study’s
-experimental treatments, if any ([Table 18](#Table-18)).
+experimental treatments, if any.
 
 Any specific information such as rate of fertilizer application should
 be recorded in the managements table. A treatment name is used
@@ -130,7 +129,7 @@ irrigation, herbicides, pesticides, as well as harvest method, time and
 frequency.
 
 The **managements** and **treatments** tables are linked through the
-`managements_treatments` table ([Table 10](#Table-10)).
+`managements_treatments` table.
 
 Managements are distinct from treatments in that a management is used to
 describe the agronomic or experimental intervention that occurs at a
@@ -153,10 +152,10 @@ herbicide or fertilizer.
 #### covariates
 
 The **covariates** table is used to record one or more covariates
-associated with each trait record ([Table 6](#Table-6)). Covariates generally indicate the
+associated with each trait record. Covariates generally indicate the
 environmental or experimental conditions under which a measurement was
 made. The definition of specific covariates can be found in the
-**variables** table ([Table 19](#Table-19)). Covariates are required for many of the traits
+**variables** table. Covariates are required for many of the traits
 because without covariate information, the trait data will have limited
 value.
 
@@ -175,12 +174,12 @@ fine roots, and if the authors define fine root as < 2mm, the covariate
 The plant functional type (PFT) table **pfts** is used to group plants for
 statistical modeling and analysis. Each row in **pfts** contains a PFT that is
 linked to a set of species in the **species** table.  This relationship requires
-the lookup table **pfts\_species** ([Table 13](#Table-13)).  Alternatively, a
+the lookup table **pfts\_species**.  Alternatively, a
 PFT may be linked to a set of cultivars in the **cultivars** table via the
 **cultivars\_pfts** lookup table.  (A PFT can not comprise both cultivars and
 species.)  Furthermore, each PFT can be associated with a set of trait prior
-probability distributions in the **priors** table ([Table 14](#Table-14)). This
-relationship requires the lookup table **pfts\_priors** ([Table 12](#Table-12)).
+probability distributions in the **priors** table. This
+relationship requires the lookup table **pfts\_priors**.
 
 In many cases, it is appropriate to use a pre-defined default PFT (for example
 `tempdecid` is temperate deciduous trees). In other cases, a user can
@@ -192,7 +191,7 @@ _projectname_._pftname_—for example, `ebifarm.c4grass` instead of simply `c4gr
 #### variables
 
 The **variables** table includes definitions of different variables used
-in the traits, covariates, and priors tables ([Table 19](#Table-19)). Each variable has a
+in the traits, covariates, and priors tables. Each variable has a
 `name` field and is associated with a standardized value for `units`.
 The `description` field provides additional information or context about
 the variable.
@@ -207,13 +206,13 @@ to many rows in another table and vice-versa; this is called a "many-to-many" re
 
 Because a single study may use multiple sites and multiple studies may
 use the same site, these relationships are tracked in the
-**citation\_sites** table ([Table 4](#Table-4)).
+**citation\_sites** table.
 
 #### citations\_treatments
 
 Because a single study may include multiple treatments and each
 treatment may be associated with multiple citations, these relationships
-are recorded in the **citations\_treatments** table ([Table 5](#Table-5)).
+are recorded in the **citations\_treatments** table.
 
 #### cultivars\_pfts
 
@@ -233,14 +232,14 @@ many-to-many association table **managements\_treatments** is required.
 #### pfts\_priors
 
 The **pfts\_priors** table allows a many-to-many relationship between
-the **pfts** and **priors** tables ([Table 12](#Table-12)). This allows each pft to be
+the **pfts** and **priors** tables. This allows each pft to be
 associated with multiple priors and each prior to be associated with
 multiple pfts.
 
 #### pfts\_species
 
 The **pfts\_species** table allows a many-to-many relationship between the
-**pfts** and **species** tables ([Table 13](#Table-13)).  A PFT that is related
+**pfts** and **species** tables.  A PFT that is related
 to a set of species may not also be related to one or more cultivars (except
 perhaps indirectly, by virtue of the associated species having certain
 cultivars). A database-level constraint ensures this.

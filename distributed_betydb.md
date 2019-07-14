@@ -27,7 +27,7 @@ You can sync a local instance of the BETYdb database with other instances. The
 [load.bety.sh](https://github.com/PecanProject/pecan/blob/master/scripts/load.bety.sh){target="_blank"}
 script will import data from other servers.
 
-```sh
+```bash
 MYSITE=X REMOTESITE=Y load.bety.sh
 ```
 
@@ -48,14 +48,14 @@ Any changes to existing records should be done on the server that owns that reco
 | Boston University| psql-pecan.bu.edu |[https://psql-pecan.bu.edu/bety](https://psql-pecan.bu.edu/bety){target="_blank"} | 1 | 1,000,000,001-2,000,000,000|
 | Brookhaven National Lab|modex.bnl.gov|[https://modex.bnl.gov/bety](https://modex.bnl.gov/bety){target="_blank"}|  2 | 2,000,000,001-3,000,000,000|
 | Purdue| bety.bio.purdue.edu | [http://bety.bio.purdue.edu/](http://bety.bio.purdue.edu/){target="_blank"} | 3 | 3,000,000,001-4,000,000,000|
-| Virginia Tech  | | 4 | 4,000,000,001-5,000,000,000|
+| Virginia Tech  | | | 4 | 4,000,000,001-5,000,000,000|
 | University of Wisconsin | tree.aos.wisc.edu | [http://tree.aos.wisc.edu:6480/bety](http://tree.aos.wisc.edu:6480/bety){target="_blank"} | 5 | 5,000,000,001-6,000,000,000|
 | TERRA Ref | 141.142.209.94  | [https://terraref.ncsa.illinois.edu/bety](https://terraref.ncsa.illinois.edu/bety){target="_blank"} | 6 | 6,000,000,001-7,000,000,000|
 | TERRA test | 141.142.209.95 | [https://terraref.ncsa.illinois.edu/bety-test](https://terraref.ncsa.illinois.edu/bety-test){target="_blank"}  | 7 | 7,000,000,001-8,000,000,000|
 | TERRA MEPP UIUC | terra-mepp.illinois.edu | [https://terra-mepp.illinois.edu/bety](https://terra-mepp.illinois.edu/bety){target="_blank"} | 8 | 8,000,000,001-9,000,000,000|
 | University of Arizona |  |  | 9 | 9,000,000,001-10,000,000,000 |
 | Ghent      |  |  | 10 | 10,000,000,001 - 11,000,000,000|
-| Development / Virtual Machine |localhost| https://localhost:6480/bety | 99 | 99,000,000,000-a zillion|
+| Development / Virtual Machine |localhost| https: //localhost:6480/bety | 99 | 99,000,000,000-a zillion|
 
 ## Feedback Tab
 
