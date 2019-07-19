@@ -1,3 +1,8 @@
+# (PART) Appendix {-}
+
+# Release Notes Template {-}
+
+```
 [one line summary]
 
 [full summary]
@@ -66,3 +71,4 @@ The database version for this release is [migration id].
     ```
 
 Complete instructions for setting up the test database and running the RSpec tests are on the Wiki page at https://github.com/PecanProject/bety/wiki/Automated-Tests
+```

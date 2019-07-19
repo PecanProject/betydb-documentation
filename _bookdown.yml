@@ -1,0 +1,39 @@
+title: "BETYdb Technical Documentation"
+author: ""
+date: "`r Sys.Date()`"
+bibliography:
+- book.bib
+- packages.bib
+description: This documents certain technical aspects of BETYdb.
+documentclass: book
+link-citations: yes
+site: bookdown::bookdown_site
+biblio-style: apalike
+book_filename: "betydb-documentation"
+delete_merged_file: true
+rmd_files: ["overview.md",
+#             "README.md",
+                "about_betydb.md",
+                "betydb_tables.md",
+            "installing_betydb.md",
+                "installing-betydb-web-application.md",
+                #Dependencies
+                    "setting-up-a-centos-server.md",
+                    "configuring-postgresql.md",
+                #"archived-setup-documentation.md",
+                    "dependencies_setting_up_a_server.md",
+                    "installing_postgres.md",
+                    "installing_the_betydb_rails_application.md",
+            #BETYdb System Administration
+                "updating_betydb_when_new_versions_are_released.md",
+                "distributed_betydb.md",
+            "betydb_development.md",
+                "ruby_on_rails_application_overview.md",
+                "automated_tests.md",
+                "code_style.md",
+                "complex_joins_in_the_web_interface.md",
+                "database_constraints.md",
+                "modifying_bety_schema.md",
+                "issuing_a_new_release.md",
+             #appendix
+                "release_notes_template.md"]

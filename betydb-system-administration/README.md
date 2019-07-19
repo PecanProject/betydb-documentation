@@ -1,2 +1,0 @@
-# BETYdb System Administration
-
