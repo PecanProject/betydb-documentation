@@ -1,0 +1,11 @@
+language: r
+cache: packages
+pandoc_version: 1.19.2.1
+
+env:
+  global:
+    - secure: "J9QKG/6IBh4RKSyqyV31+OVq/SMdyiLtXZFzhyd90lR4EOKQO9bGgBI0/VggNUHn4cNTMdhJRZYXhyaXcZwkertVgyjaVjT+xl/F+wnw2W6/e8C7ILhY2dpW47Sr/43rnsJico8moVJ2BR6Ux8qQmUZNOyCOqx+zAMN75nWVCBGkY56gO9qHeEM9l7/Feg2tQnimxuQyETbMPqWK8eLHZkHJTKafPBwB0ahYVFktN5rO2pOO6RgOoUWt+EOUJeufJYtF+4GW5ytuJvu7ADaRl1q38ayaMovBve408xmzz8RbpLd0YHFbJhGJSQtm6LZtdvW/UrsFLztqhEOk7O3tS7pPzltOhJWm4EiRYPuqzspywMpAAt/TTUUasZDX+LpHCPvWrVgsq1A7bQZ2wzH0pgMu0fLg1ikoanX7EpmCEgoP4mkgm7E/5o/hRMjQr6uY6YYKZjSUdzrRHNpWV1yaxjGqJ1sQg8r0hVs1OpfIwiyJOJ+/7fj2mXZqfSWctZYl4/wFf8+tN1JAMdLUtF1ASiT6sV74WR7K1GZHN+g78i/fU26Cry1QAUZIkrvIhF1ppddu2l6gLwc6fiWL5JBLQdhzcmljpcKB54qHzRj0jGW8RYs3oiNgHco1te5kdUofS1djgWj0gw+V9xfSfK3JN0RpCA60JpVFtKiKRYpCsvE="
+
+script:
+  - ./_build.sh
+  - ./_deploy.sh
