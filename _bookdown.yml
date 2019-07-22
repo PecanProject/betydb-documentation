@@ -11,7 +11,8 @@ site: bookdown::bookdown_site
 biblio-style: apalike
 book_filename: "betydb-documentation"
 delete_merged_file: true
-rmd_files: ["overview.md",
+rmd_files: ["index.Rmd",
+            "overview.md",
 #             "README.md",
                 "about_betydb.md",
                 "betydb_tables.md",
