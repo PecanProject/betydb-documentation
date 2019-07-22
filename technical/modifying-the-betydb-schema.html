@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title></title>
+  <meta name="description" content="" />
+  <meta name="generator" content="bookdown 0.12.1 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="" />
+  
+  
+  
+
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="database-constraints.html">
+<link rel="next" href="issuing-a-new-release.html">
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+</style>
+
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li class="part"><span><b>I Overview</b></span></li>
+<li class="chapter" data-level="1" data-path="about-betydb-database-description-and-users-guide.html"><a href="about-betydb-database-description-and-users-guide.html"><i class="fa fa-check"></i><b>1</b> About BETYdb: Database Description and User’s Guide</a><ul>
+<li class="chapter" data-level="1.1" data-path="about-betydb-database-description-and-users-guide.html"><a href="about-betydb-database-description-and-users-guide.html#objectives"><i class="fa fa-check"></i><b>1.1</b> Objectives</a></li>
+<li class="chapter" data-level="1.2" data-path="about-betydb-database-description-and-users-guide.html"><a href="about-betydb-database-description-and-users-guide.html#scope"><i class="fa fa-check"></i><b>1.2</b> Scope</a></li>
+<li class="chapter" data-level="1.3" data-path="about-betydb-database-description-and-users-guide.html"><a href="about-betydb-database-description-and-users-guide.html#content"><i class="fa fa-check"></i><b>1.3</b> Content</a></li>
+<li class="chapter" data-level="1.4" data-path="about-betydb-database-description-and-users-guide.html"><a href="about-betydb-database-description-and-users-guide.html#design"><i class="fa fa-check"></i><b>1.4</b> Design</a></li>
+<li class="chapter" data-level="1.5" data-path="about-betydb-database-description-and-users-guide.html"><a href="about-betydb-database-description-and-users-guide.html#data-entry"><i class="fa fa-check"></i><b>1.5</b> Data Entry</a></li>
+<li class="chapter" data-level="1.6" data-path="about-betydb-database-description-and-users-guide.html"><a href="about-betydb-database-description-and-users-guide.html#software"><i class="fa fa-check"></i><b>1.6</b> Software</a></li>
+<li class="chapter" data-level="1.7" data-path="about-betydb-database-description-and-users-guide.html"><a href="about-betydb-database-description-and-users-guide.html#list-of-tables-in-the-bety-database"><i class="fa fa-check"></i><b>1.7</b> List of Tables in the BETY Database</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="betydb-tables.html"><a href="betydb-tables.html"><i class="fa fa-check"></i><b>2</b> BETYdb Tables</a><ul>
+<li class="chapter" data-level="2.1" data-path="betydb-tables.html"><a href="betydb-tables.html#schema-enhanced-entity-relationship-model"><i class="fa fa-check"></i><b>2.1</b> Schema: Enhanced Entity-Relationship Model</a></li>
+<li class="chapter" data-level="2.2" data-path="betydb-tables.html"><a href="betydb-tables.html#tables"><i class="fa fa-check"></i><b>2.2</b> Tables</a></li>
+<li class="chapter" data-level="2.3" data-path="betydb-tables.html"><a href="betydb-tables.html#table-and-field-naming-conventions"><i class="fa fa-check"></i><b>2.3</b> Table and field naming conventions</a><ul>
+<li class="chapter" data-level="2.3.1" data-path="betydb-tables.html"><a href="betydb-tables.html#data-tables"><i class="fa fa-check"></i><b>2.3.1</b> Data Tables</a></li>
+<li class="chapter" data-level="2.3.2" data-path="betydb-tables.html"><a href="betydb-tables.html#auxillary-tables"><i class="fa fa-check"></i><b>2.3.2</b> Auxillary Tables</a></li>
+<li class="chapter" data-level="2.3.3" data-path="betydb-tables.html"><a href="betydb-tables.html#join-tables"><i class="fa fa-check"></i><b>2.3.3</b> Join Tables</a></li>
+</ul></li>
+</ul></li>
+<li class="part"><span><b>II Installing BETYdb</b></span></li>
+<li class="chapter" data-level="3" data-path="deploying-a-production-copy-of-the-betydb-web-application.html"><a href="deploying-a-production-copy-of-the-betydb-web-application.html"><i class="fa fa-check"></i><b>3</b> Deploying a Production Copy of the BETYdb Web Application</a><ul>
+<li class="chapter" data-level="" data-path="deploying-a-production-copy-of-the-betydb-web-application.html"><a href="deploying-a-production-copy-of-the-betydb-web-application.html#installing-and-configuring-ruby-and-rails-code"><i class="fa fa-check"></i>Installing and Configuring Ruby and Rails Code</a><ul>
+<li class="chapter" data-level="" data-path="deploying-a-production-copy-of-the-betydb-web-application.html"><a href="deploying-a-production-copy-of-the-betydb-web-application.html#step-1-log-in-to-the-deployment-machine-as-an-administrator"><i class="fa fa-check"></i>Step 1: Log in to the deployment machine as an administrator</a></li>
+<li class="chapter" data-level="" data-path="deploying-a-production-copy-of-the-betydb-web-application.html"><a href="deploying-a-production-copy-of-the-betydb-web-application.html#step-2-add-a-new-user-as-the-owner-of-the-betydb-instance"><i class="fa fa-check"></i>Step 2: Add a new user as the owner of the BETYdb instance</a></li>
+<li class="chapter" data-level="" data-path="deploying-a-production-copy-of-the-betydb-web-application.html"><a href="deploying-a-production-copy-of-the-betydb-web-application.html#step-3-choose-a-location-for-the-application-code"><i class="fa fa-check"></i>Step 3: Choose a location for the application code</a></li>
+<li class="chapter" data-level="" data-path="deploying-a-production-copy-of-the-betydb-web-application.html"><a href="deploying-a-production-copy-of-the-betydb-web-application.html#step-4-create-the-target-parent-directory-and-clone-the-betydb-code-from-the-github-repository"><i class="fa fa-check"></i>Step 4: Create the target parent directory and clone the BETYdb code from the GitHub repository:</a></li>
+<li class="chapter" data-level="" data-path="deploying-a-production-copy-of-the-betydb-web-application.html"><a href="deploying-a-production-copy-of-the-betydb-web-application.html#step-5-if-you-have-not-already-done-so-install-the-correct-version-of-ruby"><i class="fa fa-check"></i>Step 5: If you have not already done so, install the correct version of Ruby</a></li>
+<li class="chapter" data-level="" data-path="deploying-a-production-copy-of-the-betydb-web-application.html"><a href="deploying-a-production-copy-of-the-betydb-web-application.html#step-6-log-in-to-the-applications-user-account-and-make-sure-you-are-in-the-rails-root-directory"><i class="fa fa-check"></i>Step 6: Log in to the application’s user account and make sure you are in the Rails root directory:</a></li>
+<li class="chapter" data-level="" data-path="deploying-a-production-copy-of-the-betydb-web-application.html"><a href="deploying-a-production-copy-of-the-betydb-web-application.html#step-7-use-the-bundler-to-install-the-application-gems"><i class="fa fa-check"></i>Step 7: Use the Bundler to install the application Gems:</a></li>
+<li class="chapter" data-level="" data-path="deploying-a-production-copy-of-the-betydb-web-application.html"><a href="deploying-a-production-copy-of-the-betydb-web-application.html#step-8-create-a-database-configuration-file"><i class="fa fa-check"></i>Step 8: Create a database configuration file</a></li>
+<li class="chapter" data-level="" data-path="deploying-a-production-copy-of-the-betydb-web-application.html"><a href="deploying-a-production-copy-of-the-betydb-web-application.html#step-9-create-a-rails-application-customization-file"><i class="fa fa-check"></i>Step 9: Create a Rails application customization file</a></li>
+<li class="chapter" data-level="" data-path="deploying-a-production-copy-of-the-betydb-web-application.html"><a href="deploying-a-production-copy-of-the-betydb-web-application.html#step-10-compile-rails-assets"><i class="fa fa-check"></i>Step 10: Compile Rails assets:</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="deploying-a-production-copy-of-the-betydb-web-application.html"><a href="deploying-a-production-copy-of-the-betydb-web-application.html#loading-the-betydb-database"><i class="fa fa-check"></i>Loading the BETYdb Database</a><ul>
+<li class="chapter" data-level="" data-path="deploying-a-production-copy-of-the-betydb-web-application.html"><a href="deploying-a-production-copy-of-the-betydb-web-application.html#step-11-download-the-load.bety.sh-script-from-the-pecan-repository"><i class="fa fa-check"></i>Step 11: Download the load.bety.sh script from the PEcAn repository:</a></li>
+<li class="chapter" data-level="" data-path="deploying-a-production-copy-of-the-betydb-web-application.html"><a href="deploying-a-production-copy-of-the-betydb-web-application.html#step-12-if-you-arent-already-there-cd-to-the-application-root-directory"><i class="fa fa-check"></i>Step 12: If you aren’t already there, cd to the application root directory:</a></li>
+<li class="chapter" data-level="" data-path="deploying-a-production-copy-of-the-betydb-web-application.html"><a href="deploying-a-production-copy-of-the-betydb-web-application.html#step-13-log-in-as-user-postgres"><i class="fa fa-check"></i>Step 13: Log in as user postgres:</a></li>
+<li class="chapter" data-level="" data-path="deploying-a-production-copy-of-the-betydb-web-application.html"><a href="deploying-a-production-copy-of-the-betydb-web-application.html#step-14-create-a-role-and-a-database-for-the-betydb-app"><i class="fa fa-check"></i>Step 14: Create a role and a database for the BETYdb app</a></li>
+<li class="chapter" data-level="" data-path="deploying-a-production-copy-of-the-betydb-web-application.html"><a href="deploying-a-production-copy-of-the-betydb-web-application.html#step-15-run-the-load.bety.sh-script"><i class="fa fa-check"></i>Step 15: Run the load.bety.sh script:</a></li>
+<li class="chapter" data-level="" data-path="deploying-a-production-copy-of-the-betydb-web-application.html"><a href="deploying-a-production-copy-of-the-betydb-web-application.html#step-16-optional-load-data-from-another-machine"><i class="fa fa-check"></i>Step 16: (Optional) Load data from another machine:</a></li>
+<li class="chapter" data-level="" data-path="deploying-a-production-copy-of-the-betydb-web-application.html"><a href="deploying-a-production-copy-of-the-betydb-web-application.html#step-17-exit-the-postgres-user-account"><i class="fa fa-check"></i>Step 17: Exit the postgres user account:</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="deploying-a-production-copy-of-the-betydb-web-application.html"><a href="deploying-a-production-copy-of-the-betydb-web-application.html#complete-apache-and-passenger-configuration"><i class="fa fa-check"></i>Complete Apache and Passenger configuration</a><ul>
+<li class="chapter" data-level="" data-path="deploying-a-production-copy-of-the-betydb-web-application.html"><a href="deploying-a-production-copy-of-the-betydb-web-application.html#step-18-check-that-the-correct-version-of-ruby-is-enabled"><i class="fa fa-check"></i>Step 18: Check that the correct version of Ruby is enabled:</a></li>
+<li class="chapter" data-level="" data-path="deploying-a-production-copy-of-the-betydb-web-application.html"><a href="deploying-a-production-copy-of-the-betydb-web-application.html#step-19-find-the-path-to-the-ruby-interpreter"><i class="fa fa-check"></i>Step 19: Find the path to the Ruby interpreter:</a></li>
+<li class="chapter" data-level="" data-path="deploying-a-production-copy-of-the-betydb-web-application.html"><a href="deploying-a-production-copy-of-the-betydb-web-application.html#step-20-configure-the-apache-server"><i class="fa fa-check"></i>Step 20: Configure the Apache Server</a></li>
+<li class="chapter" data-level="" data-path="deploying-a-production-copy-of-the-betydb-web-application.html"><a href="deploying-a-production-copy-of-the-betydb-web-application.html#step-21-restart-apache"><i class="fa fa-check"></i>Step 21: Restart Apache:</a></li>
+<li class="chapter" data-level="" data-path="deploying-a-production-copy-of-the-betydb-web-application.html"><a href="deploying-a-production-copy-of-the-betydb-web-application.html#step-22-test"><i class="fa fa-check"></i>Step 22: Test:</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="deploying-a-production-copy-of-the-betydb-web-application.html"><a href="deploying-a-production-copy-of-the-betydb-web-application.html#final-steps"><i class="fa fa-check"></i>Final Steps</a><ul>
+<li class="chapter" data-level="" data-path="deploying-a-production-copy-of-the-betydb-web-application.html"><a href="deploying-a-production-copy-of-the-betydb-web-application.html#step-23-create-a-betydb-administrative-account"><i class="fa fa-check"></i>Step 23: Create a BETYdb administrative account</a></li>
+<li class="chapter" data-level="" data-path="deploying-a-production-copy-of-the-betydb-web-application.html"><a href="deploying-a-production-copy-of-the-betydb-web-application.html#step-24-re-set-the-guest-user-account-password"><i class="fa fa-check"></i>Step 24: Re-Set the Guest user account password</a></li>
+<li class="chapter" data-level="" data-path="deploying-a-production-copy-of-the-betydb-web-application.html"><a href="deploying-a-production-copy-of-the-betydb-web-application.html#step-25-ensure-images-for-priors-pages-are-generated"><i class="fa fa-check"></i>Step 25: Ensure images for Priors pages are generated</a></li>
+<li class="chapter" data-level="" data-path="deploying-a-production-copy-of-the-betydb-web-application.html"><a href="deploying-a-production-copy-of-the-betydb-web-application.html#step-26-ensure-the-schemaspy-documentation-can-be-generated"><i class="fa fa-check"></i>Step 26: Ensure the SchemaSpy documentation can be generated</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="setting-up-a-centos-server.html"><a href="setting-up-a-centos-server.html"><i class="fa fa-check"></i><b>4</b> Setting Up a CentOS Server</a><ul>
+<li class="chapter" data-level="4.1" data-path="setting-up-a-centos-server.html"><a href="setting-up-a-centos-server.html#install-centos-7"><i class="fa fa-check"></i><b>4.1</b> Install CentOS 7</a></li>
+<li class="chapter" data-level="4.2" data-path="setting-up-a-centos-server.html"><a href="setting-up-a-centos-server.html#install-additional-system-software"><i class="fa fa-check"></i><b>4.2</b> Install additional system software</a></li>
+<li class="chapter" data-level="4.3" data-path="setting-up-a-centos-server.html"><a href="setting-up-a-centos-server.html#install-required-ruby-and-rails-softwareruby_with_rvm"><i class="fa fa-check"></i><b>4.3</b> Install required Ruby and Rails software</a><ul>
+<li class="chapter" data-level="4.3.1" data-path="setting-up-a-centos-server.html"><a href="setting-up-a-centos-server.html#rvm-ruby-version-manager"><i class="fa fa-check"></i><b>4.3.1</b> RVM (Ruby Version Manager)</a></li>
+</ul></li>
+<li class="chapter" data-level="4.4" data-path="setting-up-a-centos-server.html"><a href="setting-up-a-centos-server.html#bundler"><i class="fa fa-check"></i><b>4.4</b> Bundler:</a></li>
+<li class="chapter" data-level="4.5" data-path="setting-up-a-centos-server.html"><a href="setting-up-a-centos-server.html#node.js-needed-to-be-able-to-compile-rails-assets"><i class="fa fa-check"></i><b>4.5</b> node.js (needed to be able to compile Rails assets):</a></li>
+<li class="chapter" data-level="4.6" data-path="setting-up-a-centos-server.html"><a href="setting-up-a-centos-server.html#phusion-passengerphusion_passenger"><i class="fa fa-check"></i><b>4.6</b> Phusion Passenger</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="configuring-postgresql.html"><a href="configuring-postgresql.html"><i class="fa fa-check"></i><b>5</b> Configuring PostgreSQL</a><ul>
+<li class="chapter" data-level="5.1" data-path="configuring-postgresql.html"><a href="configuring-postgresql.html#step-1-initialize-the-database-cluster-and-start-the-server"><i class="fa fa-check"></i><b>5.1</b> Step 1: Initialize the database cluster and start the server</a></li>
+<li class="chapter" data-level="5.2" data-path="configuring-postgresql.html"><a href="configuring-postgresql.html#step-2-enable-password-authentication-for-all-users-other-than-postgres"><i class="fa fa-check"></i><b>5.2</b> Step 2: Enable password authentication for all users other than postgres</a></li>
+<li class="chapter" data-level="5.3" data-path="configuring-postgresql.html"><a href="configuring-postgresql.html#step-3-create-a-new-role-and-new-database-for-betydb"><i class="fa fa-check"></i><b>5.3</b> Step 3: Create a new role and new database for BETYdb</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="archived-setup-documentation.html"><a href="archived-setup-documentation.html"><i class="fa fa-check"></i><b>6</b> Archived Setup Documentation</a><ul>
+<li class="chapter" data-level="6.1" data-path="archived-setup-documentation.html"><a href="archived-setup-documentation.html#setting-up-a-redhat-or-centos-server"><i class="fa fa-check"></i><b>6.1</b> Setting up a RedHat or CentOS Server</a><ul>
+<li class="chapter" data-level="6.1.1" data-path="archived-setup-documentation.html"><a href="archived-setup-documentation.html#overview"><i class="fa fa-check"></i><b>6.1.1</b> Overview</a></li>
+</ul></li>
+<li class="chapter" data-level="6.2" data-path="archived-setup-documentation.html"><a href="archived-setup-documentation.html#instructions-for-installing-and-configuring-postgresql"><i class="fa fa-check"></i><b>6.2</b> Instructions for Installing and Configuring PostgreSQL</a></li>
+<li class="chapter" data-level="6.3" data-path="archived-setup-documentation.html"><a href="archived-setup-documentation.html#installing-the-betydb-rails-application"><i class="fa fa-check"></i><b>6.3</b> Installing the BETYdb Rails Application</a><ul>
+<li class="chapter" data-level="6.3.1" data-path="archived-setup-documentation.html"><a href="archived-setup-documentation.html#prerequisites"><i class="fa fa-check"></i><b>6.3.1</b> Prerequisites</a></li>
+<li class="chapter" data-level="6.3.2" data-path="archived-setup-documentation.html"><a href="archived-setup-documentation.html#installing-the-rails-application"><i class="fa fa-check"></i><b>6.3.2</b> Installing the Rails Application</a></li>
+<li class="chapter" data-level="6.3.3" data-path="archived-setup-documentation.html"><a href="archived-setup-documentation.html#updating-syncing-the-database"><i class="fa fa-check"></i><b>6.3.3</b> Updating / Syncing the database</a></li>
+<li class="chapter" data-level="6.3.4" data-path="archived-setup-documentation.html"><a href="archived-setup-documentation.html#starting-the-betydb-rails-web-application"><i class="fa fa-check"></i><b>6.3.4</b> Starting the BETYdb Rails Web Application</a></li>
+<li class="chapter" data-level="6.3.5" data-path="archived-setup-documentation.html"><a href="archived-setup-documentation.html#logrotation"><i class="fa fa-check"></i><b>6.3.5</b> Logrotation</a></li>
+</ul></li>
+</ul></li>
+<li class="part"><span><b>III BETYdb System Administration</b></span></li>
+<li class="chapter" data-level="7" data-path="updating-betydb-when-new-versions-are-released.html"><a href="updating-betydb-when-new-versions-are-released.html"><i class="fa fa-check"></i><b>7</b> Updating BETYdb When New Versions are Released</a><ul>
+<li class="chapter" data-level="7.1" data-path="updating-betydb-when-new-versions-are-released.html"><a href="updating-betydb-when-new-versions-are-released.html#updating-the-bety-database"><i class="fa fa-check"></i><b>7.1</b> Updating the BETY database</a></li>
+<li class="chapter" data-level="7.2" data-path="updating-betydb-when-new-versions-are-released.html"><a href="updating-betydb-when-new-versions-are-released.html#update-the-rails-app-and-schema"><i class="fa fa-check"></i><b>7.2</b> Update the Rails app and schema</a></li>
+<li class="chapter" data-level="7.3" data-path="updating-betydb-when-new-versions-are-released.html"><a href="updating-betydb-when-new-versions-are-released.html#load-a-fresh-version-of-database"><i class="fa fa-check"></i><b>7.3</b> Load a fresh version of database</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="distributed-instances-of-betydb.html"><a href="distributed-instances-of-betydb.html"><i class="fa fa-check"></i><b>8</b> Distributed instances of BETYdb</a><ul>
+<li class="chapter" data-level="8.1" data-path="distributed-instances-of-betydb.html"><a href="distributed-instances-of-betydb.html#syncing-databases"><i class="fa fa-check"></i><b>8.1</b> Syncing Databases</a><ul>
+<li class="chapter" data-level="8.1.1" data-path="distributed-instances-of-betydb.html"><a href="distributed-instances-of-betydb.html#exporting-data"><i class="fa fa-check"></i><b>8.1.1</b> Exporting Data</a></li>
+<li class="chapter" data-level="8.1.2" data-path="distributed-instances-of-betydb.html"><a href="distributed-instances-of-betydb.html#importing-data"><i class="fa fa-check"></i><b>8.1.2</b> Importing Data</a></li>
+<li class="chapter" data-level="8.1.3" data-path="distributed-instances-of-betydb.html"><a href="distributed-instances-of-betydb.html#primary-key-allocations"><i class="fa fa-check"></i><b>8.1.3</b> Primary Key Allocations</a></li>
+</ul></li>
+<li class="chapter" data-level="8.2" data-path="distributed-instances-of-betydb.html"><a href="distributed-instances-of-betydb.html#feedback-tab"><i class="fa fa-check"></i><b>8.2</b> Feedback Tab</a></li>
+<li class="chapter" data-level="8.3" data-path="distributed-instances-of-betydb.html"><a href="distributed-instances-of-betydb.html#customization"><i class="fa fa-check"></i><b>8.3</b> Customization</a></li>
+<li class="chapter" data-level="8.4" data-path="distributed-instances-of-betydb.html"><a href="distributed-instances-of-betydb.html#issues"><i class="fa fa-check"></i><b>8.4</b> Issues</a></li>
+</ul></li>
+<li class="part"><span><b>IV BETYdb Development</b></span></li>
+<li class="chapter" data-level="9" data-path="ruby-on-rails-application-overview-draft.html"><a href="ruby-on-rails-application-overview-draft.html"><i class="fa fa-check"></i><b>9</b> Ruby on Rails Application Overview (draft)</a><ul>
+<li class="chapter" data-level="9.1" data-path="ruby-on-rails-application-overview-draft.html"><a href="ruby-on-rails-application-overview-draft.html#introduction-to-ruby-on-rails"><i class="fa fa-check"></i><b>9.1</b> Introduction to Ruby-on-Rails</a></li>
+<li class="chapter" data-level="9.2" data-path="ruby-on-rails-application-overview-draft.html"><a href="ruby-on-rails-application-overview-draft.html#introduction-to-mvc"><i class="fa fa-check"></i><b>9.2</b> Introduction to MVC</a></li>
+<li class="chapter" data-level="9.3" data-path="ruby-on-rails-application-overview-draft.html"><a href="ruby-on-rails-application-overview-draft.html#source-code-map"><i class="fa fa-check"></i><b>9.3</b> Source Code Map</a></li>
+<li class="chapter" data-level="9.4" data-path="ruby-on-rails-application-overview-draft.html"><a href="ruby-on-rails-application-overview-draft.html#misc.-information"><i class="fa fa-check"></i><b>9.4</b> Misc. Information</a><ul>
+<li class="chapter" data-level="9.4.1" data-path="ruby-on-rails-application-overview-draft.html"><a href="ruby-on-rails-application-overview-draft.html#providing-model-output-for-download"><i class="fa fa-check"></i><b>9.4.1</b> Providing model output for download</a></li>
+<li class="chapter" data-level="9.4.2" data-path="ruby-on-rails-application-overview-draft.html"><a href="ruby-on-rails-application-overview-draft.html#related-issues-commits"><i class="fa fa-check"></i><b>9.4.2</b> Related Issues / Commits:</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="ruby-on-rails-developing-upgrading-and-deploying.html"><a href="ruby-on-rails-developing-upgrading-and-deploying.html"><i class="fa fa-check"></i><b>10</b> Ruby-on-Rails: Developing, Upgrading, and Deploying</a><ul>
+<li class="chapter" data-level="10.1" data-path="ruby-on-rails-developing-upgrading-and-deploying.html"><a href="ruby-on-rails-developing-upgrading-and-deploying.html#development-and-testing"><i class="fa fa-check"></i><b>10.1</b> Development and Testing</a></li>
+<li class="chapter" data-level="10.2" data-path="ruby-on-rails-developing-upgrading-and-deploying.html"><a href="ruby-on-rails-developing-upgrading-and-deploying.html#deploying-a-new-version"><i class="fa fa-check"></i><b>10.2</b> Deploying a new version:</a></li>
+<li class="chapter" data-level="10.3" data-path="ruby-on-rails-developing-upgrading-and-deploying.html"><a href="ruby-on-rails-developing-upgrading-and-deploying.html#deploying-or-upgrading-to-a-new-version-of-the-betydb-rails-app"><i class="fa fa-check"></i><b>10.3</b> Deploying or upgrading to a new version of the BETYdb Rails app</a><ul>
+<li class="chapter" data-level="10.3.1" data-path="ruby-on-rails-developing-upgrading-and-deploying.html"><a href="ruby-on-rails-developing-upgrading-and-deploying.html#running-migrations"><i class="fa fa-check"></i><b>10.3.1</b> Running Migrations</a></li>
+</ul></li>
+<li class="chapter" data-level="10.4" data-path="ruby-on-rails-developing-upgrading-and-deploying.html"><a href="ruby-on-rails-developing-upgrading-and-deploying.html#versioning-and-tagging"><i class="fa fa-check"></i><b>10.4</b> Versioning and Tagging</a><ul>
+<li class="chapter" data-level="10.4.1" data-path="ruby-on-rails-developing-upgrading-and-deploying.html"><a href="ruby-on-rails-developing-upgrading-and-deploying.html#protocol-for-defining-and-releasing-versions"><i class="fa fa-check"></i><b>10.4.1</b> Protocol for defining and releasing versions</a></li>
+<li class="chapter" data-level="10.4.2" data-path="ruby-on-rails-developing-upgrading-and-deploying.html"><a href="ruby-on-rails-developing-upgrading-and-deploying.html#version-numbering"><i class="fa fa-check"></i><b>10.4.2</b> Version Numbering</a></li>
+</ul></li>
+<li class="chapter" data-level="10.5" data-path="ruby-on-rails-developing-upgrading-and-deploying.html"><a href="ruby-on-rails-developing-upgrading-and-deploying.html#commenting-in-the-rails-models"><i class="fa fa-check"></i><b>10.5</b> Commenting in the Rails Models</a></li>
+</ul></li>
+<li class="chapter" data-level="11" data-path="automated-tests.html"><a href="automated-tests.html"><i class="fa fa-check"></i><b>11</b> Automated Tests</a><ul>
+<li class="chapter" data-level="11.1" data-path="automated-tests.html"><a href="automated-tests.html#development-and-testing-1"><i class="fa fa-check"></i><b>11.1</b> Development and Testing</a></li>
+<li class="chapter" data-level="11.2" data-path="automated-tests.html"><a href="automated-tests.html#running-the-rspec-tests-on-betydb."><i class="fa fa-check"></i><b>11.2</b> Running the RSpec tests on BETYdb.</a><ul>
+<li class="chapter" data-level="11.2.1" data-path="automated-tests.html"><a href="automated-tests.html#preparing-the-test-database."><i class="fa fa-check"></i><b>11.2.1</b> Preparing the test database.</a></li>
+<li class="chapter" data-level="11.2.2" data-path="automated-tests.html"><a href="automated-tests.html#running-the-tests"><i class="fa fa-check"></i><b>11.2.2</b> Running the tests</a></li>
+<li class="chapter" data-level="11.2.3" data-path="automated-tests.html"><a href="automated-tests.html#troubleshooting"><i class="fa fa-check"></i><b>11.2.3</b> Troubleshooting</a></li>
+<li class="chapter" data-level="11.2.4" data-path="automated-tests.html"><a href="automated-tests.html#creating-a-new-postgis-enabled-database-template"><i class="fa fa-check"></i><b>11.2.4</b> Creating a new PostGIS-enabled database template</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="12" data-path="code-style.html"><a href="code-style.html"><i class="fa fa-check"></i><b>12</b> Code Style</a><ul>
+<li class="chapter" data-level="12.1" data-path="code-style.html"><a href="code-style.html#whitespace-conventions-in-the-betydb-code"><i class="fa fa-check"></i><b>12.1</b> Whitespace conventions in the BETYdb Code</a></li>
+<li class="chapter" data-level="12.2" data-path="code-style.html"><a href="code-style.html#fixing-legacy-formatting"><i class="fa fa-check"></i><b>12.2</b> Fixing legacy formatting</a></li>
+</ul></li>
+<li class="chapter" data-level="13" data-path="complex-joins-in-the-web-interface.html"><a href="complex-joins-in-the-web-interface.html"><i class="fa fa-check"></i><b>13</b> Complex Joins in the Web Interface</a></li>
+<li class="chapter" data-level="14" data-path="database-constraints.html"><a href="database-constraints.html"><i class="fa fa-check"></i><b>14</b> Database Constraints</a><ul>
+<li class="chapter" data-level="14.1" data-path="database-constraints.html"><a href="database-constraints.html#types-of-constraints"><i class="fa fa-check"></i><b>14.1</b> Types of Constraints</a></li>
+<li class="chapter" data-level="14.2" data-path="database-constraints.html"><a href="database-constraints.html#value-constraints-including-some-not-null-constraints"><i class="fa fa-check"></i><b>14.2</b> Value Constraints (including some NOT NULL constraints)</a><ul>
+<li class="chapter" data-level="" data-path="database-constraints.html"><a href="database-constraints.html#global"><i class="fa fa-check"></i>Global</a></li>
+<li class="chapter" data-level="" data-path="database-constraints.html"><a href="database-constraints.html#covariates-1"><i class="fa fa-check"></i>covariates:</a></li>
+<li class="chapter" data-level="" data-path="database-constraints.html"><a href="database-constraints.html#managements-1"><i class="fa fa-check"></i>managements:</a></li>
+<li class="chapter" data-level="" data-path="database-constraints.html"><a href="database-constraints.html#species"><i class="fa fa-check"></i>species:</a></li>
+<li class="chapter" data-level="" data-path="database-constraints.html"><a href="database-constraints.html#sites-1"><i class="fa fa-check"></i>sites:</a></li>
+<li class="chapter" data-level="" data-path="database-constraints.html"><a href="database-constraints.html#traits-1"><i class="fa fa-check"></i>traits:</a></li>
+<li class="chapter" data-level="" data-path="database-constraints.html"><a href="database-constraints.html#treatments-1"><i class="fa fa-check"></i>treatments:</a></li>
+<li class="chapter" data-level="" data-path="database-constraints.html"><a href="database-constraints.html#users"><i class="fa fa-check"></i>users:</a></li>
+<li class="chapter" data-level="" data-path="database-constraints.html"><a href="database-constraints.html#yields-see-also-traits-constraints"><i class="fa fa-check"></i>yields: [see also traits constraints]</a></li>
+</ul></li>
+<li class="chapter" data-level="14.3" data-path="database-constraints.html"><a href="database-constraints.html#foreign-key-constraints"><i class="fa fa-check"></i><b>14.3</b> Foreign Key Constraints</a></li>
+<li class="chapter" data-level="14.4" data-path="database-constraints.html"><a href="database-constraints.html#non-null-constraints"><i class="fa fa-check"></i><b>14.4</b> Non Null Constraints</a></li>
+<li class="chapter" data-level="14.5" data-path="database-constraints.html"><a href="database-constraints.html#uniqueness-constraints"><i class="fa fa-check"></i><b>14.5</b> Uniqueness constraints</a></li>
+<li class="chapter" data-level="14.6" data-path="database-constraints.html"><a href="database-constraints.html#technical-note"><i class="fa fa-check"></i><b>14.6</b> Technical Note</a></li>
+</ul></li>
+<li class="chapter" data-level="15" data-path="modifying-the-betydb-schema.html"><a href="modifying-the-betydb-schema.html"><i class="fa fa-check"></i><b>15</b> Modifying the BETYdb schema</a><ul>
+<li class="chapter" data-level="15.1" data-path="modifying-the-betydb-schema.html"><a href="modifying-the-betydb-schema.html#modifying-bety-troubleshooting"><i class="fa fa-check"></i><b>15.1</b> Troubleshooting</a></li>
+</ul></li>
+<li class="chapter" data-level="16" data-path="issuing-a-new-release.html"><a href="issuing-a-new-release.html"><i class="fa fa-check"></i><b>16</b> Issuing a New Release</a><ul>
+<li class="chapter" data-level="16.1" data-path="issuing-a-new-release.html"><a href="issuing-a-new-release.html#writing-release-notes"><i class="fa fa-check"></i><b>16.1</b> Writing release notes</a></li>
+<li class="chapter" data-level="16.2" data-path="issuing-a-new-release.html"><a href="issuing-a-new-release.html#upgrading-the-canonical-betydb-rails-sitecanonical_site"><i class="fa fa-check"></i><b>16.2</b> Upgrading the canonical BETYdb Rails site</a></li>
+<li class="chapter" data-level="16.3" data-path="issuing-a-new-release.html"><a href="issuing-a-new-release.html#upgrading-other-production-sites"><i class="fa fa-check"></i><b>16.3</b> Upgrading other production sites</a></li>
+<li class="chapter" data-level="16.4" data-path="issuing-a-new-release.html"><a href="issuing-a-new-release.html#finishing-the-release"><i class="fa fa-check"></i><b>16.4</b> Finishing the release</a><ul>
+<li class="chapter" data-level="16.4.1" data-path="issuing-a-new-release.html"><a href="issuing-a-new-release.html#version-numbering-1"><i class="fa fa-check"></i><b>16.4.1</b> Version Numbering</a></li>
+</ul></li>
+</ul></li>
+<li class="part"><span><b>V Appendix</b></span></li>
+<li class="chapter" data-level="" data-path="release-notes-template.html"><a href="release-notes-template.html"><i class="fa fa-check"></i>Release Notes Template</a></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./"></a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="modifying-the-betydb-schema" class="section level1">
+<h1><span class="header-section-number">15</span> Modifying the BETYdb schema</h1>
+<p>Changes to the Bety schema happen through the Ruby on Rails database migration system. Here is a <a href="http://edgeguides.rubyonrails.org/active_record_migrations.html" target="_blank">detailed guide</a> on database migration for Ruby on Rails. What follows is a lightning guide to the essential steps.</p>
+<ol style="list-style-type: decimal">
+<li><p>If you have not done so already, <code>git clone</code> the Bety repository. If you are on the VM, it should already be present in <code>~/bety</code>.</p></li>
+<li><p><code>cd</code> into the <code>bety</code> repository and update to the latest version with <code>git pull</code>.</p></li>
+<li><p>Make sure all Ruby gems are up to date. Running <code>bundle check</code> should do a quick check. If anything is out of date, update with <code>bundle install --path vendor/bundle</code>. (Adding the <code>--path</code> argument is strongly recommended to isolate these gems from the system install.) If this throws an error, see <a href="modifying-the-betydb-schema.html#modifying-bety-troubleshooting">Troubleshooting</a> below.</p></li>
+<li><p>Check the <code>config/database.yml</code> file to make sure that database parameters are set correctly. If you have multiple instances of Bety installed (e.g. <code>development</code>, <code>production</code>), adjust parameters accordingly. You can name each database environment whatever you want, but this guide assumes you are working with the <code>production</code> configuration (the default on the VM). The default VM configuration should look like this:</p>
+<pre><code>production:
+  adapter: postgis
+  encoding: utf-8
+  reconnect: false
+  database: bety
+  pool: 5
+  username: bety
+  password: bety</code></pre></li>
+<li><p>Update the Bety database itself with the latest migrations by running <code>bundle exec rake db:migrate RAILS_ENV=production</code> (if you are using a different BETY instance, change <code>production</code> to whatever you are working on). If this command exits silently, then your bety instance is up to date. If it throws an error, see <a href="modifying-the-betydb-schema.html#modifying-bety-troubleshooting">Troubleshooting</a> below.</p></li>
+<li><p>Modifying the database involves adding new Ruby scripts to the <code>db/migrate</code> directory. In a nutshell, each migration describes a database revision (<code>up</code> – how to make the change) and its inverse (<code>down</code> – how to undo the change). Here is an example that adds a new <code>workflow_id</code> column to the <code>ensembles</code> table.</p>
+<pre><code>class AddWorkflowIdToEnsembles &lt; ActiveRecord::Migration
+  def self.up
+    add_column :ensembles, :workflow_id, :integer
+  end
+
+  def self.down
+    remove_column :ensembles, :workflow_id
+  end
+end</code></pre>
+<p>Here is another example that runs SQL code directly to add a constraint on a column in a table:</p>
+<pre><code>class AddGeometryConstraint &lt; ActiveRecord::Migration
+  def self.up
+    execute %q{
+      ALTER TABLE public.sites
+        ADD CONSTRAINT enforce_valid_geom CHECK (st_isvalid(geometry))
+    }
+  end
+
+  def self.down
+    execute %q{
+      ALTER TABLE public.sites
+        DROP CONSTRAINT enforce_valid_geom
+    }
+  end
+end</code></pre>
+<p>There are lots of examples of previous migrations in this directory that can be used for reference. Database operations can be performed by passing SQL queries directly to an <code>execute %q{&lt;YOUR QUERY HERE&gt;}</code> statement, or through Ruby helper commands like <code>change_column</code>. Although you can name migrations whatever you want, because they are run in numerical-alphabetical order, the convention is to prefix your script with the current year, month, day, hour, minute, and second (you can generate this string by running <code>date +%Y%m%d%H%M%S</code> on the command line). Alternatively, a command like the following can be used to automatically generate a properly named file in the appropriate place: <code>bundle exec rails generate migration MyNewMigration</code>.</p></li>
+<li><p>To apply the new database changes, re-run <code>bundle exec rake db:migrate RAILS_ENV=production</code> from the bety repository root directory.</p></li>
+<li><p>To undo changes, use the <code>db:rollback</code> task (i.e. <code>bundle exec rake db:rollback RAILS_ENV=production</code>). Each call of <code>db:rollback</code> will undo one migration. Optionally, if you want to make multiple changes, add the <code>STEP=n</code> (e.g. <code>STEP=3</code>) flag to undo the last <code>n</code> migrations. If you want to modify the last migration, you can use the shortcut task <code>db:rollback:redo</code> (shorthand for <code>db:rollback</code>, then <code>db:migrate</code>).</p></li>
+</ol>
+<div id="modifying-bety-troubleshooting" class="section level2">
+<h2><span class="header-section-number">15.1</span> Troubleshooting</h2>
+<p><strong>Error related to <code>pg_dump</code> non-existent option <code>-i</code></strong></p>
+<p>This is a bug the results from versions mismatches between Rails and Postgres. The <em>correct</em> solution is to update to Rails 2.4.6 or greater. The simpler solution is to manually <code>grep</code> through the <code>vendor/bundle</code> folder in your Bety instance, searching for instances of <code>pg_dump</code> and manually remove the <code>-i</code> arguments. This should only be in a few (~3) files. Before making these manual changes, be sure to run <code>bundle install --path vendor/bundle</code> to make sure you are modifying the most up-to-date gems. Otherwise, your changes will be overwritten. There is no need to re-run <code>bundle install</code> or any other command after these changes – they should propagate to the Rails app immediately and automatically.</p>
+<p>For reference, see <a href="https://stackoverflow.com/questions/35999906/pg-dump-invalid-option-i-when-migrating/39130103" target="_blank">this Stack Overflow question</a>.</p>
+<p><strong>Error related to “can’t activate <some gem>…already activated”</strong></p>
+<p>This is related to mismatches between the “installed” and required versions of a gem, or a mismatch between a gem’s version and the version expected by its dependencies. The basic solution is to uninstall the offending gem with <code>bundle exec gem uninstall &lt;gem&gt;</code> <a href="#fn10" class="footnoteRef" id="fnref10"><sup>10</sup></a> and then re-install with <code>bundle install --path vendor/bundle</code>. If this doesn’t work, you may have to <code>rm -rf</code> the entire <code>vendor/bundle</code> directory and then re-install all gems with <code>bundle install --path vendor/bundle</code>.</p>
+<p>For reference, see <a href="https://stackoverflow.com/questions/4308070/gem-bundler-load-error-cant-activate-already-activated" target="_blank">this Stack Overflow question</a>.</p>
+
+</div>
+</div>
+<div class="footnotes">
+<hr />
+<ol start="10">
+<li id="fn10"><p>Note that this command may throw an error like “undefined method ‘delete’ for bundler”. This is normal, and the gem was actually uninstalled.<a href="modifying-the-betydb-schema.html#fnref10">↩</a></p></li>
+</ol>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="database-constraints.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="issuing-a-new-release.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"google": false,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"download": null,
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+</body>
+
+</html>
