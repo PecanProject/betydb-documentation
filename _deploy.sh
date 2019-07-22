@@ -2,8 +2,8 @@
 
 set -e
 
-[ -z "${GITHUB_PAT}" ] && exit 0
-[ "${TRAVIS_BRANCH}" != "master" ] && exit 0
+[ -z "${GITHUB_PAT}" ] && echo "No GITHUB_PAT" && exit 0
+[ "${TRAVIS_BRANCH}" != "master" ] && echo "Not on master branch" && exit 0
 
 GH_USER=${TRAVIS_REPO_SLUG%/*}
 
