@@ -8,7 +8,7 @@ set -e
 git config --global user.email "pecanproj@gmail.com"
 git config --global user.name "TRAVIS-DOC-BUILD"
 
-git clone https://${GITHUB_PAT}@github.com/bety-documentation.git book-output
+git clone https://${GITHUB_PAT}@github.com/PecanProject/bety-documentation.git book-output
 
 cd book-output
 
