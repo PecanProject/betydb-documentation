@@ -1,3 +1,11 @@
 ---
-site: "bookdown::bookdown_site"
+title: "Biofuel Ecophysiological Traits and Yields Database"
+date: "`r Sys.Date()`"
+site: bookdown::bookdown_site
+documentclass: book
+biblio-style: apalike
+link-citations: yes
+author: "By: BETYdb Team"
 ---
+
+# Volume 3 : Technical Guide {-}
