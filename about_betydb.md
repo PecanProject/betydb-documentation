@@ -157,7 +157,6 @@ LeBauer](mailto:dlebauer@email.arizona.edu).
 
 
 BETYdb uses PostgreSQL for its relational database and Ruby on Rails as its primary web portal. The database and software are deployed on CentOS, RedHat, and Ubuntu Linux servers. In 2018 we began using Docker to streamline deployment, and the [BETYdb repository README](https://github.com/pecanProject/bety#running-bety-using-docker) provides instructions for deploying BETYdb using Docker.
-implementation of additional traits and parameters.
 
 ## List of Tables in the BETY Database
 
