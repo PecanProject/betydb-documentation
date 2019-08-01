@@ -156,7 +156,7 @@ LeBauer](mailto:dlebauer@email.arizona.edu).
 ## Software
 
 
-The BETYdb was originally developed in MySQL and later converted to PostgreSQL.  It uses Ruby on Rails for its web portal and is hosted on a CentOS Linux Server (ebi-forecast.igb.illinois.edu).
+BETYdb uses PostgreSQL for its relational database and Ruby on Rails as its primary web portal. The database and software are deployed on CentOS, RedHat, and Ubuntu Linux servers. In 2018 we began using Docker to streamline deployment, and the [BETYdb repository README](https://github.com/pecanProject/bety#running-bety-using-docker) provides instructions for deploying BETYdb using Docker.
 BETYdb is a relational database designed in a generic way to facilitate easy
 implementation of additional traits and parameters.
 
