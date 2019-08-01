@@ -5,9 +5,10 @@ Traits and Yields database (BETYdb) and the Ruby on Rails web application that
 serves as a front end (also referred to as BETYdb).  The BETYdb database
 contains plant trait and yield data that supports research, forecasting, and
 decision making associated with agricultural and ecological systems.
-biofuel crops. While the content of BETYdb is agronomic, the structure of the
-database itself is general and can therefore be used more generally for
-ecosystem studies.
+biofuel crops. While the original focus of BETYdb was agronomy of cellulosic biofuels, the software has 
+been adopted for use in ecological forecasting as the core database for the [PEcAn Project](https://pecanproject.org) 
+and for high throughput phenotyping (phenotyping = measuring plants) applications in breeding and agronomy trials as the trait database for [TERRA REF](https://terraref.org) and related projects. 
+The generality of the database has facilitated these extended applications of the underlying software. 
 
 Note that this document does not cover the suite of tables used by PEcAn.
 These are covered in the [PEcAn documentation](https://pecanproject.github.io/pecan-documentation/master/){target="_blank"}.
