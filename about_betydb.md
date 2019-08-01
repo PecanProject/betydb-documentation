@@ -1,6 +1,6 @@
 # About BETYdb: Database Description and User's Guide
 
-This wiki describes the purpose, design, and use of the Biofuel Ecophysiological
+This book describes the purpose, design, and use of the Biofuel Ecophysiological
 Traits and Yields database (BETYdb) and the Ruby on Rails web application that
 serves as a front end (also referred to as BETYdb).  The BETYdb database
 contains plant trait and yield data that supports research, forecasting, and
