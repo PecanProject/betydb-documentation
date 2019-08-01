@@ -4,7 +4,7 @@ This book describes the purpose, design, and use of the Biofuel Ecophysiological
 Traits and Yields database (BETYdb) and the Ruby on Rails web application that
 serves as a front end (also referred to as BETYdb).  The BETYdb database
 contains plant trait and yield data that supports research, forecasting, and
-decision making associated with the development and production of cellulosic
+decision making associated with agricultural and ecological systems.
 biofuel crops. While the content of BETYdb is agronomic, the structure of the
 database itself is general and can therefore be used more generally for
 ecosystem studies.
