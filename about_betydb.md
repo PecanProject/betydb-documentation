@@ -5,10 +5,10 @@ Traits and Yields database (BETYdb) and the Ruby on Rails web application that
 serves as a front end (also referred to as BETYdb).  The BETYdb database
 contains plant trait and yield data that supports research, forecasting, and
 decision making associated with agricultural and ecological systems.
-biofuel crops. While the original focus of BETYdb was agronomy of cellulosic biofuels, the software has 
-been adopted for use in ecological forecasting as the core database for the [PEcAn Project](https://pecanproject.org) 
-and for high throughput phenotyping (phenotyping = measuring plants) applications in breeding and agronomy trials as the trait database for [TERRA REF](https://terraref.org) and related projects. 
-The generality of the database has facilitated these extended applications of the underlying software. 
+While the original focus of BETYdb was agronomy of cellulosic biofuels, the software has
+been adopted for use in ecological forecasting as the core database for the [PEcAn Project](https://pecanproject.org){target="_blank"}
+and for high throughput phenotyping (phenotyping = measuring plants) applications in breeding and agronomy trials as the trait database for [TERRA REF](https://terraref.org){target="_blank"} and related projects.
+The generality of the database has facilitated these extended applications of the underlying software.
 
 Note that this document does not cover the suite of tables used by PEcAn.
 These are covered in the [PEcAn documentation](https://pecanproject.github.io/pecan-documentation/master/){target="_blank"}.
@@ -65,19 +65,26 @@ All public data in BETYdb is made available under the [Open Data Commons Attribu
 
 If you use or refer to BETYdb data or software in your research, please cite this paper:
 
-> LeBauer D, Kooper R, Mulrooney P, Rohde S, Wang D, Long SP, Dietze MC. BETYdb: a yield, trait, and ecosystem service database applied to second‐generation bioenergy feedstock production. GCB Bioenergy. 2018 Jan;10(1):61-71.  https://doi.org/10.1111/gcbb.12420
+> LeBauer, D., Kooper, R., Mulrooney, P., Rohde, S., Wang, D., Long, S. P., & Dietze, M. C. (2018). BETYdb: a yield, trait, and ecosystem service database applied to second‐generation bioenergy feedstock production. _GCB Bioenergy, 10_, 61–71.  [doi:10.1111/gcbb.12420](https://doi.org/10.1111/gcbb.12420){target="_blank"}
 
-In addition, if you are using **Data** from an instance of BETYdb, please 
+In addition, if you are using _data_ from an instance of BETYdb, please
 
 1. Use the citations associated with each record if the publisher will allow
-2. Refer to the footer of the instance of BETYdb that you are using for citation information. 
+2. Refer to the footer of the instance of BETYdb that you are using for citation information.
    * For example, if you are using data from BETYdb.org, please cite the source of data as:
 
 > LeBauer, David; Dietze, Michael; Kooper, Rob; Long, Steven; Mulrooney, Patrick; Rohde, Gareth Scott; Wang, Dan; (2010): Biofuel Ecophysiological Traits and Yields Database (BETYdb); Energy Biosciences Institute, University of Illinois at Urbana-Champaign. [http://dx.doi.org/10.13012/J8H41PB9](http://dx.doi.org/10.13012/J8H41PB9){target="_blank"}
 
-If you are citing the BETYdb **software**, for example the schema, relational database, web interface, or API please cite the latest version archived on Zenodo: https://zenodo.org/record/1199667, for example if you are using version 4.2:
+If you are citing the BETYdb _software_, for example the schema, relational
+database, web interface, or API, please cite the version used, archived on
+[Zenodo](https://zenodo.org/record/593027){target="_blank"}.  For example if you
+are using version 4.20, cite this as:
 
-> Scott Rohde, Carl Crott, David LeBauer, Patrick Mulrooney, Rob Kooper, Jeremy Kemball, Jimmy Chen, Andrew Shirk, Zhengqi Yang, Max Burnette, Haotian Jiang, Yilin Dong, Uday Saraf, Michael Dietze, Chris Black, 2018. BETYdb 4.20 Upgrade to Rails 4.2. doi:10.5281/zenodo.1199667
+> Scott Rohde, Carl Crott, David LeBauer, Patrick Mulrooney, Rob Kooper, Jeremy
+  Kemball, Jimmy Chen, Andrew Shirk, Zhengqi Yang, Max Burnette, Haotian Jiang,
+  Yilin Dong, Uday Saraf, Michael Dietze, Chris Black, 2018. BETYdb 4.20 Upgrade
+  to Rails
+  4.2. [doi:10.5281/zenodo.1199667](https://doi.org/10.5281/zenodo.1199667){target="_blank"}
 
 ## Scope
 
@@ -157,7 +164,7 @@ LeBauer](mailto:dlebauer@email.arizona.edu).
 ## Software
 
 
-BETYdb uses PostgreSQL for its relational database and Ruby on Rails as its primary web portal. The database and software are deployed on CentOS, RedHat, and Ubuntu Linux servers. In 2018 we began using Docker to streamline deployment, and the [BETYdb repository README](https://github.com/pecanProject/bety#running-bety-using-docker) provides instructions for deploying BETYdb using Docker.
+BETYdb uses PostgreSQL for its relational database and Ruby on Rails as its primary web portal. The database and software are deployed on CentOS, RedHat, and Ubuntu Linux servers. In 2018 we began using Docker to streamline deployment, and the [BETYdb repository README](https://github.com/pecanProject/bety#running-bety-using-docker){target="_blank"} provides instructions for deploying BETYdb using Docker.
 
 ## List of Tables in the BETY Database
 
