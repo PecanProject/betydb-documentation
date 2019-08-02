@@ -6,8 +6,9 @@ serves as a front end (also referred to as BETYdb).  The BETYdb database
 contains plant trait and yield data that supports research, forecasting, and
 decision making associated with agricultural and ecological systems.
 While the original focus of BETYdb was agronomy of cellulosic biofuels, the software has
-been adopted for use in ecological forecasting as the core database for the [PEcAn Project](https://pecanproject.org){target="_blank"}
-and for high throughput phenotyping (phenotyping = measuring plants) applications in breeding and agronomy trials as the trait database for [TERRA REF](https://terraref.org){target="_blank"} and related projects.
+been adopted for wider use. Specifically, as the core database for the [PEcAn Project](https://pecanproject.org){target="_blank"} crop and ecosystem modeling workflow, it is used for ecological research and forecasting.  
+BETYdb is also the core database for trait and agronomic metadata in high throughput phenotyping (phenotyping = measuring plants) applications, specifically used for breeding and agronomy trials as the trait database for [TERRA REF](https://terraref.org){target="_blank"}, the Drone Processing Pipeline, and related projects. 
+There is an [application](https://github.com/terraref/brapi){target="_blank"} that exports data from BETYdb in a Breeder's API (BrAPI) compliant interface.
 The generality of the database has facilitated these extended applications of the underlying software.
 
 Note that this document does not cover the suite of tables used by PEcAn.
@@ -70,6 +71,7 @@ If you use or refer to BETYdb data or software in your research, please cite thi
 In addition, if you are using _data_ from an instance of BETYdb, please
 
 1. Use the citations associated with each record if the publisher will allow
+2. Archive a copy of the data used in the study. The data in BETYdb is not versioned.  
 2. Refer to the footer of the instance of BETYdb that you are using for citation information.
    * For example, if you are using data from BETYdb.org, please cite the source of data as:
 
