@@ -75,7 +75,11 @@ In addition, if you are using _data_ from an instance of BETYdb, please
 2. Refer to the footer of the instance of BETYdb that you are using for citation information.
    * For example, if you are using data from BETYdb.org, please cite the source of data as:
 
-> LeBauer, David; Dietze, Michael; Kooper, Rob; Long, Steven; Mulrooney, Patrick; Rohde, Gareth Scott; Wang, Dan; (2010): Biofuel Ecophysiological Traits and Yields Database (BETYdb); Energy Biosciences Institute, University of Illinois at Urbana-Champaign. [http://dx.doi.org/10.13012/J8H41PB9](http://dx.doi.org/10.13012/J8H41PB9){target="_blank"}
+> LeBauer, David, Rob Kooper, Patrick Mulrooney, Scott Rohde, Dan Wang, Stephen
+  P. Long, and Michael C. Dietze. "BETYdb: a yield, trait, and ecosystem service
+  database applied to second‐generation bioenergy feedstock production." _GCB
+  Bioenergy_ 10, no. 1 (2018):
+  61–71. [doi:10.1111/gcbb.12420](https://doi.org/10.1111/gcbb.12420){target="_blank"}
 
 If you are citing the BETYdb _software_, for example the schema, relational
 database, web interface, or API, please cite the version used, archived on
