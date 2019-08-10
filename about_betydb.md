@@ -1,12 +1,15 @@
 # About BETYdb: Database Description and User's Guide
 
-This wiki describes the purpose, design, and use of the Biofuel
-Ecophysiological Traits and Yields database (BETYdb). BETYdb is a
-database of plant trait and yield data that supports research,
-forecasting, and decision making associated with the development and
-production of cellulosic biofuel crops. While the content of BETYdb is
-agronomic, the structure of the database itself is general and can
-therefore be used more generally for ecosystem studies.
+This book describes the purpose, design, and use of the Biofuel Ecophysiological
+Traits and Yields database (BETYdb) and the Ruby on Rails web application that
+serves as a front end (also referred to as BETYdb).  The BETYdb database
+contains plant trait and yield data that supports research, forecasting, and
+decision making associated with agricultural and ecological systems.
+While the original focus of BETYdb was agronomy of cellulosic biofuels, the software has
+been adopted for wider use. Specifically, as the core database for the [PEcAn Project](https://pecanproject.org){target="_blank"} crop and ecosystem modeling workflow, it is used for ecological research and forecasting.  
+BETYdb is also the core database for trait and agronomic metadata in high throughput phenotyping (phenotyping = measuring plants) applications, specifically used for breeding and agronomy trials as the trait database for [TERRA REF](https://terraref.org){target="_blank"}, the Drone Processing Pipeline, and related projects. 
+There is an [application](https://github.com/terraref/brapi){target="_blank"} that exports data from BETYdb in a Breeder's API (BrAPI) compliant interface.
+The generality of the database has facilitated these extended applications of the underlying software.
 
 Note that this document does not cover the suite of tables used by PEcAn.
 These are covered in the [PEcAn documentation](https://pecanproject.github.io/pecan-documentation/master/){target="_blank"}.
@@ -57,13 +60,37 @@ summary, we hope to inspire new scientific perspectives on biofuel crop
 ecology that are based on a comprehensive evaluation of available
 knowledge.
 
-All public data in BETYdb is made available under the [Open Data Commons Attribution License (ODC-By) v1.0](http://opendatacommons.org/licenses/by/1-0/){target="_blank"}. You are free to share, create, and adapt its contents. Data in tables having an an access_level column and in rows where the access_level value is 1 or 2 are not covered by this license but may be available for use with consent.
+All public data in BETYdb is made available under the [Open Data Commons Attribution License (ODC-By) v1.0](http://opendatacommons.org/licenses/by/1-0/){target="_blank"}. You are free to share, create, and adapt its contents. Data in tables having an an access_level column, and rows where the access_level value is 1 or 2 are not covered by this license but may be available for use with consent.
 
-Please cite the source of data as:
+## Citation
 
-> LeBauer, David; Dietze, Michael; Kooper, Rob; Long, Steven; Mulrooney, Patrick; Rohde, Gareth Scott; Wang, Dan; (2010): Biofuel Ecophysiological Traits and Yields Database (BETYdb); Energy Biosciences Institute, University of Illinois at Urbana-Champaign. [http://dx.doi.org/10.13012/J8H41PB9](http://dx.doi.org/10.13012/J8H41PB9){target="_blank"}
+If you use or refer to BETYdb data or software in your research, please cite this paper:
 
+> LeBauer, D., Kooper, R., Mulrooney, P., Rohde, S., Wang, D., Long, S. P., & Dietze, M. C. (2018). BETYdb: a yield, trait, and ecosystem service database applied to second‐generation bioenergy feedstock production. _GCB Bioenergy, 10_, 61–71.  [doi:10.1111/gcbb.12420](https://doi.org/10.1111/gcbb.12420){target="_blank"}
 
+In addition, if you are using _data_ from an instance of BETYdb, please
+
+1. Use the citations associated with each record if the publisher will allow
+2. Archive a copy of the data used in the study. The data in BETYdb is not versioned.  
+2. Refer to the footer of the instance of BETYdb that you are using for citation information.
+   * For example, if you are using data from BETYdb.org, please cite the source of data as:
+
+> LeBauer, David, Rob Kooper, Patrick Mulrooney, Scott Rohde, Dan Wang, Stephen
+  P. Long, and Michael C. Dietze. "BETYdb: a yield, trait, and ecosystem service
+  database applied to second‐generation bioenergy feedstock production." _GCB
+  Bioenergy_ 10, no. 1 (2018):
+  61–71. [doi:10.1111/gcbb.12420](https://doi.org/10.1111/gcbb.12420){target="_blank"}
+
+If you are citing the BETYdb _software_, for example the schema, relational
+database, web interface, or API, please cite the version used, archived on
+[Zenodo](https://zenodo.org/record/593027){target="_blank"}.  For example if you
+are using version 4.20, cite this as:
+
+> Scott Rohde, Carl Crott, David LeBauer, Patrick Mulrooney, Rob Kooper, Jeremy
+  Kemball, Jimmy Chen, Andrew Shirk, Zhengqi Yang, Max Burnette, Haotian Jiang,
+  Yilin Dong, Uday Saraf, Michael Dietze, Chris Black, 2018. BETYdb 4.20 Upgrade
+  to Rails
+  4.2. [doi:10.5281/zenodo.1199667](https://doi.org/10.5281/zenodo.1199667){target="_blank"}
 
 ## Scope
 
@@ -130,7 +157,7 @@ those in the biofuel industry.
 
 
 The [Data Entry
-Workflow](https://dlebauer.gitbooks.io/betydbdoc-dataentry/content/){target="_blank"}
+Workflow](https://pecanproject.github.io/bety-documentation/dataentry/){target="_blank"}
 provides a complete description of the data entry process. BETYdb’s web
 interface has been developed to facilitate accurate and efficient data
 entry. This interface provides logical workflow to guide the user
@@ -138,14 +165,12 @@ through comprehensively documenting data along with species, site
 information, and experimental methods. This workflow is outlined in the
 BETYdb Data Entry Workflow document. Data entry requires a login with `Create`
 permissions; this can be obtained by contacting [David
-LeBauer](mailto:dlebauer@illinois.edu).
+LeBauer](mailto:dlebauer@email.arizona.edu).
 
 ## Software
 
 
-The BETYdb was originally developed in MySQL and later converted to PostgreSQL.  It uses Ruby on Rails for its web portal and is hosted on a RedHat Linux Server (ebi-forecast.igb.illinois.edu).
-BETYdb is a relational database designed in a generic way to facilitate easy
-implementation of additional traits and parameters.
+BETYdb uses PostgreSQL for its relational database and Ruby on Rails as its primary web portal. The database and software are deployed on CentOS, RedHat, and Ubuntu Linux servers. In 2018 we began using Docker to streamline deployment, and the [BETYdb repository README](https://github.com/pecanProject/bety#running-bety-using-docker){target="_blank"} provides instructions for deploying BETYdb using Docker.
 
 ## List of Tables in the BETY Database
 
@@ -155,18 +180,25 @@ An up-to-date list of the tables in BETYdb along with their descriptions and dia
 
 
 [^full_docs]: More comprehensive documentation of the schema may be found at
-[https://www.betydb.org/db_docs/index.html](https://www.betydb.org/db_docs/index.html){target="_blank"}.  The software used to produce this
-documentation, SchemeSpy, unfortunately does not document PostgreSQL check
-constraints.  Also note that row counts in this document are not, in general,
-completely up-to-date.  The complete, definitive documentation of the schema is
-the PostgreSQL code used to produce it, which may be found at
+[https://www.betydb.org/db_docs/index.html](https://www.betydb.org/db_docs/index.html){target="_blank"}.
+The software used to produce this documentation, SchemeSpy, unfortunately does
+not document PostgreSQL check constraints.  Also note that row counts in this
+document are not, in general, completely up-to-date.  The complete, definitive
+documentation of the schema is the PostgreSQL code used to produce it, which may
+be found at
 [https://github.com/PecanProject/bety/blob/master/db/structure.sql](https://github.com/PecanProject/bety/blob/master/db/structure.sql){target="_blank"}.
+(Note, however, that some BETYdb instances use slightly altered versions of the
+official BETYdb database schema.  Sometimes, for example, an instance may add
+additional constraints that haven't yet found their way into the official
+release.  Another example is the use of materialized views in place of standard
+views. These variations occasionally cause problems with the database
+synchronization scripts.)
 
     Some background information about intended constraints may be found in the
 spreadsheet at
 [https://docs.google.com/spreadsheets/d/1fJgaOSR0egq5azYPCP0VRIWw1AazND0OCduyjONH9Wk/edit?pli=1#gid=956483089](https://docs.google.com/spreadsheets/d/1fJgaOSR0egq5azYPCP0VRIWw1AazND0OCduyjONH9Wk/edit?pli=1#gid=956483089){target="_blank"}
 and in a PDF document viewable and downloadable at
-[https://www.overleaf.com/2086241dwjyrd](https://www.overleaf.com/2086241dwjyrd){target="_blank"}.  These two documents are not necessarily
+[https://www.overleaf.com/articles/constraints-for-betydb/wxptyrksypkx](https://www.overleaf.com/articles/constraints-for-betydb/wxptyrksypkx){target="_blank"}.  These two documents are not necessarily
 up-to-date, and not all of the constraints mentioned in them have been
 implemented.  In some instances, constraints on new data have been imposed at
 the application level but have not yet been imposed on the database itself
