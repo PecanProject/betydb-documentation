@@ -55,6 +55,10 @@ Any changes to existing records should be done on the server that owns that reco
 | TERRA MEPP UIUC | terra-mepp.illinois.edu | [https://terra-mepp.illinois.edu/bety](https://terra-mepp.illinois.edu/bety){target="_blank"} | 8 | 8,000,000,001-9,000,000,000|
 | University of Arizona |  |  | 9 | 9,000,000,001-10,000,000,000 |
 | Ghent      |  |  | 10 | 10,000,000,001 - 11,000,000,000|
+| Purdue University | ecn.purdue.edu |  | 11 | 11,000,000,001-12,000,000,000 |
+| Clemson University | clemson.edu |  | 12 | 12,000,000,001-13,000,000,000 |
+| Berkeley Lab | pecan.lbl.gov |  | 13 | 13,000,000,001-14,000,000,000 |
+| Docker default ||  |  | 98 | 98,000,000,001-99,000,000,000 |
 | Development / Virtual Machine |localhost| https: //localhost:6480/bety | 99 | 99,000,000,000-a zillion|
 
 ## Feedback Tab
